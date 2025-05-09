@@ -1,0 +1,175 @@
+﻿@using System.Security.Claims
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewData["Title"] - Hospital Management System</title>
+
+    <!-- Bootstrap 5 & FontAwesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            background: #eef2f3;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;
+            color: white !important;
+        }
+
+        .navbar-nav .nav-link {
+            color: white !important;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+            .navbar-nav .nav-link:hover {
+                color: #ffcc00 !important;
+                text-decoration: none;
+            }
+
+        .dropdown-menu {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .dropdown-item:hover {
+            background-color: #f8f9fa;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 12px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-btn {
+            background: #ffcc00;
+            color: #333;
+            font-weight: bold;
+            border-radius: 20px;
+            padding: 8px 15px;
+            transition: all 0.3s ease;
+        }
+
+            .login-btn:hover {
+                background: #e6b800;
+                color: #000;
+            }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="@Url.Action("Index", "Home")">🏥 Hospital Management</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li class="nav-item"><a class="nav-link" href="@Url.Action("AdminDashboard", "Admin")">🧭Dashboard</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Analytics" ? "active" : "")"
+                               href="@Url.Action("Dashboard", "Admin")">📊 Analytics</a>
+                        </li>
+
+                    }
+
+                    @if (User.IsInRole("Admin") || User.IsInRole("Doctor"))
+                    {
+                        <li class="nav-item"><a class="nav-link" href="@Url.Action("Index", "Doctor")">👨‍⚕️ Doctors</a></li>
+                    }
+                    @if (User.IsInRole("Admin") || User.IsInRole("Receptionist") || User.IsInRole("Patient"))
+                    {
+                        <li class="nav-item"><a class="nav-link" href="@Url.Action("Index", "Patient")">🧑‍🤝‍🧑 Patients</a></li>
+                    }
+                    @if (User.IsInRole("Admin") || User.IsInRole("Doctor") || User.IsInRole("Receptionist") || User.IsInRole("Patient"))
+                    {
+                        <li class="nav-item"><a class="nav-link" href="@Url.Action("Index", "Appointment")">📅 Appointments</a></li>
+                    }
+                    @if (User.IsInRole("Admin") || User.IsInRole("Doctor") || User.IsInRole("Patient"))
+                    {
+                        <li class="nav-item"><a class="nav-link" href="@Url.Action("Index", "Prescription")">💊 Prescriptions</a></li>
+                    }
+                    @if (User.IsInRole("Admin") || User.IsInRole("Cashier") || User.IsInRole("Patient"))
+                    {
+                        <li class="nav-item"><a class="nav-link" href="@Url.Action("Index", "Billing")">💰 Billing</a></li>
+                    }
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li class="nav-item"><a class="nav-link" href="@Url.Action("Index", "Staff")">🛠️ Staff</a></li>
+                    }
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        var emailClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email || c.Type == "email")?.Value;
+                        var nameClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name || c.Type == "name")?.Value;
+                        var roleClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
+                                👤 @(nameClaim ?? emailClaim ?? "User")
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><span class="dropdown-item-text"><strong>Name:</strong> @nameClaim</span></li>
+                                <li><span class="dropdown-item-text"><strong>Email:</strong> @emailClaim</span></li>
+                                <li><span class="dropdown-item-text"><strong>Role:</strong> @roleClaim</span></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li> <a class="dropdown-item" href="@Url.Action("AboutUs", "Home")">🏥 About Us</a></li>
+                                <li> <a class="dropdown-item" href="@Url.Action("ContactUs", "Home")">📞 Contact Us</a></li>
+                                <li><a class="dropdown-item" href="@Url.Action("Index", "ChangePassword")">🔑 Change Password</a></li>
+                                <li>
+                                    <form asp-controller="Login" asp-action="Logout" method="post" class="d-inline">
+                                        <button type="submit" class="dropdown-item text-danger">
+                                            <i class="fas fa-sign-out-alt"></i> Logout
+                                        </button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="btn login-btn btn-sm" asp-controller="Login" asp-action="Index">🔐 Login</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        @RenderBody()
+    </div>
+
+    <div class="footer text-center" style="font-size: 10px; padding: 2px 0;">
+        &copy; @DateTime.Now.Year - Hospital Management System | Designed for better healthcare.
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

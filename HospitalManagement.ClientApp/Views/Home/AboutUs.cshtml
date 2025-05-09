@@ -1,0 +1,194 @@
+﻿@{
+    ViewData["Title"] = "About Us";
+}
+
+<div class="container mt-5">
+    <!-- Page Title with Animated Gradient Text -->
+    <h1 class="text-center text-gradient fw-bold display-4 animate__animated animate__zoomIn">
+        @ViewData["Title"]
+    </h1>
+
+    <!-- Section: Introduction -->
+    <div class="section-intro my-5">
+        <p class="lead text-center">
+            Welcome to the Hospital Management System. We are dedicated to providing the best healthcare services to our patients.
+            Our mission is to enhance the quality of healthcare by offering streamlined, efficient, and comprehensive solutions for managing hospital operations.
+        </p>
+    </div>
+
+    <!-- Section: Vision -->
+    <div class="section vision my-5">
+        <h3 class="section-title text-primary">Our Vision</h3>
+        <p class="text-muted">
+            To create a healthier world through accessible and innovative healthcare solutions that bridge the gap between advanced medical technologies and patient care.
+        </p>
+    </div>
+
+    <!-- Section: Values with Icons and Hover Effects -->
+    <div class="section values mb-5">
+        <h3 class="section-title text-success">Our Values</h3>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="value-item">
+                    <i class="fas fa-hospital-alt fa-3x text-info"></i>
+                    <h5 class="text-dark">Patient Care</h5>
+                    <p>We put patient care first, ensuring comfort, support, and safety.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="value-item">
+                    <i class="fas fa-gavel fa-3x text-warning"></i>
+                    <h5 class="text-dark">Integrity</h5>
+                    <p>We hold ourselves to the highest standards of ethics and honesty.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="value-item">
+                    <i class="fas fa-lightbulb fa-3x text-success"></i>
+                    <h5 class="text-dark">Innovation</h5>
+                    <p>We embrace the latest medical technologies to improve healthcare delivery.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="value-item">
+                    <i class="fas fa-cogs fa-3x text-danger"></i>
+                    <h5 class="text-dark">Efficiency</h5>
+                    <p>We streamline processes to provide faster and more effective care.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section: Our Team with Photo Grid -->
+    <div class="section team mb-5">
+        <h3 class="section-title text-info">Our Team</h3>
+        <p class="text-muted text-center">
+            Our team consists of experienced doctors, nurses, and staff members committed to providing the best medical care. We work together to achieve excellence in patient care.
+        </p>
+        <div class="row text-center">
+            <div class="col-md-3">
+                <h5 class="team-member-name text-dark">Dr. Rajesh Sharma</h5>
+                <p class="text-muted">Head Doctor</p>
+            </div>
+            <div class="col-md-3">
+                <h5 class="team-member-name text-dark">Sunita Desai</h5>
+                <p class="text-muted">Head Nurse</p>
+            </div>
+            <div class="col-md-3">
+                <h5 class="team-member-name text-dark">Dr. Anil Saxena</h5>
+                <p class="text-muted">Operations Head</p>
+            </div>
+            <div class="col-md-3">
+                <h5 class="team-member-name text-dark">Niharika Saini</h5>
+                <p class="text-muted">Medical Technician</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Style Enhancements for UI -->
+<style>
+    /* Gradient Text for Title with Animation */
+    .text-gradient {
+        background: linear-gradient(45deg, #00c6ff, #007bff);
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+
+    /* Global Section Styling */
+    .section {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(10px);
+        padding: 3rem;
+        border-radius: 20px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        margin-bottom: 3rem;
+        transition: transform 0.3s ease;
+    }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+    .section-title {
+        font-size: 2.2rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #333;
+        margin-bottom: 1rem;
+    }
+
+    /* Introduction Text */
+    .section-intro p {
+        font-size: 1.3rem;
+        color: #6c757d;
+        line-height: 1.8;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    /* Values Section with Hover Effects */
+    .value-item {
+        background: #fff;
+        border-radius: 15px;
+        padding: 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        margin: 1.5rem 0;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .value-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .value-item i {
+            color: #007bff;
+            margin-bottom: 20px;
+            font-size: 3rem;
+        }
+
+        .value-item h5 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+    /* Team Section */
+    .team img {
+        width: 160px;
+        height: 160px;
+        object-fit: cover;
+        border: 6px solid #fff;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s ease;
+    }
+
+        .team img:hover {
+            transform: scale(1.1);
+        }
+
+    /* Team Member Names */
+    .team-member-name {
+        font-weight: 600;
+        color: #007bff;
+        font-size: 1.1rem;
+    }
+
+    /* Animations */
+    .animate__animated {
+        animation-duration: 1.2s;
+        animation-delay: 0.3s;
+        animation-fill-mode: both;
+    }
+
+    .animate__zoomIn {
+        animation-name: zoomIn;
+    }
+
+</style>
+
+<!-- Optional: Add Animate.css library for animations -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />

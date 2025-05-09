@@ -1,0 +1,200 @@
+﻿@model List<HospitalManagement.ClientApp.Models.Billing>
+
+@{
+    ViewData["Title"] = "Billing Records";
+    var patients = ViewBag.PatientList as List<Patient>;
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["ErrorMessage"]
+    </div>
+}
+@if (Model == null || !Model.Any())
+{
+    <div class="alert alert-dark text-center">
+        No billing found !! Return <a asp-action="Index" asp-controller="Home">Home</a>
+    </div>
+}
+
+
+<div class="container mt-5 text-center">
+    <!-- Page Header & Description -->
+    <h2 class="text-dark fw-bold"><i class="fas fa-file-invoice-dollar"></i> Billing Records</h2>
+    <p class="text-muted">Manage all billing transactions efficiently, track payments, and view detailed invoices.</p>
+
+    <!-- Add Billing & Back to Home Buttons -->
+    <div class="d-flex justify-content-between mb-4">
+        <a asp-action="Index" asp-controller="Home" class="btn btn-outline-secondary">
+            <i class="fas fa-home"></i> Back to Home
+        </a>
+        @if (User.IsInRole("Admin") || User.IsInRole("Cashier"))
+        {
+            <a asp-action="Create" class="btn btn-dark">
+                <i class="fas fa-plus"></i> Add Billing
+            </a>
+        }
+    </div>
+
+    @if (User.IsInRole("Admin") || User.IsInRole("Cashier"))
+    {
+        <!-- Filters -->
+        <div class="row g-3 mb-4">
+            <div class="col-md-6">
+                <label class="form-label fw-bold">👤 Select Patient</label>
+                <select id="PatientId" class="form-select">
+                    <option value="">All Patients</option>
+                    @foreach (var patient in ViewBag.Patients as SelectList)
+                    {
+                        <option value="@patient.Value">@patient.Text</option>
+                    }
+                </select>
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label fw-bold">📅 Billing Date</label>
+                <input type="date" id="BillingDate" class="form-control">
+            </div>
+        </div>
+    }
+
+    <!-- Financial Summary -->
+    <div id="financialSummary">
+        <div class="row justify-content-center mb-4">
+            <div class="col-md-4 mb-3">
+                <div class="summary-card shadow-sm bg-light p-3 rounded">
+                    <h5 class="text-secondary"><i class="fas fa-money-bill-wave"></i> Total Billed</h5>
+                    <h3 class="fw-bold">₹@Model.Sum(b => b.TotalAmount)</h3>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="summary-card shadow-sm bg-light p-3 rounded">
+                    <h5 class="text-warning"><i class="fas fa-tags"></i> Discounts Given</h5>
+                    <h3 class="fw-bold">₹@Model.Sum(b => b.Discount ?? 0)</h3>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="summary-card shadow-sm bg-light p-3 rounded">
+                    <h5 class="text-primary"><i class="fas fa-shield-alt"></i> Insurance Amount</h5>
+                    <h3 class="fw-bold">₹@Model.Sum(b => b.InsuranceCoverage ?? 0)</h3>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="summary-card shadow-sm bg-light p-3 rounded">
+                    <h5 class="text-info"><i class="fas fa-hand-holding-usd"></i> Final Collected</h5>
+                    <h3 class="fw-bold">₹@Model.Sum(b => b.FinalAmount)</h3>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="summary-card shadow-sm bg-light p-3 rounded">
+                    <h5 class="text-danger"><i class="fas fa-exclamation-circle"></i> Pending Payment</h5>
+                    <h3 class="fw-bold">₹@Model.Where(b => !b.IsPaid).Sum(b => b.FinalAmount)</h3>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="summary-card shadow-sm bg-light p-3 rounded">
+                    <h5 class="text-success"><i class="fas fa-check-circle"></i> Total Paid</h5>
+                    <h3 class="fw-bold">₹@Model.Where(b => b.IsPaid).Sum(b => b.FinalAmount)</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Billing Records Grid -->
+    <div id="billingRecords">
+        <div class="row justify-content-center">
+            @foreach (var billing in Model)
+            {
+                <div class="col-md-6 col-lg-4 mb-4 billing-card"
+                data-id="@billing.Id"
+                data-patient="@billing.PatientId"
+                data-date="@billing.BillingDate.ToString("yyyy-MM-dd")">
+
+                    <div class="billing-card shadow-sm p-4 rounded border-0">
+                        <div class="d-flex justify-content-between">
+                            <h5 class="fw-bold text-primary">Invoice #@billing.Id</h5>
+                            <span class="badge @(billing.IsPaid ? "bg-success" : "bg-warning")">
+                                @(billing.IsPaid ? "Paid" : "Pending")
+                            </span>
+                        </div>
+
+                        <p><strong>👤 Patient:</strong> @(patients?.FirstOrDefault(p => p.Id == billing.PatientId)?.Name ?? "Unknown")</p>
+                        <p><strong>📅 Billing Date:</strong> @billing.BillingDate.ToShortDateString()</p>
+                        <p><strong>💳 Payment Method:</strong> @billing.PaymentMethod</p>
+
+                        <div class="amount-details p-3 rounded">
+                            <p><strong>💰 Total Amount:</strong> <span class="text-danger fw-bold">₹@billing.TotalAmount</span></p>
+                            <p><strong>💵 Discount:</strong> <span class="text-warning">₹@(billing.Discount ?? 0)</span></p>
+                            <p><strong>🏥 Insurance:</strong> <span class="text-primary">₹@(billing.InsuranceCoverage ?? 0)</span></p>
+                            <p class="fw-bold"><strong>✅ Final Amount:</strong> <span class="text-success">₹@billing.FinalAmount</span></p>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="d-flex justify-content-between mt-3">
+                            <a asp-action="Details" asp-route-id="@billing.Id" class="btn btn-outline-info btn-sm">
+                                <i class="fas fa-info-circle"></i> Details
+                            </a>
+                            @if (User.IsInRole("Admin") || User.IsInRole("Cashier"))
+                            {
+                                <a asp-action="Edit" asp-route-id="@billing.Id" class="btn btn-outline-warning btn-sm" onclick="saveEditedBilling(@billing.Id)">
+                                    <i class="fas fa-edit"></i> Edit
+                                </a>
+                            }
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <a asp-action="Delete" asp-route-id="@billing.Id" class="btn btn-outline-danger btn-sm">
+                                    <i class="fas fa-trash-alt"></i> Delete
+                                </a>
+                            }
+                            <a href="https://localhost:7191/api/Billing/invoice/@billing.Id" class="btn btn-outline-primary" target="_blank">Download Invoice</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let patientFilter = document.getElementById("PatientId");
+        let dateFilter = document.getElementById("BillingDate");
+
+        function applyFilters() {
+            let patientId = patientFilter.value;
+            let billingDate = dateFilter.value;
+
+            let url = `/Billing/Index?PatientId=${patientId}&BillingDate=${billingDate}`;
+
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    let parser = new DOMParser();
+                    let doc = parser.parseFromString(data, "text/html");
+
+                    document.getElementById("billingRecords").innerHTML = doc.getElementById("billingRecords").innerHTML;
+                    document.getElementById("financialSummary").innerHTML = doc.getElementById("financialSummary").innerHTML;
+                });
+        }
+
+        patientFilter.addEventListener("change", applyFilters);
+        dateFilter.addEventListener("input", applyFilters);
+
+        window.saveEditedBilling = function (billingId) {
+            localStorage.setItem("editedBillingId", billingId);
+        }
+
+        let editedBillingId = localStorage.getItem("editedBillingId");
+        if (editedBillingId) {
+            let editedBillingCard = document.querySelector(`.billing-card[data-id='${editedBillingId}']`);
+            if (editedBillingCard) {
+                editedBillingCard.scrollIntoView({ behavior: "smooth", block: "center" });
+                editedBillingCard.style.backgroundColor = "#d3d3d3";
+                setTimeout(() => editedBillingCard.style.backgroundColor = "", 3000);
+                localStorage.removeItem("editedBillingId");
+            }
+        }
+    });
+</script>

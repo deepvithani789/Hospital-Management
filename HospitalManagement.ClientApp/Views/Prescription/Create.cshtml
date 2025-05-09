@@ -1,0 +1,216 @@
+﻿@model HospitalManagement.ClientApp.Models.Prescription
+
+@{
+    ViewData["Title"] = "Create Prescription";
+}
+<head>
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+</head>
+
+<div class="container mt-5">
+    <div class="prescription-container shadow">
+        <!-- Doctor's Header -->
+        <div class="prescription-header">
+            <h3 class="text-info">🩺 Doctor's Prescription Pad</h3>
+            <p class="text-muted">Fill out the details below</p>
+        </div>
+
+        <!-- Prescription Form -->
+        <form asp-action="Create" class="prescription-form">
+            <div class="form-group">
+                <label>👨‍⚕️ Select Doctor</label>
+                <select asp-for="DoctorId" class="form-control">
+                    <option value="">Select a Doctor</option>
+                    @foreach (var doctor in ViewBag.Doctor)
+                    {
+                        <option value="@doctor.Id">@doctor.Name - (@doctor.Specialization)</option>
+                    }
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>🧑 Select Patient</label>
+                <select asp-for="PatientId" class="form-control">
+                    <option value="">Select a Patient</option>
+                    @foreach (var patient in ViewBag.Patient)
+                    {
+                        <option value="@patient.Id">@patient.Name</option>
+                    }
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label"><i class="fas fa-calendar-check"></i>📅 Appointment ID</label>
+                <select asp-for="AppointmentId" class="form-control form-control-lg" id="appointmentDropdown">
+                    <option value="">Select Appointment</option>
+                    @foreach (var appointment in ViewBag.Appointment)
+                    {
+                        <option value="@appointment.Id" data-doctor="@appointment.DoctorId" data-patient="@appointment.PatientId">
+                            @appointment.Id
+                        </option>
+                    }
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>💊 Medicines</label>
+                <textarea asp-for="Medicines" class="form-control medicine-input" placeholder="Enter prescribed medicines..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>🕒 Dosage</label>
+                <input asp-for="Dosage" class="form-control" placeholder="E.g. 2 tablets per day" required />
+            </div>
+
+            <div class="form-group">
+                <label>📆 Duration (Days)</label>
+                <input asp-for="DurationInDays" type="number" class="form-control" required />
+            </div>
+
+            <div class="form-group">
+                <label>📝 Additional Instructions</label>
+                <textarea asp-for="Instructions" class="form-control" placeholder="E.g. Take after meals..."></textarea>
+            </div>
+
+            <!-- New Fields -->
+            <div class="form-group">
+                <label>🩺 Diagnosis</label>
+                <textarea asp-for="Diagnosis" class="form-control" placeholder="Enter diagnosis..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>🤕 Symptoms</label>
+                <textarea asp-for="Symptoms" class="form-control" placeholder="Enter symptoms..."></textarea>
+            </div>
+
+            <!-- Floating Submit Button -->
+            <div class="floating-actions">
+                <button type="submit" class="btn btn-info btn-lg shadow">✅ Prescribe</button>
+                <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Custom Styles -->
+<style>
+    body {
+        background: #f0f8ff;
+        font-family: "Poppins", sans-serif;
+    }
+
+    .prescription-container {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.15);
+        max-width: 800px;
+        margin: auto;
+        position: relative;
+        border-left: 6px solid #28a745;
+    }
+
+    .prescription-header {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+        .prescription-header h3 {
+            color: #28a745;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+    .prescription-form {
+        padding: 10px 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-control {
+        border-radius: 8px;
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    .medicine-input {
+        font-family: "Courier New", monospace;
+        background: #fcf8e3;
+        border: 1px solid #f39c12;
+    }
+
+    .floating-actions {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .btn-success {
+        font-size: 18px;
+        padding: 12px 25px;
+        border-radius: 8px;
+    }
+
+        .btn-success:hover {
+            background: #218838;
+        }
+
+    .btn-outline-secondary {
+        font-size: 16px;
+        padding: 10px 20px;
+        margin-left: 10px;
+        border-radius: 8px;
+    }
+
+        .btn-outline-secondary:hover {
+            background: #6c757d;
+            color: white;
+        }
+</style>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    window.onload = function() {
+        if (performance.navigation.type === 2) { // 2 = Back/Forward button navigation
+            location.reload(); // Reload the page to revalidate the appointment check
+        }
+    };
+
+    $(document).ready(function () {
+        function updateAppointmentDropdown() {
+            var selectedDoctor = $("#DoctorId").val();
+            var selectedPatient = $("#PatientId").val();
+            var appointmentDropdown = $("#appointmentDropdown");
+            var appointmentFound = false;
+
+            // Reset the appointment selection
+            appointmentDropdown.val("");
+
+            if (selectedDoctor && selectedPatient) {
+                // Check if any appointment exists for selected doctor and patient
+                $("#appointmentDropdown option").each(function () {
+                    var doctorId = $(this).data("doctor");
+                    var patientId = $(this).data("patient");
+
+                    if (doctorId == selectedDoctor && patientId == selectedPatient) {
+                        appointmentDropdown.val($(this).val()); // Auto-select appointment
+                        appointmentFound = true;
+                        return false; // Stop loop when found
+                    }
+                });
+
+                // If no appointment is found, redirect the user
+                if (!appointmentFound) {
+                    alert("No appointment exists for this Doctor and Patient. Please create an appointment first.");
+                    window.location.href = "/Appointment/Index"; // Redirect to Appointment Create page
+                }
+            }
+        }
+
+        // Trigger function when doctor or patient changes
+        $("#DoctorId, #PatientId").change(updateAppointmentDropdown);
+    });
+</script>

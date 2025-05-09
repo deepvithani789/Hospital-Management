@@ -1,0 +1,119 @@
+﻿@model HospitalManagement.ClientApp.Models.Billing
+
+@{
+    ViewData["Title"] = "Billing Details";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-lg p-4 rounded-4 border-0">
+        <h2 class="text-center text-dark fw-bold">
+            🧾 Billing Details
+        </h2>
+        <p class="text-center text-muted">A comprehensive breakdown of the billing information.</p>
+        <hr />
+
+        <div class="row">
+            <!-- Left Side Details -->
+            <div class="col-md-6">
+                <div class="detail-item">
+                    <h6 class="text-secondary">Billing ID</h6>
+                    <p class="fw-bold">@Model.Id</p>
+                </div>
+
+                <div class="detail-item">
+                    <h6 class="text-secondary">Patient Name</h6>
+                    <p class="fw-bold">@ViewBag.PatientName</p>
+                </div>
+
+                <div class="detail-item">
+                    <h6 class="text-secondary">Appointment Date</h6>
+                    <p class="fw-bold">@ViewBag.AppointmentDate</p>
+                </div>
+
+                <div class="detail-item">
+                    <h6 class="text-secondary">Billing Date</h6>
+                    <p class="fw-bold">@Model.BillingDate.ToString("yyyy-MM-dd")</p>
+                </div>
+            </div>
+
+            <!-- Right Side Financial Breakdown -->
+            <div class="col-md-6">
+                <div class="detail-item">
+                    <h6 class="text-secondary">Total Amount</h6>
+                    <p class="fw-bold text-danger">₹@Model.TotalAmount</p>
+                </div>
+
+                <div class="detail-item">
+                    <h6 class="text-secondary">Discount</h6>
+                    <p class="fw-bold text-warning">₹@(Model.Discount ?? 0)</p>
+                </div>
+
+                <div class="detail-item">
+                    <h6 class="text-secondary">Insurance Coverage</h6>
+                    <p class="fw-bold text-primary">₹@(Model.InsuranceCoverage ?? 0)</p>
+                </div>
+
+                <div class="detail-item bg-light p-3 rounded shadow-sm">
+                    <h6 class="text-success fw-bold">Final Amount</h6>
+                    <p class="fw-bold text-success h4">₹@Model.FinalAmount</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payment Info & Status -->
+        <div class="text-center mt-4">
+            <h6 class="text-secondary">Payment Method</h6>
+            <p class="fw-bold"><i class="fas fa-credit-card"></i> @Model.PaymentMethod</p>
+
+            <h6 class="text-secondary">Payment Status</h6>
+            <span class="badge @(Model.IsPaid ? "bg-success" : "bg-warning") fs-6">
+                @(Model.IsPaid ? "Paid ✅" : "Pending ⏳")
+            </span>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="text-center mt-4">
+            @if (User.IsInRole("Admin") || User.IsInRole("Cashier"))
+            {
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning me-2">
+                    ✏️ Edit Billing
+                </a>
+            }
+            <a asp-action="Index" class="btn btn-secondary">
+                🔙 Back to List
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Custom Styles -->
+<style>
+    body {
+        background: #f8f9fa;
+        font-family: "Poppins", sans-serif;
+    }
+
+    .card {
+        max-width: 700px;
+        margin: auto;
+    }
+
+    .detail-item {
+        margin-bottom: 15px;
+    }
+
+    .detail-item h6 {
+        font-size: 14px;
+        margin-bottom: 3px;
+    }
+
+    .detail-item p {
+        font-size: 18px;
+        margin: 0;
+    }
+
+    .badge {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+</style>

@@ -1,0 +1,82 @@
+﻿@model HospitalManagement.ClientApp.Models.Patient
+
+@{
+    ViewData["Title"] = "Patient Details";
+}
+
+<div class="container mt-5">
+    <!-- Header Section -->
+    <div class="text-center mb-4">
+        <h2 class="text-success fw-bold">
+            <i class="fas fa-procedures"></i> Patient Information
+        </h2>
+        <p class="text-muted">Detailed profile of the patient</p>
+    </div>
+
+    <!-- Patient Details Card -->
+    <div class="card shadow-lg border-0 p-4">
+        <div class="row g-4">
+            <!-- Left Column - Patient Image -->
+            <div class="col-md-4 text-center">
+                <div class="bg-light rounded-circle p-3 d-inline-block">
+                    <i class="fas fa-user-injured fa-5x text-success"></i>
+                </div>
+                <h4 class="mt-3 text-dark fw-bold">@Model.Name</h4>
+                <p class="text-muted"><i class="fas fa-venus-mars"></i> @Model.Gender</p>
+            </div>
+
+            <!-- Right Column - Patient Details -->
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h6><i class="fas fa-calendar-alt text-success"></i> Date of Birth</h6>
+                        <p class="fw-bold">@Model.DateOfBirth.ToShortDateString()</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <h6><i class="fas fa-envelope text-success"></i> Email</h6>
+                        <p class="fw-bold">@Model.Email</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <h6><i class="fas fa-phone text-success"></i> Contact</h6>
+                        <p class="fw-bold">@Model.ContactNumber</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <h6><i class="fas fa-tint text-success"></i> Blood Group</h6>
+                        <p class="fw-bold">@Model.BloodGroup</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <h6><i class="fas fa-heartbeat text-success"></i> Chronic Disease</h6>
+                        <p class="fw-bold">@Model.ChronicDisease</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <h6><i class="fas fa-id-card text-success"></i> Aadhaar Card</h6>
+                        <p class="fw-bold">@Model.AdhaarCard</p>
+                    </div>
+                    <div class="col-sm-12">
+                        <h6><i class="fas fa-map-marker-alt text-success"></i> Address</h6>
+                        <p class="fw-bold">@Model.Address</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="text-center mt-4">
+            <a asp-action="Index" class="btn btn-secondary shadow">
+                <i class="fas fa-arrow-left"></i> Back
+            </a>
+            @if (User.IsInRole("Admin") || User.IsInRole("Receptionist") || User.IsInRole("Patient"))
+            {
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning shadow">
+                    <i class="fas fa-edit"></i> Edit
+                </a>
+            }
+            @if (User.IsInRole("Admin"))
+            {
+                <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger shadow">
+                    <i class="fas fa-trash-alt"></i> Delete
+                </a>
+            }
+        </div>
+    </div>
+</div>

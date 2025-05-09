@@ -1,0 +1,159 @@
+﻿@model List<HospitalManagement.ClientApp.Models.Doctor>
+
+@{
+    ViewData["Title"] = "Doctor List";
+}
+
+@if (Model == null || !Model.Any())
+{
+    <div class="alert alert-primary text-center">
+        No doctors found !! Return <a asp-action="Index" asp-controller="Home">Home</a>
+    </div>
+}
+
+<div class="container mt-5">
+    <!-- Page Header -->
+    <div class="text-center mb-4">
+        <h2 class="text-primary fw-bold">
+            <i class="fas fa-stethoscope me-2"></i> Our Medical Specialists
+        </h2>
+        <p class="text-muted">Meet our team of expert doctors with diverse specializations.</p>
+    </div>
+
+    <!-- Top Action Buttons -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary shadow">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+        @if(User.IsInRole("Admin"))
+        {
+            <a asp-action="Create" class="btn btn-primary shadow">
+                <i class="fas fa-user-plus"></i> Add Doctor
+            </a>
+        }
+    </div>
+
+    @if(User.IsInRole("Admin"))
+    {
+        <!-- Filters -->
+        <div class="d-flex justify-content-center mb-4">
+            <input type="text" id="searchInput" class="form-control w-25 me-2" placeholder="🔍 Search Doctor..." />
+            <select class="form-select w-25 me-2" id="specializationFilter">
+                <option value="">Filter by Specialization</option>
+                @foreach (var specialization in Model.Select(d => d.Specialization).Distinct())
+                {
+                    <option value="@specialization">@specialization</option>
+                }
+            </select>
+            <select class="form-select w-25" id="genderFilter">
+                <option value="">Filter by Gender</option>
+                @foreach (var gender in Model.Select(d => d.Gender).Distinct())
+                {
+                    <option value="@gender">@gender</option>
+                }
+            </select>
+        </div>
+    }
+
+    <!-- Doctor List Grid -->
+    <div class="row" id="doctorList">
+        @foreach (var doctor in Model)
+        {
+            <div class="col-lg-4 col-md-6 mb-4 doctor-card"
+            data-id="@doctor.Id"
+            data-name="@doctor.Name.ToLower()"
+            data-specialization="@doctor.Specialization"
+            data-gender="@doctor.Gender">
+                <div class="card shadow-lg border-0 position-relative">
+
+                    <div class="card-body text-center">
+                        <i class="fas fa-user-md fa-3x text-primary mb-3"></i>
+                        <h5 class="fw-bold text-dark">@doctor.Name</h5>
+                        <p class="text-muted"><i class="fas fa-user-tag me-1"></i> @doctor.Specialization</p>
+                        <p class="text-muted"><i class="fas fa-envelope me-1"></i> @doctor.Email</p> <!-- Added Email field -->
+                        <p class="text-muted"><i class="fas fa-venus-mars me-1"></i> @doctor.Gender</p>
+                        <p class="text-muted"><i class="fas fa-graduation-cap me-1"></i> @doctor.Qualification</p>
+                        <p class="text-muted"><i class="fas fa-briefcase-medical me-1"></i> @doctor.Experience years</p>
+                        <p class="text-muted"><i class="fas fa-info-circle me-1"></i> @doctor.Information</p>
+                        <!-- Action Buttons -->
+                        <div class="d-flex justify-content-center mt-3">
+                            <a asp-action="Details" asp-route-id="@doctor.Id" class="btn btn-outline-primary btn-sm mx-1">
+                                <i class="fas fa-eye"></i> Details
+                            </a>
+                            <a asp-action="Edit" asp-route-id="@doctor.Id" class="btn btn-outline-warning btn-sm mx-1">
+                                <i class="fas fa-edit"></i> Edit
+                            </a>
+                            @if(User.IsInRole("Admin"))
+                            {
+                                <a asp-action="Delete" asp-route-id="@doctor.Id" class="btn btn-outline-danger btn-sm mx-1">
+                                    <i class="fas fa-trash-alt"></i> Delete
+                                </a>
+                            }
+                            <a asp-action="DoctorAppointments" asp-controller="Appointment" asp-route-doctorId="@doctor.Id"
+                            class="btn btn-outline-info btn-sm mx-1">
+                                <i class="fas fa-calendar-check"></i> View Appointments
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@if (User.IsInRole("Admin"))
+{
+    <!-- JavaScript for Filtering and Auto-scroll Highlight -->
+    <script>
+        document.getElementById("searchInput").addEventListener("keyup", applyFilters);
+        document.getElementById("specializationFilter").addEventListener("change", applyFilters);
+        document.getElementById("genderFilter").addEventListener("change", applyFilters);
+
+        function applyFilters() {
+        let nameFilter = document.getElementById("searchInput").value.toLowerCase().trim();
+        let specializationFilter = document.getElementById("specializationFilter").value.trim();
+        let genderFilter = document.getElementById("genderFilter").value.trim();
+
+        let doctorCards = document.querySelectorAll(".doctor-card");
+
+        doctorCards.forEach(card => {
+        let name = card.dataset.name;
+        let specialization = card.dataset.specialization;
+        let gender = card.dataset.gender;
+
+        let matchesName = name.includes(nameFilter);
+        let matchesSpecialization = specializationFilter === "" || specialization === specializationFilter;
+        let matchesGender = genderFilter === "" || gender === genderFilter;
+
+        if (matchesName && matchesSpecialization && matchesGender) {
+        card.style.display = "block";
+        } else {
+        card.style.display = "none";
+        }
+        });
+        }
+    </script>
+}
+<script>
+    // Auto-scroll and highlight edited doctor
+    document.addEventListener("DOMContentLoaded", function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const editedDoctorId = urlParams.get("editedDoctorId");
+
+        if (editedDoctorId) {
+            let doctorCard = document.querySelector(`.doctor-card[data-id="${editedDoctorId}"]`);
+
+            if (doctorCard) {
+                doctorCard.scrollIntoView({ behavior: "smooth", block: "center" });
+
+                // Apply blue highlight effect
+                doctorCard.style.transition = "background-color 0.5s ease-in-out";
+                doctorCard.style.backgroundColor = "#cce5ff";
+
+                setTimeout(() => {
+                    doctorCard.style.backgroundColor = "white";
+                }, 2000);
+            }
+        }
+    });
+</script>

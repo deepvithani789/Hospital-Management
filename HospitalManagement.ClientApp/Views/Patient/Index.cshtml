@@ -1,0 +1,183 @@
+﻿@model List<HospitalManagement.ClientApp.Models.Patient>
+
+@{
+    ViewData["Title"] = "Patient List";
+}
+
+@if (Model == null || !Model.Any())
+{
+    <div class="alert alert-success text-center">
+        No patients found !! Return <a asp-action="Index" asp-controller="Home">Home</a>
+    </div>
+}
+
+<div class="container mt-5">
+    <!-- Page Header -->
+    <div class="text-center mb-3">
+        <h2 class="text-success fw-bold"><i class="fas fa-procedures"></i> Patient List</h2>
+        <p class="text-muted">View and manage patient records efficiently.</p>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="d-flex justify-content-between mb-3">
+        <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary shadow">
+            <i class="fas fa-home"></i> Back to Home
+        </a>
+        @if(User.IsInRole("Admin") || User.IsInRole("Receptionist"))
+        {
+            <a asp-action="Create" class="btn btn-success shadow">
+                <i class="fas fa-user-plus"></i> Add Patient
+            </a>
+        }
+    </div>
+
+    @if (User.IsInRole("Admin") || User.IsInRole("Receptionist"))
+    {
+        <!-- Search & Filter Section -->
+        <div class="card shadow-sm p-3 mb-4 bg-light rounded">
+            <div class="row g-2">
+                <div class="col-md-4">
+                    <input type="text" id="searchInput" class="form-control" placeholder="🔍 Search Patient...">
+                </div>
+                <div class="col-md-4">
+                    <select class="form-select" id="genderFilter">
+                        <option value="">Filter by Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <select class="form-select" id="bloodGroupFilter">
+                        <option value="">Filter by Blood Group</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    }
+
+    <!-- Patient List Table -->
+    <div class="card shadow-lg rounded-4 p-3" style="overflow-x: auto;">
+        <table class="table table-hover table-bordered align-middle text-center" id="patientTable">
+            <thead class="table-success text-dark">
+                <tr>
+                    <th><i class="fas fa-id-badge"></i> ID</th>
+                    <th><i class="fas fa-user"></i> Name</th>
+                    <th><i class="fas fa-envelope"></i> Email</th>
+                    <th><i class="fas fa-birthday-cake"></i> DOB</th>
+                    <th><i class="fas fa-venus-mars"></i> Gender</th>
+                    <th><i class="fas fa-phone"></i> Contact</th>
+                    <th><i class="fas fa-map-marker-alt"></i> Address</th>
+                    <th><i class="fas fa-tint"></i> Blood Group</th>
+                    <th><i class="fas fa-heartbeat"></i> Chronic Disease</th>
+                    <th><i class="fas fa-id-card"></i> Aadhaar Card</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody class="table-light">
+                @foreach (var patient in Model)
+                {
+                    <tr id="patient-@patient.Id" class="patient-row">
+                        <td>@patient.Id</td>
+                        <td>@patient.Name</td>
+                        <td>@patient.Email</td>
+                        <td>@patient.DateOfBirth.ToShortDateString()</td>
+                        <td>@patient.Gender</td>
+                        <td>@patient.ContactNumber</td>
+                        <td>@patient.Address</td>
+                        <td>@patient.BloodGroup</td>
+                        <td>@patient.ChronicDisease</td>
+                        <td>@patient.AdhaarCard</td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a asp-action="Details" asp-route-id="@patient.Id" class="btn btn-outline-primary btn-sm" title="View Details">
+                                    <i class="fas fa-info-circle"></i>
+                                </a>
+                                @if (User.IsInRole("Admin") || User.IsInRole("Receptionist") || User.IsInRole("Patient"))
+                                {
+                                    <a asp-action="Edit" asp-route-id="@patient.Id" class="btn btn-outline-warning btn-sm edit-button" title="Edit Patient" data-id="@patient.Id">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                }
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <a asp-action="Delete" asp-route-id="@patient.Id" class="btn btn-outline-danger btn-sm" title="Delete Patient">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                }
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- JavaScript for Search, Filter, Scroll & Highlight -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("searchInput").addEventListener("keyup", filterPatients);
+        document.getElementById("genderFilter").addEventListener("change", filterPatients);
+        document.getElementById("bloodGroupFilter").addEventListener("change", filterPatients);
+
+        // Restore edited patient scroll and highlight after editing
+        let editedPatientId = sessionStorage.getItem("editedPatientId");
+        if (editedPatientId) {
+            highlightAndScrollToPatient(editedPatientId);
+            sessionStorage.removeItem("editedPatientId");
+        }
+    });
+
+    function filterPatients() {
+        let searchValue = document.getElementById("searchInput").value.toLowerCase().trim();
+        let genderValue = document.getElementById("genderFilter").value.trim();
+        let bloodGroupValue = document.getElementById("bloodGroupFilter").value.trim();
+        let rows = document.querySelectorAll("#patientTable tbody tr");
+
+        rows.forEach(row => {
+            let name = row.cells[1].textContent.toLowerCase().trim();
+            let gender = row.cells[4].textContent.trim();
+            let bloodGroup = row.cells[7].textContent.trim();
+
+            let matchesSearch = name.includes(searchValue);
+            let matchesGender = genderValue === "" || gender === genderValue;
+            let matchesBloodGroup = bloodGroupValue === "" || bloodGroup === bloodGroupValue;
+
+            row.style.display = (matchesSearch && matchesGender && matchesBloodGroup) ? "" : "none";
+        });
+    }
+
+    function highlightAndScrollToPatient(patientId) {
+        let row = document.getElementById(`patient-${patientId}`);
+        if (row) {
+            row.scrollIntoView({ behavior: "smooth", block: "center" });
+
+            // Apply highlight color to all cells in the row
+            row.querySelectorAll("td").forEach(cell => {
+                cell.style.transition = "background-color 0.5s ease-in-out";
+                cell.style.backgroundColor = "#98fb98"; // Light Green
+            });
+
+            setTimeout(() => {
+                row.querySelectorAll("td").forEach(cell => {
+                    cell.style.backgroundColor = "";
+                });
+            }, 3000);
+        }
+    }
+
+    document.querySelectorAll(".edit-button").forEach(button => {
+        button.addEventListener("click", function () {
+            sessionStorage.setItem("editedPatientId", this.getAttribute("data-id"));
+        });
+    });
+</script>

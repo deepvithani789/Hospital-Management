@@ -1,0 +1,155 @@
+﻿@{
+    ViewBag.Title = "Admin Analytics Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var appointmentsData = ViewBag.AppointmentsPerMonth;
+    var revenueData = ViewBag.RevenuePerMonth;
+    var doctorActivity = ViewBag.DoctorActivity;
+}
+
+<div class="container py-5">
+    <h2 class="text-center text-primary mb-5 fw-bold display-5">
+        <i class="fas fa-chart-line animate__animated animate__fadeInDown me-2"></i> Admin Analytics Dashboard
+    </h2>
+
+    <div class="row g-4">
+        <!-- Appointments Section -->
+        <div class="col-lg-6">
+            <div class="card glass shadow-lg border-0">
+                <div class="card-header bg-gradient-primary text-white d-flex justify-content-between align-items-center">
+                    <div><i class="fas fa-calendar-alt me-2"></i> Total Appointments</div>
+                    <span class="badge bg-light text-dark rounded-pill">📅 Monthly</span>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table align-middle table-hover">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Month</th>
+                                    <th>Appointments</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in appointmentsData)
+                                {
+                                    <tr>
+                                        <td><span class="badge rounded-pill bg-primary">@item.Month</span></td>
+                                        <td class="fw-bold text-primary">@item.Count</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Revenue Section -->
+        <div class="col-lg-6">
+            <div class="card glass shadow-lg border-0">
+                <div class="card-header bg-gradient-success text-white d-flex justify-content-between align-items-center">
+                    <div>₹ Revenue Overview</div>
+                    <span class="badge bg-light text-dark rounded-pill">💰 Monthly</span>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table align-middle table-hover">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Month</th>
+                                    <th>Revenue</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in revenueData)
+                                {
+                                    <tr>
+                                        <td><span class="badge bg-success rounded-pill">@item.Month</span></td>
+                                        <td class="fw-semibold text-success">@item.Revenue.ToString("C")</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Doctor Activity Section -->
+        <div class="col-12">
+            <div class="card glass shadow-lg border-0">
+                <div class="card-header bg-gradient-warning text-dark d-flex justify-content-between align-items-center">
+                    <div><i class="fas fa-user-md me-2"></i> Doctor Activity Logs</div>
+                    <span class="badge bg-light text-dark rounded-pill">🩺 Overview</span>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table align-middle table-hover">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Doctor</th>
+                                    <th>Appointments Handled</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var doc in doctorActivity)
+                                {
+                                    <tr>
+                                        <td><strong>@doc.DoctorName</strong></td>
+                                        <td class="fw-semibold">@doc.ActivityCount</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .bg-gradient-primary {
+        background: linear-gradient(135deg, #007bff, #0056b3);
+    }
+
+    .bg-gradient-success {
+        background: linear-gradient(135deg, #28a745, #218838);
+    }
+
+    .bg-gradient-warning {
+        background: linear-gradient(135deg, #ffc107, #e0a800);
+    }
+
+    .glass {
+        background: rgba(255, 255, 255, 0.9);
+        /* backdrop-filter: blur(8px); */
+        border-radius: 1rem;
+        /* transition: transform 0.3s ease; */
+    }
+
+        .glass:hover {
+            transform: scale(1.01);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+    .card-header {
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+
+    .badge {
+        font-size: 0.85rem;
+        padding: 0.4em 0.75em;
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: #f8f9fa;
+    }
+
+    .text-muted.fst-italic {
+        font-size: 0.9rem;
+    }
+</style>
+
+<!-- Optional: Animate.css for entrance effects -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />

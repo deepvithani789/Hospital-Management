@@ -1,0 +1,195 @@
+﻿@model HospitalManagement.ClientApp.Models.Prescription
+
+@{
+    ViewData["Title"] = "Prescription Details";
+}
+
+<div class="container mt-5">
+    <div class="prescription-box">
+        <!-- Header -->
+        <div class="prescription-header">
+            <div class="hospital-info">
+                <h4 class="hospital-name">🏥 HealthCare Medical Center</h4>
+                <p class="hospital-address">123 Wellness Street, MedCity</p>
+            </div>
+            <div class="prescription-meta">
+                <p class="prescription-id">Prescription ID: <strong>#@Model.Id</strong></p>
+                <p class="prescription-date">Date Issued: <strong>@Model.DateIssued.ToString("MMM dd, yyyy")</strong></p>
+            </div>
+        </div>
+
+        <!-- Doctor & Patient Section -->
+        <div class="doctor-patient-section">
+            <div class="doctor-info">
+                <h5>👨‍⚕️ Dr. @ViewBag.DoctorName</h5>
+                <p class="doctor-details">Doctor ID: @Model.DoctorId</p>
+            </div>
+            <div class="patient-info">
+                <h5>🧑‍🦱 @ViewBag.PatientName</h5>
+                <p class="patient-details">Patient ID: @Model.PatientId</p>
+            </div>
+        </div>
+
+        <!-- Prescription Details -->
+        <div class="prescription-content">
+            <h5 class="section-title">💊 Medications & Dosage</h5>
+            <ul class="prescription-list">
+                <li><strong>Medicine:</strong> @Model.Medicines</li>
+                <li><strong>Dosage:</strong> @Model.Dosage</li>
+                <li><strong>Duration:</strong> @Model.DurationInDays days</li>
+                <li><strong>Instructions:</strong> @Model.Instructions</li>
+            </ul>
+        </div>
+
+        <!-- Diagnosis & Symptoms -->
+        <div class="prescription-content mt-3">
+            <h5 class="section-title">🩺 Diagnosis & Symptoms</h5>
+            <ul class="prescription-list">
+                <li><strong>Diagnosis:</strong> @Model.Diagnosis</li>
+                <li><strong>Symptoms:</strong> @Model.Symptoms</li>
+            </ul>
+        </div>
+
+        <!-- Actions -->
+        <div class="prescription-actions">
+            @if (User.IsInRole("Admin") || User.IsInRole("Doctor"))
+            {
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-edit">✏️ Edit</a>
+            }
+            <a asp-action="Index" class="btn btn-back">🔙 Back</a>
+        </div>
+    </div>
+</div>
+
+<!-- Custom Styles -->
+<style>
+    body {
+        background: #f8faff;
+        font-family: "Poppins", sans-serif;
+    }
+
+    .prescription-box {
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+        max-width: 750px;
+        margin: auto;
+        border-left: 6px solid #007bff;
+        position: relative;
+    }
+
+    .prescription-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+
+    .hospital-info {
+        text-align: left;
+    }
+
+    .hospital-name {
+        font-size: 20px;
+        font-weight: bold;
+        color: #007bff;
+    }
+
+    .hospital-address {
+        font-size: 14px;
+        color: #6c757d;
+    }
+
+    .prescription-meta {
+        text-align: right;
+        font-size: 14px;
+        color: #6c757d;
+    }
+
+    .doctor-patient-section {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        background: #eef6ff;
+        border-radius: 8px;
+    }
+
+    .doctor-info, .patient-info {
+        text-align: center;
+    }
+
+        .doctor-info h5, .patient-info h5 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: #343a40;
+        }
+
+    .doctor-details, .patient-details {
+        font-size: 14px;
+        color: #6c757d;
+    }
+
+    .prescription-content {
+        margin-top: 20px;
+        padding: 15px;
+        background: #f1f8ff;
+        border-radius: 8px;
+    }
+
+    .section-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #007bff;
+    }
+
+    .prescription-list {
+        list-style: none;
+        padding: 0;
+    }
+
+        .prescription-list li {
+            padding: 8px 0;
+            font-size: 16px;
+            color: #343a40;
+        }
+
+    .prescription-actions {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .btn-edit, .btn-back {
+        font-size: 16px;
+        padding: 10px 20px;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: 0.3s ease-in-out;
+        display: inline-block;
+        margin: 5px;
+    }
+
+    .btn-edit {
+        background: #ffc107;
+        color: #212529;
+        border: 2px solid #ffc107;
+    }
+
+        .btn-edit:hover {
+            background: #ffca2c;
+            color: #212529;
+        }
+
+    .btn-back {
+        background: #6c757d;
+        color: white;
+        border: 2px solid #6c757d;
+    }
+
+        .btn-back:hover {
+            background: #5a6268;
+        }
+</style>

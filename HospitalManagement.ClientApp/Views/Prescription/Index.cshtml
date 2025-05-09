@@ -1,0 +1,229 @@
+﻿@model List<HospitalManagement.ClientApp.Models.Prescription>
+
+@{
+    ViewData["Title"] = "Prescriptions";
+    var patients = ViewBag.Patients as List<Patient> ?? new List<Patient>();
+    var doctors = ViewBag.Doctors as List<Doctor> ?? new List<Doctor>();
+    var editedId = ViewBag.EditedId as int?;
+
+    // Get only the patients and doctors who have prescriptions
+    var availablePatientIds = Model.Select(p => p.PatientId).Distinct().ToList() ?? new List<int>();
+    var availableDoctorIds = Model.Select(p => p.DoctorId).Distinct().ToList() ?? new List<int>();
+}
+
+@if (Model == null || !Model.Any())
+{
+    <div class="alert alert-info text-center">
+        No prescriptions found !! Return <a asp-action="Index" asp-controller="Home">Home</a>
+    </div>
+}
+
+<div>
+    <h2 class="text-info fw-bold text-center"><i class="fas fa-file-medical"></i> Prescriptions</h2>
+    <p class="text-muted text-center">View and manage medical prescriptions issued by doctors.</p>
+</div>
+
+<div class="container mt-5">
+    <!-- Page Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <a asp-action="Index" asp-controller="Home" class="btn btn-outline-secondary px-4 py-2 fw-semibold">
+            <i class="fas fa-home"></i> Back to Home
+        </a>
+        @if (User.IsInRole("Admin") || User.IsInRole("Doctor"))
+        {
+            <a asp-action="Create" class="btn btn-info btn-lg shadow-sm">
+                <i class="fas fa-plus-circle"></i> Add Prescription
+            </a>
+        }
+    </div>
+
+    @if (User.IsInRole("Admin") || User.IsInRole("Doctor"))
+    {
+        <!-- Filter Section -->
+        <div class="row g-3 mb-4">
+            <div class="col-md-4">
+                <label class="form-label fw-semibold">👤 Patient</label>
+                <select id="patientFilter" class="form-select">
+                    <option value="">-- All Patients --</option>
+                    @foreach (var patient in patients.Where(p => availablePatientIds.Contains(p.Id)))
+                    {
+                        <option value="@patient.Id">@patient.Name</option>
+                    }
+                </select>
+            </div>
+
+            <div class="col-md-4">
+                <label class="form-label fw-semibold">🩺 Doctor</label>
+                <select id="doctorFilter" class="form-select">
+                    <option value="">-- All Doctors --</option>
+                    @foreach (var doctor in doctors.Where(d => availableDoctorIds.Contains(d.Id)))
+                    {
+                        <option value="@doctor.Id">@doctor.Name</option>
+                    }
+                </select>
+            </div>
+
+            <div class="col-md-4">
+                <label class="form-label fw-semibold">📅 Date</label>
+                <input type="date" id="dateFilter" class="form-control">
+            </div>
+        </div>
+    }
+
+    <!-- Prescription List -->
+    <div id="prescriptionList" class="row">
+        @foreach (var prescription in Model)
+        {
+            <div class="col-md-6 col-lg-4 mb-4 prescription-item"
+            data-id="@prescription.Id"
+            data-patient="@prescription.PatientId"
+            data-doctor="@prescription.DoctorId"
+            data-date="@prescription.DateIssued.ToString("yyyy-MM-dd")">
+                <div class="card prescription-card shadow-sm border-0 rounded-4">
+                    <div class="card-body p-4">
+                        <div class="id-ribbon">#@prescription.Id</div>
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="doctor-icon">
+                                <i class="fas fa-user-md fa-2x text-primary"></i>
+                            </div>
+                            <div class="ms-3">
+                                <h5 class="fw-bold mb-0 text-primary">
+                                    Dr. @(doctors?.FirstOrDefault(d => d.Id == prescription.DoctorId)?.Name ?? "Unknown")
+                                </h5>
+                                <small class="text-muted">Prescribed by</small>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="patient-icon">
+                                <i class="fas fa-user-injured fa-2x text-success"></i>
+                            </div>
+                            <div class="ms-3">
+                                <h5 class="fw-bold mb-0 text-success">
+                                    @(patients?.FirstOrDefault(p => p.Id == prescription.PatientId)?.Name ?? "Unknown")
+                                </h5>
+                                <small class="text-muted">Patient</small>
+                            </div>
+                        </div>
+
+                        <!-- Prescription Details -->
+                        <div class="prescription-info p-3 rounded">
+                            <p><strong>📅 Date:</strong> @prescription.DateIssued.ToShortDateString()</p>
+                            <p><strong>💊 Medicines:</strong> <span class="badge bg-primary">@prescription.Medicines</span></p>
+                            <p><strong>🕒 Dosage:</strong> <span class="badge bg-info">@prescription.Dosage</span></p>
+                            <p><strong>📆 Duration:</strong> <span class="badge bg-warning">@prescription.DurationInDays days</span></p>
+                            <p><strong>📜 Instructions:</strong> @prescription.Instructions</p>
+                            <p><strong>🩺 Diagnosis:</strong> <span class="badge bg-danger">@prescription.Diagnosis</span></p>
+                            <p><strong>🤕 Symptoms:</strong> <span class="badge bg-secondary">@prescription.Symptoms</span></p>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="mt-3 d-flex justify-content-between">
+                            <a asp-action="Details" asp-route-id="@prescription.Id" class="btn btn-outline-primary btn-sm">
+                                <i class="fas fa-info-circle"></i> Details
+                            </a>
+                            @if (User.IsInRole("Admin") || User.IsInRole("Doctor"))
+                            {
+                                <a asp-action="Edit" asp-route-id="@prescription.Id" class="btn btn-outline-warning btn-sm">
+                                    <i class="fas fa-edit"></i> Edit
+                                </a>
+                            }
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <a asp-action="Delete" asp-route-id="@prescription.Id" class="btn btn-outline-danger btn-sm">
+                                    <i class="fas fa-trash"></i> Delete
+                                </a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const patientFilter = document.getElementById("patientFilter");
+        const doctorFilter = document.getElementById("doctorFilter");
+        const dateFilter = document.getElementById("dateFilter");
+        const prescriptions = document.querySelectorAll(".prescription-item");
+
+        function filterPrescriptions() {
+            const selectedPatient = patientFilter.value;
+            const selectedDoctor = doctorFilter.value;
+            const selectedDate = dateFilter.value;
+
+            let anyVisible = false;
+
+            prescriptions.forEach(prescription => {
+                const patientId = prescription.getAttribute("data-patient");
+                const doctorId = prescription.getAttribute("data-doctor");
+                const prescriptionDate = prescription.getAttribute("data-date");
+
+                let show = true;
+                if (selectedPatient && patientId !== selectedPatient) show = false;
+                if (selectedDoctor && doctorId !== selectedDoctor) show = false;
+                if (selectedDate && prescriptionDate !== selectedDate) show = false;
+
+                prescription.style.display = show ? "block" : "none";
+                if (show) anyVisible = true;
+            });
+
+            // Show or hide the "No results" message without removing the list
+            let noResultsMessage = document.getElementById("noResultsMessage");
+            if (!anyVisible) {
+                if (!noResultsMessage) {
+                    noResultsMessage = document.createElement("div");
+                    noResultsMessage.id = "noResultsMessage";
+                    noResultsMessage.classList.add("text-center", "p-4");
+                    noResultsMessage.innerHTML = `<p class="text-muted"><i class="fas fa-exclamation-circle"></i> No matching prescriptions found.</p>`;
+                    document.getElementById("prescriptionList").appendChild(noResultsMessage);
+                }
+            } else {
+                if (noResultsMessage) {
+                    noResultsMessage.remove();
+                }
+            }
+
+            // Re-apply highlight after filtering
+            let editedPrescriptionId = sessionStorage.getItem("editedPrescriptionId");
+            if (editedPrescriptionId) {
+                highlightPrescription(editedPrescriptionId);
+            }
+        }
+
+        function highlightPrescription(prescriptionId) {
+            let prescriptionCard = document.querySelector(`.prescription-item[data-id="${prescriptionId}"]`);
+            if (prescriptionCard && prescriptionCard.style.display !== "none") {
+                prescriptionCard.scrollIntoView({ behavior: "smooth", block: "center" });
+
+                prescriptionCard.style.transition = "background-color 0.5s ease-in-out";
+                prescriptionCard.style.backgroundColor = "#0000ff";
+
+                setTimeout(() => {
+                    prescriptionCard.style.backgroundColor = "";
+                }, 3000);
+            }
+        }
+
+        // Save edited ID before navigating to edit page
+        document.querySelectorAll(".btn-outline-warning").forEach(button => {
+            button.addEventListener("click", function () {
+                sessionStorage.setItem("editedPrescriptionId", this.closest(".prescription-item").getAttribute("data-id"));
+            });
+        });
+
+        // Highlight after page load if needed
+        let editedPrescriptionId = sessionStorage.getItem("editedPrescriptionId");
+        if (editedPrescriptionId) {
+            highlightPrescription(editedPrescriptionId);
+            sessionStorage.removeItem("editedPrescriptionId");
+        }
+
+        patientFilter.addEventListener("change", filterPrescriptions);
+        doctorFilter.addEventListener("change", filterPrescriptions);
+        dateFilter.addEventListener("change", filterPrescriptions);
+    });
+</script>
+
