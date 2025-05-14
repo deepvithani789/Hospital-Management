@@ -87,6 +87,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
+
                     @if (User.IsInRole("Admin"))
                     {
                         <li class="nav-item"><a class="nav-link" href="@Url.Action("AdminDashboard", "Admin")">🧭Dashboard</a></li>
@@ -94,7 +95,6 @@
                             <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Analytics" ? "active" : "")"
                                href="@Url.Action("Dashboard", "Admin")">📊 Analytics</a>
                         </li>
-
                     }
 
                     @if (User.IsInRole("Admin") || User.IsInRole("Doctor"))

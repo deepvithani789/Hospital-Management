@@ -67,6 +67,12 @@
                     <textarea class="form-control shadow-sm rounded-3" name="Information" required placeholder="Enter relevant details (e.g., Heart Specialist, Eye Specialist)">@Model.Information</textarea>
                 </div>
 
+                <!-- Availability -->
+                <div class="form-check mb-3">
+                    <input asp-for="IsAvailable" class="form-check-input" type="checkbox" />
+                    <label asp-for="IsAvailable" class="form-check-label">Available</label>
+                </div>
+
                 <!-- Action Buttons -->
                 <div class="text-center mt-4">
                     <button type="submit" class="btn btn-warning btn-lg shadow">

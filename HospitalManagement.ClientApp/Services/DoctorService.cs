@@ -58,5 +58,21 @@ namespace HospitalManagement.ClientApp.Services
             var response = await _httpClient.DeleteAsync($"Doctor/{id}");
             return response.IsSuccessStatusCode;
         }
+
+        public async Task<bool> ToggleAvailabilityAsync(int id)
+        {
+            var response = await _httpClient.PatchAsync($"Doctor/{id}/toggle-availability", null);
+            return response.IsSuccessStatusCode;
+        }
+
+        public async Task<List<Doctor>> GetAvailableDoctorsAsync()
+        {
+            var response = await _httpClient.GetAsync("Doctor/AvailableDoctors");
+            if(response.IsSuccessStatusCode)
+            {
+                return await response.Content.ReadFromJsonAsync<List<Doctor>>();
+            }
+            return new List<Doctor>();
+        }
     }
 }

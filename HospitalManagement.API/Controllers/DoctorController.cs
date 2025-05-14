@@ -56,5 +56,26 @@ namespace HospitalManagement.API.Controllers
             var doctorDomain = await _doctorService.DeleteAsync(id);
             return Ok(_mapper.Map<DoctorDto>(doctorDomain));
         }
+
+        [HttpGet("AvailableDoctors")]
+        public async Task<IActionResult> GetAvailableDoctors()
+        {
+            var availableDoctors = await _doctorService.GetAvailableDoctorsAsync();
+            return Ok(_mapper.Map<List<DoctorDto>>(availableDoctors));
+        }
+
+        [HttpPatch("{id}/toggle-availability")]
+        public async Task<IActionResult> ToggleAvailability(int id)
+        {
+            var doctor = await _doctorService.GetByIdAsync(id);
+            if (doctor == null)
+            {
+                return NotFound();
+            }
+
+            doctor.IsAvailable = !doctor.IsAvailable;
+            await _doctorService.UpdateAsync(doctor, id);
+            return Ok(new { doctor.Id, doctor.IsAvailable });
+        }
     }
 }

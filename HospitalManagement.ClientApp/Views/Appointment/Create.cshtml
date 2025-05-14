@@ -31,7 +31,10 @@
                         <option value="">🔍 Select a Doctor</option>
                         @foreach (var doctor in ViewBag.Doctors)
                         {
-                            <option value="@doctor.Id">@doctor.Name - (@doctor.Specialization)</option>
+                            var availabilityClass = doctor.IsAvailable ? "available-doctor" : "";
+                            <option value="@doctor.Id" class="@availabilityClass">
+                                @doctor.Name - (@doctor.Specialization) @(doctor.IsAvailable ? "(Available)" : "(Unavailable)")
+                            </option>
                         }
                     </select>
                 </div>
@@ -128,6 +131,13 @@
         background-color: #dc3545;
         color: white;
     }
+    /* Style for available doctors */
+    .available-doctor {
+        background-color: #d4edda; /* light green */
+        color: #155724; /* dark green text */
+        font-weight: bold;
+    }
+
 </style>
 
 <!-- FontAwesome for Icons -->

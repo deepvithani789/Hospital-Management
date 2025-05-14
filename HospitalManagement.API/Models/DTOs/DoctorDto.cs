@@ -10,5 +10,6 @@
         public string Qualification { get; set; }
         public string Experience { get; set; } //In Years
         public string Information { get; set; } //Heart related , Eyes related , etc
+        public bool IsAvailable { get; set; }
     }
 }

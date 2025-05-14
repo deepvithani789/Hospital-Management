@@ -27,7 +27,11 @@
                     <option value="">🔍 Choose Doctor</option>
                     @foreach (var doctor in ViewBag.Doctors)
                     {
-                        <option value="@doctor.Id">@doctor.Name - (@doctor.Specialization)</option>
+                        var availabilityClass = doctor.IsAvailable ? "available-doctor" : "";
+                        var isSelected = doctor.Id == Model.DoctorId ? "selected" : "";
+                        <option value="@doctor.Id" class="@availabilityClass" selected=@isSelected>
+                            @doctor.Name - (@doctor.Specialization) @(doctor.IsAvailable ? "(Available)" : "(Unavailable)")
+                        </option>
                     }
                 </select>
             </div>
@@ -41,9 +45,8 @@
                     <option value="">🔍 Choose Patient</option>
                     @foreach (var patient in ViewBag.Patients)
                     {
-                        <option value="@patient.Id" selected="@(patient.Id == Model.PatientId ? "selected" : null)">
-                            @patient.Name
-                        </option>
+                        var selected = patient.Id == Model.PatientId ? "selected" : "";
+                        <option value="@patient.Id" selcted=@selected>@patient.Name</option>
                     }
                 </select>
             </div>
@@ -92,3 +95,39 @@
         </form>
     </div>
 </div>
+
+<!-- Custom Style -->
+<style>
+    /* Highlight available doctors */
+    .available-doctor {
+        background-color: #d4edda !important; /* light green */
+        color: #155724 !important;           /* dark green text */
+        font-weight: bold;
+    }
+
+    .appointment-card {
+        background-color: #ffffff;
+        border-radius: 10px;
+        max-width: 650px;
+        width: 100%;
+    }
+
+    .appointment-title {
+        font-weight: bold;
+    }
+
+    .appointment-field {
+        margin-top: 15px;
+    }
+
+    .form-control:focus {
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+
+    .btn-warning:hover {
+        transform: scale(1.05);
+    }
+</style>
+
+<!-- FontAwesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />

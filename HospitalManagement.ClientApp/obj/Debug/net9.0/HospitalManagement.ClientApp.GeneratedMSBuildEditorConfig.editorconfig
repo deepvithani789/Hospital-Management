@@ -76,6 +76,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhbmdlUGFzc3dvcmRcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[E:/AspCoreWebApp/HospitalManagement.API/HospitalManagement.ClientApp/Views/Doctor/AvailableDoctors.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9jdG9yXEF2YWlsYWJsZURvY3RvcnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/AspCoreWebApp/HospitalManagement.API/HospitalManagement.ClientApp/Views/Doctor/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9jdG9yXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

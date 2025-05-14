@@ -28,7 +28,14 @@
                 <p class="fw-bold text-secondary"><i class="fas fa-graduation-cap me-2"></i> Qualification: <span class="text-dark">@Model.Qualification</span></p>
                 <p class="fw-bold text-secondary"><i class="fas fa-briefcase-medical me-2"></i> Experience: <span class="text-dark">@Model.Experience Years</span></p>
                 <p class="fw-bold text-secondary"><i class="fas fa-info-circle me-2"></i> Information: <span class="text-dark">@Model.Information</span></p>
-            </div>z
+                <p class="fw-bold text-secondary">
+                    <i class="fas fa-toggle-on me-2"></i>
+                    Availability:
+                    <span class="text-dark">
+                        @(Model.IsAvailable ? "Available" : "Unavailable")
+                    </span>
+                </p>
+            </div>  
         </div>
 
         <!-- Card Footer - Navigation Buttons -->

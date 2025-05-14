@@ -19,12 +19,15 @@
 </div>
 
 <!-- Action Buttons -->
-<div class="d-flex justify-content-between mb-3">
+<div class="d-flex justify-content-between align-items-center mb-3">
     <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary shadow">
         <i class="fas fa-home"></i> Back to Home
     </a>
     @if (User.IsInRole("Admin") || User.IsInRole("Receptionist"))
     {
+        <a asp-controller="Doctor" asp-action="AvailableDoctors" class="btn btn-primary shadow">
+            <i class="fas fa-user-check"></i> View Available Doctors
+        </a>
         <a asp-action="Create" class="btn btn-warning shadow">
             <i class="fas fa-calendar-plus"></i> Schedule Appointment
         </a>

@@ -5,15 +5,17 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="container-fluid mt-4">
+<div class="container-fluid py-4">
     <div class="row">
         <!-- Sidebar -->
-        <div class="col-md-3">
-            <div class="card shadow-sm border-0 p-3 bg-white">
-                <h4 class="fw-bold text-primary"><i class="fas fa-chart-line"></i> Dashboard Insights</h4>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Total Users <span class="badge bg-primary">@Model.Count</span>
+        <div class="col-md-3 mb-4">
+            <div class="card shadow-sm border-0 p-4 bg-gradient-primary text-white rounded-4">
+                <h5 class="fw-bold"><i class="fas fa-chart-line me-2"></i>Dashboard Overview</h5>
+                <hr class="border-light">
+                <ul class="list-unstyled">
+                    <li class="d-flex justify-content-between align-items-center">
+                        <span>Total Users</span>
+                        <span class="badge bg-light text-primary fs-6">@Model.Count</span>
                     </li>
                 </ul>
             </div>
@@ -21,12 +23,15 @@
 
         <!-- Main Content -->
         <div class="col-md-9">
-            <div class="card shadow-sm p-4 border-0 bg-white">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4 class="fw-bold text-dark"><i class="fas fa-users"></i> Logged-in Users</h4>
-                    <div class="d-flex">
-                        <input type="text" id="searchBox" class="form-control me-2" placeholder="🔍 Search users..." onkeyup="filterUsers()">
-                        <select id="roleFilter" class="form-select" onchange="filterUsers()">
+            <div class="card shadow-sm p-4 border-0 bg-white rounded-4">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h4 class="fw-bold text-dark mb-0"><i class="fas fa-users me-2 text-primary"></i>Logged-in Users</h4>
+                    <div class="d-flex gap-2">
+                        <div class="input-group">
+                            <span class="input-group-text bg-light border-0"><i class="fas fa-search text-muted"></i></span>
+                            <input type="text" id="searchBox" class="form-control border-0 shadow-sm" placeholder="Search..." onkeyup="filterUsers()">
+                        </div>
+                        <select id="roleFilter" class="form-select shadow-sm" onchange="filterUsers()">
                             <option value="">All Roles</option>
                             <option value="Admin">Admin</option>
                             <option value="Doctor">Doctor</option>
@@ -37,36 +42,42 @@
                     </div>
                 </div>
 
-                <table class="table table-hover table-responsive">
-                    <thead class="table-light">
-                        <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Role</th>
-                            <th>Last Login</th>
-                        </tr>
-                    </thead>
-                    <tbody id="userTable">
-                        @foreach (var user in Model.OrderByDescending(u => u.LastLoginTime))
-                        {
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+                        <thead class="table-light">
                             <tr>
-                                <td>@user.UserName</td>
-                                <td>@user.Email</td>
-                                <td>
-                                    <span class="badge bg-secondary">
-                                        @(user.Roles.Any() ? string.Join(", ", user.Roles) : "Patient")
-                                    </span>
-                                </td>
-
-                                <td>
-                                    @(string.IsNullOrEmpty(user.LastLoginTime)
-                                        ? "<span class='text-danger'>Never</span>"
-                                        : user.LastLoginTime)
-                                </td>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Last Login</th>
                             </tr>
-                        }
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody id="userTable">
+                            @foreach (var user in Model.OrderByDescending(u => u.LastLoginTime))
+                            {
+                                <tr>
+                                    <td class="fw-semibold">@user.FullName</td>
+                                    <td>@user.Email</td>
+                                    <td>
+                                        <span class="badge rounded-pill bg-secondary">
+                                            @(user.Roles.Any() ? string.Join(", ", user.Roles) : "Patient")
+                                        </span>
+                                    </td>
+                                    <td>
+                                        @if (string.IsNullOrEmpty(user.LastLoginTime))
+                                        {
+                                            <span class="text-danger fw-bold">Never</span>
+                                        }
+                                        else
+                                        {
+                                            @user.LastLoginTime
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
@@ -74,28 +85,39 @@
 
 <style>
     body {
-        background: #f4f6f9;
-        color: #333;
+        background: #f8f9fc;
+        font-family: 'Segoe UI', sans-serif;
     }
 
     .card {
-        border-radius: 12px;
+        border-radius: 1rem;
     }
 
-    .table th {
+    .bg-gradient-primary {
+        background: linear-gradient(135deg, #4e73df, #224abe);
+    }
+
+    .table thead th {
         font-weight: 600;
+        color: #495057;
     }
 
-    .btn-outline-primary, .btn-outline-danger {
-        border-radius: 50%;
-        width: 32px;
-        height: 32px;
-        padding: 5px;
+    .table-hover tbody tr:hover {
+        background-color: #f1f4f9;
+        cursor: pointer;
+    }
+
+    .form-control, .form-select {
+        border-radius: 0.5rem;
+    }
+
+    .input-group-text {
+        border-radius: 0.5rem 0 0 0.5rem;
     }
 
     .badge {
-        font-size: 14px;
-        padding: 6px 10px;
+        font-size: 0.85rem;
+        padding: 6px 12px;
     }
 </style>
 

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HospitalManagement.ClientApp.Controllers
 {
-    [Authorize(Roles = "Admin,Doctor")]
+    [Authorize(Roles = "Admin,Doctor,Receptionist")]
     public class DoctorController : Controller
     {
         private readonly DoctorService _doctorService;
@@ -148,6 +148,41 @@ namespace HospitalManagement.ClientApp.Controllers
                 return View();
             }
             return RedirectToAction("Index", "Doctor");
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "Admin, Doctor")]
+        public async Task<IActionResult> ToggleAvailability(int id)
+        {
+            var success = await _doctorService.ToggleAvailabilityAsync(id);
+            if (!success)
+            {
+                ModelState.AddModelError("", "Unable to toggle availability");
+            }
+            return RedirectToAction("Index");
+        }
+
+        [Authorize(Roles = "Admin,Receptionist")]
+        public async Task<IActionResult> AvailableDoctors(string specialization, string gender)
+        {
+            var doctors = await _doctorService.GetAvailableDoctorsAsync();
+
+            if (!string.IsNullOrWhiteSpace(specialization))
+                doctors = doctors.Where(d => d.Specialization.Equals(specialization, StringComparison.OrdinalIgnoreCase)).ToList();
+
+            if (!string.IsNullOrWhiteSpace(gender))
+                doctors = doctors.Where(d => d.Gender.Equals(gender, StringComparison.OrdinalIgnoreCase)).ToList();
+
+            // Populate filter dropdowns
+            var specializations = doctors.Select(d => d.Specialization).Distinct().ToList();
+            var genders = doctors.Select(d => d.Gender).Distinct().ToList();
+
+            ViewBag.Specializations = specializations;
+            ViewBag.Genders = genders;
+            ViewBag.SelectedSpecialization = specialization;
+            ViewBag.SelectedGender = gender;
+
+            return View(doctors);
         }
     }
 }

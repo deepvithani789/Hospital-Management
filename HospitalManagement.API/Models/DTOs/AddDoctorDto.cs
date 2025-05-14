@@ -25,5 +25,6 @@ namespace HospitalManagement.API.Models.DTOs
 
         [Required]
         public string Information { get; set; } //Heart related , Eyes related , etc
+        public bool IsAvailable { get; set; }
     }
 }

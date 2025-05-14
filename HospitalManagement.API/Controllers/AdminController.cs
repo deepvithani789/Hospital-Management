@@ -31,6 +31,7 @@ namespace HospitalManagement.API.Controllers
                     loggedInUsers.Add(new
                     {
                         user.Id,
+                        user.FullName,
                         user.UserName,
                         user.Email,
                         Roles = roles,

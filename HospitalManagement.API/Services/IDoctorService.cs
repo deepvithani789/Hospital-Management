@@ -9,5 +9,6 @@ namespace HospitalManagement.API.Services
         Task<Doctor> AddAsync(Doctor doctor);
         Task<Doctor> UpdateAsync(Doctor doctor, int id);
         Task<Doctor> DeleteAsync(int id);
+        Task<List<Doctor>> GetAvailableDoctorsAsync();
     }
 }

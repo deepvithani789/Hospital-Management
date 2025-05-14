@@ -57,11 +57,17 @@ namespace HospitalManagement.API.Services
                 exists.Experience = doctor.Experience;
                 exists.Qualification = doctor.Qualification;
                 exists.Information = doctor.Information;
+                exists.IsAvailable = doctor.IsAvailable;
 
                 await _context.SaveChangesAsync();
                 return exists;
             }
             return null;
+        }
+
+        public async Task<List<Doctor>> GetAvailableDoctorsAsync()
+        {
+            return await _context.Doctors.OrderBy(d => d.Id).Where(d => d.IsAvailable).ToListAsync();
         }
     }
 }
