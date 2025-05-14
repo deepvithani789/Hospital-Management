@@ -29,7 +29,7 @@
                     {
                         var availabilityClass = doctor.IsAvailable ? "available-doctor" : "";
                         var isSelected = doctor.Id == Model.DoctorId ? "selected" : "";
-                        <option value="@doctor.Id" class="@availabilityClass" selected=@isSelected>
+                        <option value="@doctor.Id" class="@availabilityClass" isSelected>
                             @doctor.Name - (@doctor.Specialization) @(doctor.IsAvailable ? "(Available)" : "(Unavailable)")
                         </option>
                     }
