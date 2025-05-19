@@ -1,0 +1,69 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\Github\\Hospital-Management\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{382111E3-2B99-4293-8644-2BC9019C5796}|HospitalManagement.ClientApp\\HospitalManagement.ClientApp.csproj|e:\\github\\hospital-management\\hospitalmanagement.clientapp\\views\\appointment\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{382111E3-2B99-4293-8644-2BC9019C5796}|HospitalManagement.ClientApp\\HospitalManagement.ClientApp.csproj|solutionrelative:hospitalmanagement.clientapp\\views\\appointment\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{382111E3-2B99-4293-8644-2BC9019C5796}|HospitalManagement.ClientApp\\HospitalManagement.ClientApp.csproj|e:\\github\\hospital-management\\hospitalmanagement.clientapp\\services\\appointmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{382111E3-2B99-4293-8644-2BC9019C5796}|HospitalManagement.ClientApp\\HospitalManagement.ClientApp.csproj|solutionrelative:hospitalmanagement.clientapp\\services\\appointmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{382111E3-2B99-4293-8644-2BC9019C5796}|HospitalManagement.ClientApp\\HospitalManagement.ClientApp.csproj|e:\\github\\hospital-management\\hospitalmanagement.clientapp\\controllers\\appointmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{382111E3-2B99-4293-8644-2BC9019C5796}|HospitalManagement.ClientApp\\HospitalManagement.ClientApp.csproj|solutionrelative:hospitalmanagement.clientapp\\controllers\\appointmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "E:\\Github\\Hospital-Management\\HospitalManagement.ClientApp\\Views\\Appointment\\Edit.cshtml",
+              "RelativeDocumentMoniker": "HospitalManagement.ClientApp\\Views\\Appointment\\Edit.cshtml",
+              "ToolTip": "E:\\Github\\Hospital-Management\\HospitalManagement.ClientApp\\Views\\Appointment\\Edit.cshtml",
+              "RelativeToolTip": "HospitalManagement.ClientApp\\Views\\Appointment\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABSAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-05-14T09:58:03.335Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AppointmentService.cs",
+              "DocumentMoniker": "E:\\Github\\Hospital-Management\\HospitalManagement.ClientApp\\Services\\AppointmentService.cs",
+              "RelativeDocumentMoniker": "HospitalManagement.ClientApp\\Services\\AppointmentService.cs",
+              "ToolTip": "E:\\Github\\Hospital-Management\\HospitalManagement.ClientApp\\Services\\AppointmentService.cs",
+              "RelativeToolTip": "HospitalManagement.ClientApp\\Services\\AppointmentService.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAgwBEAAABgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-14T04:42:08.129Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AppointmentController.cs",
+              "DocumentMoniker": "E:\\Github\\Hospital-Management\\HospitalManagement.ClientApp\\Controllers\\AppointmentController.cs",
+              "RelativeDocumentMoniker": "HospitalManagement.ClientApp\\Controllers\\AppointmentController.cs",
+              "ToolTip": "E:\\Github\\Hospital-Management\\HospitalManagement.ClientApp\\Controllers\\AppointmentController.cs",
+              "RelativeToolTip": "HospitalManagement.ClientApp\\Controllers\\AppointmentController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-14T04:42:01.322Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -78,6 +78,8 @@ namespace HospitalManagement.API.Controllers
         {
             var appointments = await _context.Appointments
                                              .Where(a => a.DoctorId == doctorId)
+                                             .Include(d => d.Doctor)
+                                             .Include(p => p.Patient)
                                              .ToListAsync();
             return Ok(appointments);
         }

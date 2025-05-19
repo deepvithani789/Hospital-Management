@@ -1,4 +1,5 @@
 ﻿using HospitalManagement.API.Models;
+using HospitalManagement.API.Models.DTOs;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
