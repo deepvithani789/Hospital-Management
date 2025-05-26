@@ -61,6 +61,8 @@ builder.Services.AddScoped<IPrescriptionService, PrescriptionService>();
 builder.Services.AddScoped<IBillingService, BillingService>();
 builder.Services.AddScoped<IStaffService, StaffService>();
 builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddScoped<IPharmacyService, PharmacyService>();
+builder.Services.AddScoped<IBedService, BedService>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
@@ -120,7 +122,7 @@ app.Run();
 
 async Task SeedRoles(RoleManager<IdentityRole> roleManager)
 {
-    string[] roles = { "Admin", "Doctor", "Cashier", "Patient", "Receptionist" };
+    string[] roles = { "Admin", "Doctor", "Cashier", "Patient", "Receptionist", "Pharmacist" };
 
     foreach (var role in roles)
     {

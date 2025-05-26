@@ -19,6 +19,14 @@ namespace HospitalManagement.API.Data
             CreateMap<AddAppointmentDto, Appointment>().ReverseMap();
             CreateMap<AddPrescriptionDto, Prescription>().ReverseMap();
             CreateMap<AddBillingDto, Billing>().ReverseMap();
+            CreateMap<MedicineInventory, MedicineInventoryDto>().ReverseMap();
+            CreateMap<Bed, BedDto>()
+    .ForMember(dest => dest.PatientName, opt => opt.MapFrom(src => src.Patient != null ? src.Patient.Name : null));
+
+            CreateMap<AddBedDto, Bed>();
+            CreateMap<Bed, AddBedDto>();
+            CreateMap<AssignBedDto, Bed>();
+
         }
     }
 }

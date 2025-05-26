@@ -1,4 +1,5 @@
-﻿using HospitalManagement.ClientApp.Services;
+﻿using HospitalManagement.ClientApp.Models;
+using HospitalManagement.ClientApp.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -66,6 +67,26 @@ namespace HospitalManagement.ClientApp.Controllers
             ViewBag.DoctorActivity = doctorActivity;
 
             return View();
+        }
+
+        public async Task<IActionResult> PendingUsers()
+        {
+            var response = await _httpClient.GetAsync("https://localhost:7191/api/Admin/pending-users");
+            if(!response.IsSuccessStatusCode)
+            {
+                ViewBag.Error = "Failed to load pending users.";
+                return View(new List<PendingUserViewModel>());
+            }
+            var json = await response.Content.ReadAsStringAsync();
+            var users = JsonConvert.DeserializeObject<List<PendingUserViewModel>>(json);
+            return View(users);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ApproveUser([FromBody] string id)
+        {
+            var response = await _httpClient.PostAsync($"https://localhost:7191/api/Admin/approve-user/{id}", null);
+            return response.IsSuccessStatusCode ? Json(new { success = true }) : Json(new { success = false });
         }
     }
     public class LoggedInUserViewModel

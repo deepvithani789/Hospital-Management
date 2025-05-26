@@ -1,0 +1,39 @@
+﻿@model List<MedicineInventoryViewModel>
+@{
+    ViewData["Title"] = "Low Stock Alerts";
+}
+<h2 class="text-warning text-center">⚠️ Low Stock Medicines</h2>
+<a class="btn btn-outline-secondary mb-3" href="/Pharmacy/Index">Back to Inventory</a>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-warning">All medicines are sufficiently stocked.</div>
+}
+else
+{
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>Name</th>
+                <th>Quantity In Stock</th>
+                <th>Low Stock Threshold</th>
+                <th>Expiry Date</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var med in Model)
+            {
+                <tr class="table-warning">
+                    <td>@med.MedicineName</td>
+                    <td>@med.QuantityInStock</td>
+                    <td>@med.LowStockThreshold</td>
+                    <td>@med.ExpiryDate.ToShortDateString()</td>
+                    <td>
+                        <a href="/Pharmacy/Edit/@med.Id" class="btn btn-sm btn-info">Restock</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

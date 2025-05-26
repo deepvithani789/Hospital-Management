@@ -45,6 +45,9 @@ namespace HospitalManagement.API.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<bool>("IsApproved")
+                        .HasColumnType("boolean");
+
                     b.Property<DateTime>("LastLoginTime")
                         .HasColumnType("timestamp with time zone");
 
@@ -135,6 +138,35 @@ namespace HospitalManagement.API.Migrations
                     b.ToTable("Appointments");
                 });
 
+            modelBuilder.Entity("HospitalManagement.API.Models.Bed", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("BedNumber")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int?>("PatientId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("RoomType")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<bool>("isOccupied")
+                        .HasColumnType("boolean");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PatientId");
+
+                    b.ToTable("Beds");
+                });
+
             modelBuilder.Entity("HospitalManagement.API.Models.Billing", b =>
                 {
                     b.Property<int>("Id")
@@ -222,6 +254,32 @@ namespace HospitalManagement.API.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Doctors");
+                });
+
+            modelBuilder.Entity("HospitalManagement.API.Models.MedicineInventory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("ExpiryDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int>("LowStockThreshold")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("MedicineName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("QuantityInStock")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("MedicineInventories");
                 });
 
             modelBuilder.Entity("HospitalManagement.API.Models.Patient", b =>
@@ -527,6 +585,15 @@ namespace HospitalManagement.API.Migrations
                         .IsRequired();
 
                     b.Navigation("Doctor");
+
+                    b.Navigation("Patient");
+                });
+
+            modelBuilder.Entity("HospitalManagement.API.Models.Bed", b =>
+                {
+                    b.HasOne("HospitalManagement.API.Models.Patient", "Patient")
+                        .WithMany()
+                        .HasForeignKey("PatientId");
 
                     b.Navigation("Patient");
                 });

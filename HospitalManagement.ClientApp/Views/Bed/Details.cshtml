@@ -1,0 +1,81 @@
+﻿@model HospitalManagement.ClientApp.Models.Bed
+@{
+    ViewData["Title"] = "Bed Details";
+    var patientMap = ViewBag.PatientMap as Dictionary<int, string>;
+}
+
+<div class="container py-4" style="max-width: 600px;">
+    <div class="card shadow-sm border-0 rounded-4">
+        <div class="card-header bg-background text-white rounded-top-4 d-flex align-items-center gap-3">
+            <i class="bi bi-bed-fill fs-3"></i>
+            <h3 class="mb-0 fw-semibold">Bed Details</h3>
+        </div>
+
+        <div class="card-body">
+            <dl class="row mb-0">
+                <dt class="col-sm-4 text-muted fs-6">Bed Number</dt>
+                <dd class="col-sm-8 fs-5 fw-bold">@Model.BedNumber</dd>
+
+                <dt class="col-sm-4 text-muted fs-6">Room Type</dt>
+                <dd class="col-sm-8 fs-5 fw-semibold text-primary">@Model.RoomType</dd>
+
+                <dt class="col-sm-4 text-muted fs-6">Occupied</dt>
+                <dd class="col-sm-8 fs-5">
+                    @if (Model.isOccupied)
+                    {
+                        <span class="badge bg-danger d-inline-flex align-items-center gap-1">
+                            <i class="bi bi-x-circle-fill"></i> Yes
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-success d-inline-flex align-items-center gap-1">
+                            <i class="bi bi-check-circle-fill"></i> No
+                        </span>
+                    }
+                </dd>
+
+                <dt class="col-sm-4 text-muted fs-6">Patient</dt>
+                <dd class="col-sm-8 fs-5">
+                    @{
+                        // First try Patient property if loaded
+                        if (Model.Patient != null)
+                        {
+                            <span class="text-dark fw-medium">@Model.Patient.Name</span>
+                        }
+                        // Otherwise try patientMap dictionary from ViewBag
+                        else if (Model.PatientId != null && patientMap != null && patientMap.ContainsKey((int)Model.PatientId))
+                        {
+                            <span class="text-dark fw-medium">@patientMap[(int)Model.PatientId]</span>
+                        }
+                        else
+                        {
+                            <span class="text-muted fst-italic">No patient assigned</span>
+                        }
+                    }
+                </dd>
+            </dl>
+        </div>
+
+        <div class="card-footer text-end bg-light rounded-bottom-4">
+            <a asp-action="Index" class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-left-circle me-1"></i> Back to List
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Optional subtle animations */
+    .card-body dt {
+        transition: color 0.3s ease;
+    }
+
+        .card-body dt:hover {
+            color: #5c6bc0;
+        }
+
+    .bg-background {
+        background-color: #c06788;
+    }
+</style>

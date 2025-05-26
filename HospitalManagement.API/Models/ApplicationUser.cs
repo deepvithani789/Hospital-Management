@@ -7,5 +7,6 @@ namespace HospitalManagement.API.Models
         public string FullName { get; set; }
         public string Role { get; set; }
         public DateTime LastLoginTime { get; set; }
+        public bool IsApproved { get; set; }
     }
 }

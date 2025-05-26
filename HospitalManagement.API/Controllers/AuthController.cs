@@ -42,6 +42,9 @@ namespace HospitalManagement.API.Controllers
         public async Task<IActionResult> Login([FromBody] LoginDto model)
         {
             var user = await _userManager.FindByEmailAsync(model.Email);
+            if (!user.IsApproved)
+                return Unauthorized(new { message = "Account not approved by admin yet!!" });
+
             if(user != null && await _userManager.CheckPasswordAsync(user, model.Password))
             {
                 user.LastLoginTime = DateTime.UtcNow.AddHours(5.5);
@@ -94,6 +97,11 @@ namespace HospitalManagement.API.Controllers
             }
 
             var user = await _userManager.FindByEmailAsync(info.Principal.FindFirstValue(ClaimTypes.Email));
+
+            if (!user.IsApproved)
+            {
+                return Unauthorized("User is not approved yet.");
+            }
 
             if (user == null)
             {

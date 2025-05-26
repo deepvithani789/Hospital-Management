@@ -147,7 +147,7 @@ namespace HospitalManagement.ClientApp.Controllers
                 }
             }
 
-            ViewBag.Error = "Invalid Credentials";
+            ViewBag.Error = "Invalid Credentials or \n ⛔ Your account is pending approval by the Admin.";
             return View("Index");
         }
 

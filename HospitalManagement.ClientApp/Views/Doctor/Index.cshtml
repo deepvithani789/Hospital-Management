@@ -120,6 +120,11 @@
             </div>
         }
     </div>
+
+    <!-- No Results Message -->
+    <div class="text-center mt-3" id="noResultsMessage" style="display:none; background-color: #ffffff; color: #3B71CA">
+        Doctor not matches to your search.
+    </div>
 </div>
 
 @if (User.IsInRole("Admin"))
@@ -138,6 +143,7 @@
             let availableOnly = document.getElementById("availableOnlyCheck").checked;
 
             let doctorCards = document.querySelectorAll(".doctor-card");
+            let anyVisible = false;
 
             doctorCards.forEach(card => {
                 let name = card.dataset.name;
@@ -152,10 +158,19 @@
 
                 if (matchesName && matchesSpecialization && matchesGender && matchesAvailability) {
                     card.style.display = "block";
+                    anyVisible = true;
                 } else {
                     card.style.display = "none";
                 }
             });
+
+            // Show or hide the no results message
+            const noResultsMessage = document.getElementById("noResultsMessage");
+            if (!anyVisible) {
+                noResultsMessage.style.display = "block";
+            } else {
+                noResultsMessage.style.display = "none";
+            }
         }
     </script>
 }

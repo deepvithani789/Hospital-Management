@@ -1,0 +1,67 @@
+﻿@model HospitalManagement.ClientApp.Models.Bed
+@{
+    ViewData["Title"] = "Delete Bed";
+}
+
+<div class="container py-4" style="max-width: 480px;">
+    <div class="card shadow-sm border-0 rounded-4">
+        <div class="card-header bg-danger text-white rounded-top-4 d-flex align-items-center gap-3">
+            <i class="bi bi-trash fs-3"></i>
+            <h3 class="mb-0 fw-semibold">Delete Bed</h3>
+        </div>
+
+        <div class="card-body">
+            <h5 class="text-danger mb-4">Are you sure you want to delete this bed?</h5>
+
+            <dl class="row mb-4">
+                <dt class="col-sm-4 fw-semibold">Bed Number</dt>
+                <dd class="col-sm-8">@Model.BedNumber</dd>
+
+                <dt class="col-sm-4 fw-semibold">Room Type</dt>
+                <dd class="col-sm-8">@Model.RoomType</dd>
+
+                <dt class="col-sm-4 fw-semibold">Occupied</dt>
+                <dd class="col-sm-8">@(Model.isOccupied ? "Yes" : "No")</dd>
+            </dl>
+
+            <form asp-action="DeleteConfirmed" method="post" novalidate>
+                <input type="hidden" asp-for="Id" />
+                <div class="d-flex justify-content-end gap-3">
+                    <a asp-action="Index" class="btn btn-outline-secondary btn-lg">
+                        <i class="bi bi-x-circle me-1"></i> Cancel
+                    </a>
+                    <button type="submit" class="btn btn-danger btn-lg">
+                        <i class="bi bi-trash me-1"></i> Delete
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Card shadow hover */
+    .card:hover {
+        box-shadow: 0 10px 30px rgb(0 0 0 / 0.15);
+        transition: box-shadow 0.3s ease-in-out;
+    }
+
+    h5.text-danger {
+        font-weight: 600;
+    }
+
+    dt {
+        color: #6b7280; /* Slightly muted label color */
+    }
+
+    /* Button hover effects */
+    .btn-danger:hover {
+        background-color: #a71d2a;
+        border-color: #a71d2a;
+    }
+
+    .btn-outline-secondary:hover {
+        background-color: #f3f4f6;
+        border-color: #d1d5db;
+    }
+</style>

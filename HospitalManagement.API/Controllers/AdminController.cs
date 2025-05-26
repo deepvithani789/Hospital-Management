@@ -41,5 +41,37 @@ namespace HospitalManagement.API.Controllers
             }
             return Ok(loggedInUsers);
         }
+
+        [HttpGet("pending-users")]
+        public async Task<IActionResult> GetPendingUsers()
+        {
+            var users = _userManager.Users.Where(u => !u.IsApproved).ToList();
+
+            var result = new List<object>();
+            foreach (var user in users)
+            {
+                var roles = await _userManager.GetRolesAsync(user);
+                result.Add(new
+                {
+                    user.Id,
+                    user.FullName,
+                    user.Email,
+                    Role = roles.FirstOrDefault() ?? "Patient",
+                });
+            }
+            return Ok(result);
+        }
+
+        [HttpPost("approve-user/{id}")]
+        public async Task<IActionResult> ApproveUser(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+            if (user == null)
+                return NotFound();
+
+            user.IsApproved = true;
+            await _userManager.UpdateAsync(user);
+            return Ok(new { message = "User approved successfully.." });
+        }
     }
 }

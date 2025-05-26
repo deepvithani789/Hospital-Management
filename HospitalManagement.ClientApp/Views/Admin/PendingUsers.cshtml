@@ -1,0 +1,276 @@
+﻿@model List<HospitalManagement.ClientApp.Models.PendingUserViewModel>
+
+@{
+    ViewData["Title"] = "Pending User Approvals";
+}
+
+<style>
+    /* Container styling */
+    .container-approval {
+        max-width: 900px;
+        margin: 2rem auto;
+        padding: 1rem 1.5rem;
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.07);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Toolbar with search */
+    .toolbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.2rem;
+    }
+
+    #searchInput {
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        border: 2px solid #007bff;
+        font-size: 1rem;
+        width: 280px;
+        transition: box-shadow 0.3s ease;
+    }
+
+        #searchInput:focus {
+            outline: none;
+            box-shadow: 0 0 10px #007bffaa;
+        }
+
+    /* Table styling */
+    table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0 0.5rem;
+        font-size: 1rem;
+        color: #333;
+    }
+
+    thead tr {
+        background: #007bff;
+        color: white;
+        text-align: left;
+        font-weight: 700;
+        border-radius: 10px;
+    }
+
+    thead th {
+        padding: 1rem 1.2rem;
+        user-select: none;
+    }
+
+    tbody tr {
+        background: #f8f9fa;
+        transition: background-color 0.3s ease;
+        box-shadow: 0 3px 8px rgb(0 0 0 / 0.06);
+        border-radius: 8px;
+    }
+
+        tbody tr:hover {
+            background-color: #e9f0ff;
+            box-shadow: 0 6px 14px rgb(0 0 0 / 0.12);
+        }
+
+        tbody tr td {
+            padding: 1rem 1.2rem;
+            vertical-align: middle;
+        }
+
+    /* Role badge style */
+    .role-badge {
+        display: inline-block;
+        padding: 0.25rem 0.8rem;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 0.85rem;
+        color: white;
+        user-select: none;
+    }
+    /* Color variants */
+    .role-admin {
+        background: #dc3545;
+    }
+
+    .role-doctor {
+        background: #0d6efd;
+    }
+
+    .role-patient {
+        background: #20c997;
+    }
+
+    .role-cashier {
+        background: #fd7e14;
+    }
+
+    .role-receptionist {
+        background: #6610f2;
+    }
+
+    .role-pharmacy {
+        background: #198754;
+    }
+
+    /* Approve button */
+    .btn-approve {
+        background: linear-gradient(135deg, #28a745, #218838);
+        border: none;
+        color: white;
+        padding: 0.45rem 1.1rem;
+        border-radius: 30px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: background 0.3s ease;
+        box-shadow: 0 5px 12px rgb(33 136 56 / 0.5);
+        user-select: none;
+    }
+
+        .btn-approve:hover {
+            background: linear-gradient(135deg, #218838, #1e7e34);
+        }
+
+        .btn-approve:focus {
+            outline: 3px solid #28a745aa;
+            outline-offset: 2px;
+        }
+
+        /* Approve icon */
+        .btn-approve i {
+            font-size: 1.15rem;
+        }
+
+    /* Toast message */
+    #messageToast {
+        position: fixed;
+        bottom: 1.5rem;
+        right: 1.5rem;
+        padding: 1rem 1.5rem;
+        background: #333;
+        color: #fff;
+        border-radius: 10px;
+        font-weight: 600;
+        box-shadow: 0 6px 16px rgb(0 0 0 / 0.4);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.4s ease;
+        z-index: 1050;
+    }
+
+        #messageToast.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+</style>
+
+<div class="container-approval">
+    <div class="toolbar">
+        <h2>Pending User Approvals</h2>
+        <input type="search" id="searchInput" placeholder="Search by name, email, or role..." aria-label="Search users" />
+    </div>
+
+    @if (!Model.Any())
+    {
+        <p style="font-size:1.2rem; text-align:center; color:#555; padding: 3rem 1rem;">No pending users found.</p>
+    }
+    else
+    {
+        <table>
+            <thead>
+                <tr>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="userTableBody">
+                @foreach (var user in Model)
+                {
+                    var roleClass = user.Role.ToLower() switch
+                    {
+                        "admin" => "role-admin",
+                        "doctor" => "role-doctor",
+                        "patient" => "role-patient",
+                        "cashier" => "role-cashier",
+                        "receptionist" => "role-receptionist",
+                        "pharmacy" => "role-pharmacy",
+                        _ => "role-admin"
+                    };
+                    <tr id="user-@user.Id" data-name="@user.FullName.ToLower()" data-email="@user.Email.ToLower()" data-role="@user.Role.ToLower()">
+                        <td data-label="Full Name">@user.FullName</td>
+                        <td data-label="Email">@user.Email</td>
+                        <td data-label="Role"><span class="role-badge @roleClass">@user.Role</span></td>
+                        <td data-label="Action">
+                            <button class="btn-approve" aria-label="Approve user @user.FullName" onclick="approveUser('@user.Id', '@user.FullName')">
+                                <i class="fas fa-check-circle"></i> Approve
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>
+
+<div id="messageToast" role="alert" aria-live="assertive" aria-atomic="true"></div>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const tableBody = document.getElementById('userTableBody');
+        const toast = document.getElementById('messageToast');
+        let userIdToApprove = null;
+
+        // Search filter
+        searchInput.addEventListener('input', () => {
+            const filter = searchInput.value.toLowerCase();
+            const rows = tableBody.querySelectorAll('tr');
+
+            rows.forEach(row => {
+                const name = row.getAttribute('data-name');
+                const email = row.getAttribute('data-email');
+                const role = row.getAttribute('data-role');
+
+                if (name.includes(filter) || email.includes(filter) || role.includes(filter)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        });
+
+        // Approve user function with confirm dialog
+        function approveUser(id, fullName) {
+            if (confirm(`Are you sure you want to approve user "${fullName}"?`)) {
+                fetch('/Admin/ApproveUser', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(id)
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        const row = document.getElementById('user-' + id);
+                        if (row) row.remove();
+                        showMessage('User approved successfully!', true);
+                    } else {
+                        showMessage('Failed to approve user.', false);
+                    }
+                })
+                .catch(() => showMessage('Network error, try again later.', false));
+            }
+        }
+
+        // Toast message
+        function showMessage(msg, success = true) {
+            toast.textContent = msg;
+            toast.style.backgroundColor = success ? '#28a745' : '#dc3545';
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3500);
+        }
+    </script>

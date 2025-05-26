@@ -28,6 +28,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGFzaGJvYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[E:/AspCoreWebApp/HospitalManagement.API/HospitalManagement.ClientApp/Views/Admin/PendingUsers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cUGVuZGluZ1VzZXJzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/AspCoreWebApp/HospitalManagement.API/HospitalManagement.ClientApp/Views/Appointment/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwb2ludG1lbnRcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -50,6 +54,34 @@ build_metadata.AdditionalFiles.CssScope =
 
 [E:/AspCoreWebApp/HospitalManagement.API/HospitalManagement.ClientApp/Views/Appointment/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwb2ludG1lbnRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AspCoreWebApp/HospitalManagement.API/HospitalManagement.ClientApp/Views/Bed/Assign.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmVkXEFzc2lnbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AspCoreWebApp/HospitalManagement.API/HospitalManagement.ClientApp/Views/Bed/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmVkXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AspCoreWebApp/HospitalManagement.API/HospitalManagement.ClientApp/Views/Bed/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmVkXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AspCoreWebApp/HospitalManagement.API/HospitalManagement.ClientApp/Views/Bed/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmVkXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AspCoreWebApp/HospitalManagement.API/HospitalManagement.ClientApp/Views/Bed/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmVkXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AspCoreWebApp/HospitalManagement.API/HospitalManagement.ClientApp/Views/Bed/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmVkXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AspCoreWebApp/HospitalManagement.API/HospitalManagement.ClientApp/Views/Bed/Release.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmVkXFJlbGVhc2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/AspCoreWebApp/HospitalManagement.API/HospitalManagement.ClientApp/Views/Billing/Create.cshtml]
@@ -142,6 +174,26 @@ build_metadata.AdditionalFiles.CssScope =
 
 [E:/AspCoreWebApp/HospitalManagement.API/HospitalManagement.ClientApp/Views/Patient/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF0aWVudFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AspCoreWebApp/HospitalManagement.API/HospitalManagement.ClientApp/Views/Pharmacy/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhhcm1hY3lcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AspCoreWebApp/HospitalManagement.API/HospitalManagement.ClientApp/Views/Pharmacy/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhhcm1hY3lcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AspCoreWebApp/HospitalManagement.API/HospitalManagement.ClientApp/Views/Pharmacy/ExpiredMedicine.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhhcm1hY3lcRXhwaXJlZE1lZGljaW5lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AspCoreWebApp/HospitalManagement.API/HospitalManagement.ClientApp/Views/Pharmacy/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhhcm1hY3lcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/AspCoreWebApp/HospitalManagement.API/HospitalManagement.ClientApp/Views/Pharmacy/LowStock.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGhhcm1hY3lcTG93U3RvY2suY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [E:/AspCoreWebApp/HospitalManagement.API/HospitalManagement.ClientApp/Views/Prescription/Create.cshtml]

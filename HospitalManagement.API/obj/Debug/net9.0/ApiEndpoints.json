@@ -1,8 +1,34 @@
 [
   {
     "ContainingType": "HospitalManagement.API.Controllers.AdminController",
+    "Method": "ApproveUser",
+    "RelativePath": "api/Admin/approve-user/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HospitalManagement.API.Controllers.AdminController",
     "Method": "GetLoggedInUsers",
     "RelativePath": "api/Admin/logged-in-users",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HospitalManagement.API.Controllers.AdminController",
+    "Method": "GetPendingUsers",
+    "RelativePath": "api/Admin/pending-users",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -184,6 +210,133 @@
       {
         "Name": "model",
         "Type": "HospitalManagement.API.Models.DTOs.RegisterDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HospitalManagement.API.Controllers.BedController",
+    "Method": "GetAllBeds",
+    "RelativePath": "api/Bed",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HospitalManagement.API.Controllers.BedController",
+    "Method": "AddBed",
+    "RelativePath": "api/Bed",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "addedBedDto",
+        "Type": "HospitalManagement.API.Models.DTOs.AddBedDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HospitalManagement.API.Controllers.BedController",
+    "Method": "GetBedById",
+    "RelativePath": "api/Bed/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HospitalManagement.API.Controllers.BedController",
+    "Method": "UpdateBed",
+    "RelativePath": "api/Bed/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "addedBedDto",
+        "Type": "HospitalManagement.API.Models.DTOs.AddBedDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HospitalManagement.API.Controllers.BedController",
+    "Method": "DeleteBed",
+    "RelativePath": "api/Bed/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HospitalManagement.API.Controllers.BedController",
+    "Method": "AssignBedToPatient",
+    "RelativePath": "api/Bed/assign",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "assignBedDto",
+        "Type": "HospitalManagement.API.Models.DTOs.AssignBedDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HospitalManagement.API.Controllers.BedController",
+    "Method": "GetBedByBedNumber",
+    "RelativePath": "api/Bed/bednumber/{bedNumber}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "bedNumber",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HospitalManagement.API.Controllers.BedController",
+    "Method": "ReleaseBedForPatient",
+    "RelativePath": "api/Bed/release/{patientId}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "patientId",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
@@ -463,6 +616,126 @@
       {
         "Name": "id",
         "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HospitalManagement.API.Controllers.PharmacyController",
+    "Method": "GetExpiredAlert",
+    "RelativePath": "api/Pharmacy/alert/expired",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HospitalManagement.API.Controllers.PharmacyController",
+    "Method": "GetLowStocksAlert",
+    "RelativePath": "api/Pharmacy/alert/low-stocks",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HospitalManagement.API.Controllers.PharmacyController",
+    "Method": "DispenseMedicine",
+    "RelativePath": "api/Pharmacy/dispense",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "HospitalManagement.API.Models.DispenseMedicineRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HospitalManagement.API.Controllers.PharmacyController",
+    "Method": "GetAllMedicines",
+    "RelativePath": "api/Pharmacy/medicines",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HospitalManagement.API.Controllers.PharmacyController",
+    "Method": "AddMedicine",
+    "RelativePath": "api/Pharmacy/medicines",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "medicineDto",
+        "Type": "HospitalManagement.API.Models.MedicineInventoryDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HospitalManagement.API.Controllers.PharmacyController",
+    "Method": "GetMedicineById",
+    "RelativePath": "api/Pharmacy/medicines/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HospitalManagement.API.Controllers.PharmacyController",
+    "Method": "UpdateMedicine",
+    "RelativePath": "api/Pharmacy/medicines/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "medicineDto",
+        "Type": "HospitalManagement.API.Models.MedicineInventoryDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HospitalManagement.API.Controllers.PharmacyController",
+    "Method": "UpdateStock",
+    "RelativePath": "api/Pharmacy/medicines/{id}/stock",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "medicineStockUpdateDto",
+        "Type": "HospitalManagement.API.Models.MedicineStockUpdateDto",
         "IsRequired": true
       }
     ],

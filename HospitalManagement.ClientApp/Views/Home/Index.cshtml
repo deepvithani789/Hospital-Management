@@ -52,6 +52,15 @@
                     <p class="mt-2 small text-muted">Schedule and manage patient appointments with doctors.</p>
                 </div>
             }
+            @if (User.IsInRole("Admin") || User.IsInRole("Receptionist"))
+            {
+                <div class="col-md-4 col-lg-2 mb-3">
+                    <a href="@Url.Action("Index", "Bed")" class="btn dashboard-btn btn-muted-rose">
+                        <i class="fas fa-bed"></i> Beds
+                    </a>
+                    <p class="mt-2 small text-muted">Assign and release hospital beds for patients.</p>
+                </div>
+            }
         </div>
 
         <!-- 🔹 Second Row: Prescription, Billing, Staff -->
@@ -83,11 +92,32 @@
                     <p class="mt-2 small text-muted">Manage nurses, ward boys, and hospital staff.</p>
                 </div>
             }
+            @if (User.IsInRole("Admin") || User.IsInRole("Pharmacist"))
+            {
+                <div class="col-md-4 col-lg-2 mb-3">
+                    <a href="@Url.Action("Index", "Pharmacy")" class="btn dashboard-btn btn-random-custom">
+                        <i class="fas fa-pills"></i> Pharmacy
+                    </a>
+                    <p class="mt-2 small text-muted">Dispense medicines and manage prescription fulfillment.</p>
+                </div>
+
+            }
         </div>
     </div>
 </div>
 
 <style>
+    .btn-muted-rose {
+        background-color: #d77a9a;
+        color: white;
+        border: none;
+    }
+
+        .btn-muted-rose:hover {
+            background-color: #c06788;
+            color: white;
+        }
+
     .dashboard-btn {
         display: block;
         font-size: 1rem;
@@ -110,4 +140,16 @@
     .text-muted {
         font-size: 0.9rem;
     }
+
+    .btn-random-custom {
+        background-color: #7e57c2; /* Example: Soft purple */
+        color: #fff;
+        border: none;
+    }
+
+        .btn-random-custom:hover {
+            background-color: #673ab7;
+            color: #fff;
+        }
+
 </style>

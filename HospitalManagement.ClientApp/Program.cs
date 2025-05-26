@@ -33,6 +33,8 @@ builder.Services.AddScoped<AppointmentService>();
 builder.Services.AddScoped<PrescriptionService>();
 builder.Services.AddScoped<BillingService>();
 builder.Services.AddScoped<StaffService>();
+builder.Services.AddScoped<PharmacyService>();
+builder.Services.AddScoped<BedService>();
 
 var app = builder.Build();
 

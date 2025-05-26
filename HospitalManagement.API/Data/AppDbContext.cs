@@ -18,6 +18,8 @@ namespace HospitalManagement.API.Data
         public DbSet<Prescription> Prescriptions { get; set; }
         public DbSet<Billing> Billings { get; set; }
         public DbSet<Staff> Staffs { get; set; }
+        public DbSet<MedicineInventory> MedicineInventories { get; set; }
+        public DbSet<Bed> Beds { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

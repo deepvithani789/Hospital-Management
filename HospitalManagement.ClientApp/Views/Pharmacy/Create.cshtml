@@ -1,0 +1,170 @@
+﻿@model MedicineInventoryViewModel
+
+<style>
+    /* Medium-sized container with split layout */
+    .medicine-container {
+        max-width: 900px; /* limit overall width */
+        margin: 3rem auto; /* center horizontally with margin on top/bottom */
+        min-height: auto; /* allow height to fit content */
+        max-height: 600px; /* optional max height */
+        display: flex;
+        border-radius: 1rem;
+        overflow: hidden;
+        box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: #fff;
+    }
+
+    /* Left side: illustration or branding */
+    .medicine-illustration {
+        flex: 1;
+        background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+        color: white;
+        padding: 2rem 1.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+        .medicine-illustration h2 {
+            font-weight: 700;
+            font-size: 2.4rem;
+            margin-bottom: 0.4rem;
+            letter-spacing: 0.07em;
+        }
+
+        .medicine-illustration p {
+            font-weight: 500;
+            font-size: 1rem;
+            opacity: 0.85;
+            max-width: 280px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        .medicine-illustration i {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            color: #f0f0f0aa;
+        }
+
+    /* Right side: form */
+    .medicine-form {
+        flex: 1;
+        background: #f9fafc;
+        padding: 2rem 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start; /* align top for compactness */
+    }
+
+        .medicine-form h3 {
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            letter-spacing: 0.05em;
+        }
+
+    /* Neumorphic inputs */
+    .form-control {
+        border: none;
+        outline: none;
+        background: #e0e5ec;
+        border-radius: 0.75rem;
+        padding: 0.75rem 1.25rem;
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: #333;
+        box-shadow: 6px 6px 12px #bebebe, -6px -6px 12px #ffffff;
+        transition: box-shadow 0.3s ease;
+        width: 100%;
+    }
+
+        .form-control:focus {
+            box-shadow: inset 2px 2px 5px #bebebe, inset -2px -2px 5px #ffffff;
+            background: #d4dae6;
+        }
+
+    label {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: #555;
+        user-select: none;
+        display: block;
+    }
+
+    /* Form group spacing */
+    .form-group {
+        margin-bottom: 1.25rem;
+    }
+
+    /* Submit button */
+    .btn-submit {
+        background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+        border: none;
+        border-radius: 1.75rem;
+        color: white;
+        font-weight: 700;
+        font-size: 1.1rem;
+        padding: 0.9rem 1.5rem;
+        cursor: pointer;
+        box-shadow: 0 6px 18px rgba(38, 50, 146, 0.35);
+        transition: background 0.3s ease, box-shadow 0.3s ease;
+        width: 100%;
+    }
+
+        .btn-submit:hover {
+            background: linear-gradient(135deg, #2575fc 0%, #6a11cb 100%);
+            box-shadow: 0 10px 25px rgba(38, 50, 146, 0.55);
+        }
+
+    /* Validation messages */
+    .text-danger {
+        font-size: 0.85rem;
+        margin-top: 0.3rem;
+    }
+</style>
+
+<div class="medicine-container">
+    <aside class="medicine-illustration">
+        <i class="bi bi-capsule"></i>
+        <h2>Medicine Inventory</h2>
+        <p>Manage your medicines efficiently with modern tools designed for clarity and ease of use. Add new medicines quickly and keep track of stock and expiry dates.</p>
+    </aside>
+    <section class="medicine-form">
+        <h3>Add New Medicine</h3>
+        <form asp-action="Create" method="post" novalidate>
+            <div class="form-group">
+                <label for="MedicineName">Medicine Name</label>
+                <input asp-for="MedicineName" id="MedicineName" class="form-control" autocomplete="off" />
+                <span asp-validation-for="MedicineName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="QuantityInStock">Quantity In Stock</label>
+                <input asp-for="QuantityInStock" type="number" min="0" id="QuantityInStock" class="form-control" autocomplete="off" />
+                <span asp-validation-for="QuantityInStock" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="ExpiryDate">Expiry Date</label>
+                <input asp-for="ExpiryDate" type="datetime-local" min="@DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm")" id="ExpiryDate" class="form-control" autocomplete="off" />
+                <span asp-validation-for="ExpiryDate" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="LowStockThreshold">Low Stock Threshold</label>
+                <input asp-for="LowStockThreshold" type="number" min="0" id="LowStockThreshold" class="form-control" autocomplete="off" />
+                <span asp-validation-for="LowStockThreshold" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn-submit">
+                Save Medicine
+            </button>
+        </form>
+    </section>
+</div>
