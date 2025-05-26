@@ -52,10 +52,6 @@ namespace HospitalManagement.API.Controllers
         public async Task<IActionResult> AddBed(AddBedDto addedBedDto)
         {
             var bed = _mapper.Map<Bed>(addedBedDto);
-            if(bed.BedNumber == addedBedDto.BedNumber)
-            {
-                return BadRequest("Bed Number exists already");
-            }
             var added = await _bedService.AddBedAsync(bed);
             return Ok(_mapper.Map<BedDto>(added));
         }

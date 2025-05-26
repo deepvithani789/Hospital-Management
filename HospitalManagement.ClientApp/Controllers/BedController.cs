@@ -98,15 +98,10 @@ namespace HospitalManagement.ClientApp.Controllers
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create(Bed bed)
         {
-            if (!await isReceptionistStaff())
-            {
-                return Forbid();
-            }
-
-            if (bed.BedNumber != null && bed.RoomType != null)
+            if (ModelState.IsValid)
             {
                 await _bedService.AddAsync(bed);
-                return RedirectToAction("Index");
+                return RedirectToAction(nameof(Index));
             }
             return View(bed);
         }
