@@ -1,0 +1,116 @@
+﻿@model HospitalManagement.ClientApp.Models.Staff
+
+@{
+    ViewData["Title"] = "Add Staff";
+}
+
+<div class="container d-flex justify-content-center mt-5">
+    <div class="card shadow-lg p-4 border-0 rounded-4" style="max-width: 600px; width: 100%;">
+        <div class="card-header bg-secondary text-white text-center rounded-3">
+            <h3><i class="fas fa-user-plus"></i> Add New Staff</h3>
+        </div>
+
+        <div class="card-body">
+            <form asp-action="Create" method="post">
+                <!-- Full Name -->
+                <div class="mb-3">
+                    <label class="form-label"><i class="fas fa-user"></i> Full Name</label>
+                    <input type="text" class="form-control shadow-sm" asp-for="FullName" required />
+                </div>
+
+                <!-- Gender -->
+                <div class="mb-3">
+                    <label class="form-label"><i class="fas fa-venus-mars"></i> Gender</label>
+                    <select class="form-control shadow-sm" asp-for="Gender" required>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <!-- Email -->
+                <div class="mb-3">
+                    <label class="form-label"><i class="fas fa-envelope"></i> Email</label>
+                    <input type="email" class="form-control shadow-sm" asp-for="Email" required />
+                </div>
+
+                <!-- Date of Birth -->
+                <div class="mb-3">
+                    <label class="form-label"><i class="fas fa-calendar-alt"></i> Date of Birth</label>
+                    <input type="datetime-local" class="form-control shadow-sm" asp-for="DateOfBirth" required />
+                </div>
+
+                <!-- Position -->
+                <div class="mb-3">
+                    <label class="form-label"><i class="fas fa-briefcase"></i> Position</label>
+                    <select class="form-control shadow-sm" asp-for="Position" required>
+                        <option value="Nurse">Nurse</option>
+                        <option value="Wardboy">Wardboy</option>
+                        <option value="Receptionist">Receptionist</option>
+                        <option value="Lab Technician">Lab Technician</option>
+                        <option value="Pharmacist">Pharmacist</option>
+                        <option value="Cleaner">Cleaner</option>
+                        <option value="Cashier">Cashier</option>
+                    </select>
+                </div>
+
+                <!-- Contact Number -->
+                <div class="mb-3">
+                    <label class="form-label"><i class="fas fa-phone"></i> Contact Number</label>
+                    <input type="tel" class="form-control shadow-sm" asp-for="ContactNumber" required />
+                </div>
+
+                <!-- Address -->
+                <div class="mb-3">
+                    <label class="form-label"><i class="fas fa-map-marker-alt"></i> Address</label>
+                    <textarea class="form-control shadow-sm" asp-for="Address" rows="2" required></textarea>
+                </div>
+
+                <!-- Aadhar Card -->
+                <div class="mb-3">
+                    <label class="form-label"><i class="fas fa-id-card"></i> Aadhar Card</label>
+                    <input type="text" class="form-control shadow-sm" asp-for="AdharCard" required />
+                </div>
+
+                <!-- Shift with Dynamic Icon -->
+                <div class="mb-3">
+                    <label class="form-label"><i class="fas fa-clock"></i> Shift</label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-light"><span id="shiftIcon">⏳</span></span>
+                        <select class="form-control shadow-sm" asp-for="Shift" id="shiftSelect" required>
+                            <option value="Morning">Morning</option>
+                            <option value="Evening">Evening</option>
+                            <option value="Night">Night</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Salary -->
+                <div class="mb-3">
+                    <label class="form-label"><i class="fas fa-money-bill-wave"></i> Salary (₹)</label>
+                    <input type="number" class="form-control shadow-sm" asp-for="Salary" step="0.01" required />
+                </div>
+
+                <!-- Buttons -->
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-primary px-4"><i class="fas fa-save"></i> Save Staff</button>
+                    <a asp-action="Index" class="btn btn-dark px-4"><i class="fas fa-arrow-left"></i> Back</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Shift Icon Update Script -->
+<script>
+    document.getElementById("shiftSelect").addEventListener("change", function() {
+        let shiftIcon = document.getElementById("shiftIcon");
+        if (this.value === "Morning") {
+            shiftIcon.innerHTML = "☀️";
+        } else if (this.value === "Night") {
+            shiftIcon.innerHTML = "🌙";
+        } else {
+            shiftIcon.innerHTML = "🌆";
+        }
+    });
+</script>

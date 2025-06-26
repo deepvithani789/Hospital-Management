@@ -1,0 +1,123 @@
+﻿@model HospitalManagement.ClientApp.Models.Doctor
+
+@{
+    ViewData["Title"] = "Add Doctor";
+}
+
+<div class="container d-flex justify-content-center align-items-center mt-5">
+    <div class="card shadow-lg border-0 rounded-4 p-4" style="max-width: 600px; width: 100%; background: rgba(255, 255, 255, 0.9);">
+        <!-- Card Header -->
+        <div class="card-header bg-primary text-white text-center py-4 rounded-top">
+            <h2 class="fw-bold"><i class="fas fa-user-md me-2"></i> Register a New Doctor</h2>
+        </div>
+
+        <!-- Card Body -->
+        <div class="card-body">
+            <div class="text-center mb-3">
+                <i class="fas fa-user-md fa-6x text-primary"></i>
+            </div>
+
+            <form asp-action="Create" method="post">
+                <!-- Doctor Name Input -->
+                <div class="mb-4 position-relative">
+                    <label class="form-label fw-bold"><i class="fas fa-user me-2"></i> Doctor Name</label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-light"><i class="fas fa-user"></i></span>
+                        <input type="text" class="form-control rounded-end shadow-sm" name="Name" required placeholder="Enter doctor's full name" />
+                    </div>
+                </div>
+
+                <!-- Specialization Input -->
+                <div class="mb-4 position-relative">
+                    <label class="form-label fw-bold"><i class="fas fa-stethoscope me-2"></i> Specialization</label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-light"><i class="fas fa-hospital-symbol"></i></span>
+                        <input type="text" class="form-control rounded-end shadow-sm" name="Specialization" required placeholder="Enter specialization" />
+                    </div>
+                </div>
+
+                <!-- Email Input -->
+                <div class="mb-4 position-relative">
+                    <label class="form-label fw-bold"><i class="fas fa-envelope me-2"></i> Email</label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-light"><i class="fas fa-envelope"></i></span>
+                        <input type="email" class="form-control rounded-end shadow-sm" name="Email" required placeholder="Enter doctor's email" />
+                    </div>
+                </div>
+
+                <!-- Gender Input -->
+                <div class="mb-4 position-relative">
+                    <label class="form-label fw-bold"><i class="fas fa-venus-mars me-2"></i> Gender</label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-light"><i class="fas fa-venus-mars"></i></span>
+                        <select class="form-select rounded-end shadow-sm" name="Gender" required>
+                            <option value="" selected disabled>Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Qualification Input -->
+                <div class="mb-4 position-relative">
+                    <label class="form-label fw-bold"><i class="fas fa-graduation-cap me-2"></i> Qualification</label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-light"><i class="fas fa-graduation-cap"></i></span>
+                        <input type="text" class="form-control rounded-end shadow-sm" name="Qualification" required placeholder="Enter qualification (e.g., MBBS, MD)" />
+                    </div>
+                </div>
+
+                <!-- Experience Input -->
+                <div class="mb-4 position-relative">
+                    <label class="form-label fw-bold"><i class="fas fa-briefcase-medical me-2"></i> Experience (Years)</label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-light"><i class="fas fa-briefcase-medical"></i></span>
+                        <input type="number" class="form-control rounded-end shadow-sm" name="Experience" required min="0" placeholder="Enter years of experience" />
+                    </div>
+                </div>
+
+                <!-- Information Input -->
+                <div class="mb-4 position-relative">
+                    <label class="form-label fw-bold"><i class="fas fa-info-circle me-2"></i> Information</label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-light"><i class="fas fa-info-circle"></i></span>
+                        <textarea class="form-control rounded-end shadow-sm" name="Information" required placeholder="Enter additional information (e.g., Heart specialist, Eye specialist)"></textarea>
+                    </div>
+                </div>
+
+                <!-- Availability -->
+                <div class="form-check mb-3">
+                    <input asp-for="IsAvailable" class="form-check-input" type="checkbox" />
+                    <label asp-for="IsAvailable" class="form-check-label">Available</label>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-primary btn-lg shadow">
+                        <i class="fas fa-user-plus"></i> Add Doctor
+                    </button>
+                    <a asp-action="Index" class="btn btn-outline-secondary btn-lg ms-3 shadow">
+                        <i class="fas fa-times"></i> Cancel
+                    </a>
+                </div>
+            </form>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <div class="card-footer text-center py-3 bg-light rounded-bottom">
+            <a asp-action="Index" class="btn btn-outline-primary btn-lg shadow-sm">
+                <i class="fas fa-list"></i> Back to Doctor List
+            </a>
+            <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary btn-lg ms-3 shadow-sm">
+                <i class="fas fa-home"></i> Back to Home
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+    if (window.location.href.includes("success=true")) {
+        location.reload(); // Refresh page to show new doctor
+    }
+</script>

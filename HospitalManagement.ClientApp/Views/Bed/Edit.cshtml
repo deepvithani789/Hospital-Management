@@ -1,0 +1,85 @@
+﻿@model HospitalManagement.ClientApp.Models.Bed
+@{
+    ViewData["Title"] = "Edit Bed";
+}
+
+<div class="container py-4" style="max-width: 480px;">
+    <div class="card shadow-sm border-0 rounded-4">
+        <div class="card-header" style="background-color: #c06788; color: white;" class="rounded-top-4 d-flex align-items-center gap-3">
+            <i class="bi bi-pencil-square fs-3"></i>
+            <h3 class="mb-0 fw-semibold">Edit Bed</h3>
+        </div>
+
+        <div class="card-body">
+            <form asp-action="Edit" method="post" novalidate>
+                <input type="hidden" asp-for="Id" />
+
+                <div class="mb-4">
+                    <label asp-for="BedNumber" class="form-label fw-semibold" style="color: #c06788;">Bed Number</label>
+                    <input asp-for="BedNumber" class="form-control form-control-lg" placeholder="Enter bed number" />
+                    <span asp-validation-for="BedNumber" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-4">
+                    <label asp-for="RoomType" class="form-label fw-semibold">Room Type</label>
+                    <select asp-for="RoomType" class="form-select form-select-lg" aria-label="Select ward" required>
+                        <option value="" selected>Select room</option>
+                        <option value="General">General</option>
+                        <option value="AC">AC</option>
+                        <option value="Non-AC">Non-AC</option>
+                        <option value="Deluxe">Deluxe</option>
+                        <option value="VIP">VIP</option>
+                        <option value="ICU">ICU</option>
+                    </select>
+                    <span asp-validation-for="RoomType" class="text-danger small"></span>
+                </div>
+
+                <div class="d-flex justify-content-end gap-3">
+                    <a asp-action="Index" class="btn btn-outline-secondary btn-lg">
+                        <i class="bi bi-x-circle me-1"></i> Cancel
+                    </a>
+                    <button type="submit" class="btn btn-lg text-white" style="background-color: #c06788; border-color: #c06788;">
+                        <i class="bi bi-check-circle me-1"></i> Update
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Card shadow on hover */
+    .card:hover {
+        box-shadow: 0 10px 30px rgb(192 103 136 / 0.4); /* softer shadow tinted with the main color */
+        transition: box-shadow 0.3s ease-in-out;
+    }
+
+    /* Input focus styles */
+    input.form-control:focus {
+        border-color: #c06788;
+        box-shadow: 0 0 0 0.2rem rgb(192 103 136 / 0.25);
+        outline: none;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    label.form-label {
+        /* color already inline but fallback here */
+        color: #c06788;
+    }
+
+    /* Validation error styling */
+    span.text-danger {
+        font-weight: 500;
+    }
+
+    /* Button hover */
+    button.btn:hover {
+        background-color: #a84f6f !important;
+        border-color: #a84f6f !important;
+    }
+
+    .btn-outline-secondary:hover {
+        background-color: #f3f4f6;
+        border-color: #d1d5db;
+    }
+</style>

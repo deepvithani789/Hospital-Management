@@ -1,0 +1,104 @@
+﻿@model HospitalManagement.ClientApp.Models.Doctor
+
+@{
+    ViewData["Title"] = "Edit Doctor";
+}
+
+<div class="container mt-5 d-flex justify-content-center">
+    <div class="card border-0 shadow-lg rounded-4 p-5" style="max-width: 650px; width: 100%; background: linear-gradient(to right, #f4faff, #dff3ff);">
+
+        <!-- Header Section -->
+        <div class="text-center">
+            <h2 class="fw-bold text-primary"><i class="fas fa-user-md me-2"></i> Edit Doctor</h2>
+            <p class="text-muted">Modify the doctor details below.</p>
+        </div>
+
+        <!-- Form Section -->
+        <div class="card-body">
+            <form asp-action="Edit" method="post" onsubmit="saveEditedDoctorId(@Model.Id)">
+                <input type="hidden" name="Id" value="@Model.Id" />
+
+                <!-- Doctor Name Input -->
+                <div class="mb-4">
+                    <label class="form-label fw-bold"><i class="fas fa-user-md me-2"></i> Doctor Name</label>
+                    <input type="text" class="form-control shadow-sm rounded-3" name="Name" value="@Model.Name" required placeholder="Enter doctor's full name" />
+                </div>
+
+                <!-- Email Input -->
+                <div class="mb-4">
+                    <label class="form-label fw-bold"><i class="fas fa-envelope me-2"></i> Email</label>
+                    <input type="email" class="form-control shadow-sm rounded-3" name="Email" value="@Model.Email" required placeholder="Enter doctor's email" />
+                </div>
+
+                <!-- Specialization Input -->
+                <div class="mb-4">
+                    <label class="form-label fw-bold"><i class="fas fa-heartbeat me-2"></i> Specialization</label>
+                    <input type="text" class="form-control shadow-sm rounded-3" name="Specialization" value="@Model.Specialization" required placeholder="Enter specialization" />
+                </div>
+
+                <!-- Gender Input -->
+                <div class="mb-4">
+                    <label class="form-label fw-bold"><i class="fas fa-venus-mars me-2"></i> Gender</label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-light"><i class="fas fa-venus-mars"></i></span>
+                        <select class="form-select rounded-end shadow-sm" name="Gender" required>
+                            <option value="Male" selected="@(Model.Gender == "Male" ? "selected" : null)">Male</option>
+                            <option value="Female" selected="@(Model.Gender == "Female" ? "selected" : null)">Female</option>
+                            <option value="Other" selected="@(Model.Gender == "Other" ? "selected" : null)">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Qualification Input -->
+                <div class="mb-4">
+                    <label class="form-label fw-bold"><i class="fas fa-graduation-cap me-2"></i> Qualification</label>
+                    <input type="text" class="form-control shadow-sm rounded-3" name="Qualification" value="@Model.Qualification" required placeholder="Enter qualification (e.g., MBBS, MD)" />
+                </div>
+
+                <!-- Experience Input -->
+                <div class="mb-4">
+                    <label class="form-label fw-bold"><i class="fas fa-briefcase-medical me-2"></i> Experience (Years)</label>
+                    <input type="number" class="form-control shadow-sm rounded-3" name="Experience" value="@Model.Experience" required placeholder="Enter experience in years" min="0" />
+                </div>
+
+                <!-- Information Input -->
+                <div class="mb-4">
+                    <label class="form-label fw-bold"><i class="fas fa-info-circle me-2"></i> Additional Information</label>
+                    <textarea class="form-control shadow-sm rounded-3" name="Information" required placeholder="Enter relevant details (e.g., Heart Specialist, Eye Specialist)">@Model.Information</textarea>
+                </div>
+
+                <!-- Availability -->
+                <div class="form-check mb-3">
+                    <input asp-for="IsAvailable" class="form-check-input" type="checkbox" />
+                    <label asp-for="IsAvailable" class="form-check-label">Available</label>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-warning btn-lg shadow">
+                        <i class="fas fa-save"></i> Save Changes
+                    </button>
+                    <a asp-action="Index" class="btn btn-danger btn-lg ms-3 shadow">
+                        <i class="fas fa-times"></i> Cancel
+                    </a>
+                </div>
+            </form>
+        </div>
+
+        <!-- Footer Navigation -->
+        <div class="text-center mt-4">
+            <a asp-action="Index" class="btn btn-outline-primary btn-lg shadow-sm">
+                <i class="fas fa-list"></i> Back to Doctor List
+            </a>
+            <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary btn-lg ms-3 shadow-sm">
+                <i class="fas fa-home"></i> Back to Home
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+    function saveEditedDoctorId(doctorId) {
+        localStorage.setItem("editedDoctorId", doctorId);
+    }
+</script>

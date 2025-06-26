@@ -1,0 +1,277 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\New folder\\Hospital-Management-main\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{382111E3-2B99-4293-8644-2BC9019C5796}|HospitalManagement.ClientApp\\HospitalManagement.ClientApp.csproj|e:\\new folder\\hospital-management-main\\hospitalmanagement.clientapp\\views\\pharmacy\\dispensedlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{382111E3-2B99-4293-8644-2BC9019C5796}|HospitalManagement.ClientApp\\HospitalManagement.ClientApp.csproj|solutionrelative:hospitalmanagement.clientapp\\views\\pharmacy\\dispensedlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{382111E3-2B99-4293-8644-2BC9019C5796}|HospitalManagement.ClientApp\\HospitalManagement.ClientApp.csproj|e:\\new folder\\hospital-management-main\\hospitalmanagement.clientapp\\views\\pharmacy\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{382111E3-2B99-4293-8644-2BC9019C5796}|HospitalManagement.ClientApp\\HospitalManagement.ClientApp.csproj|solutionrelative:hospitalmanagement.clientapp\\views\\pharmacy\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{382111E3-2B99-4293-8644-2BC9019C5796}|HospitalManagement.ClientApp\\HospitalManagement.ClientApp.csproj|e:\\new folder\\hospital-management-main\\hospitalmanagement.clientapp\\views\\appointment\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{382111E3-2B99-4293-8644-2BC9019C5796}|HospitalManagement.ClientApp\\HospitalManagement.ClientApp.csproj|solutionrelative:hospitalmanagement.clientapp\\views\\appointment\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{382111E3-2B99-4293-8644-2BC9019C5796}|HospitalManagement.ClientApp\\HospitalManagement.ClientApp.csproj|e:\\new folder\\hospital-management-main\\hospitalmanagement.clientapp\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{382111E3-2B99-4293-8644-2BC9019C5796}|HospitalManagement.ClientApp\\HospitalManagement.ClientApp.csproj|solutionrelative:hospitalmanagement.clientapp\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{382111E3-2B99-4293-8644-2BC9019C5796}|HospitalManagement.ClientApp\\HospitalManagement.ClientApp.csproj|e:\\new folder\\hospital-management-main\\hospitalmanagement.clientapp\\controllers\\pharmacycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{382111E3-2B99-4293-8644-2BC9019C5796}|HospitalManagement.ClientApp\\HospitalManagement.ClientApp.csproj|solutionrelative:hospitalmanagement.clientapp\\controllers\\pharmacycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{382111E3-2B99-4293-8644-2BC9019C5796}|HospitalManagement.ClientApp\\HospitalManagement.ClientApp.csproj|e:\\new folder\\hospital-management-main\\hospitalmanagement.clientapp\\services\\pharmacyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{382111E3-2B99-4293-8644-2BC9019C5796}|HospitalManagement.ClientApp\\HospitalManagement.ClientApp.csproj|solutionrelative:hospitalmanagement.clientapp\\services\\pharmacyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{382111E3-2B99-4293-8644-2BC9019C5796}|HospitalManagement.ClientApp\\HospitalManagement.ClientApp.csproj|e:\\new folder\\hospital-management-main\\hospitalmanagement.clientapp\\models\\dispensedmedicineviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{382111E3-2B99-4293-8644-2BC9019C5796}|HospitalManagement.ClientApp\\HospitalManagement.ClientApp.csproj|solutionrelative:hospitalmanagement.clientapp\\models\\dispensedmedicineviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7608691B-6FF8-40F9-B444-E1AD70B7CF7A}|HospitalManagement.API\\HospitalManagement.API.csproj|e:\\new folder\\hospital-management-main\\hospitalmanagement.api\\controllers\\pharmacycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7608691B-6FF8-40F9-B444-E1AD70B7CF7A}|HospitalManagement.API\\HospitalManagement.API.csproj|solutionrelative:hospitalmanagement.api\\controllers\\pharmacycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7608691B-6FF8-40F9-B444-E1AD70B7CF7A}|HospitalManagement.API\\HospitalManagement.API.csproj|e:\\new folder\\hospital-management-main\\hospitalmanagement.api\\services\\pharmacyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7608691B-6FF8-40F9-B444-E1AD70B7CF7A}|HospitalManagement.API\\HospitalManagement.API.csproj|solutionrelative:hospitalmanagement.api\\services\\pharmacyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7608691B-6FF8-40F9-B444-E1AD70B7CF7A}|HospitalManagement.API\\HospitalManagement.API.csproj|e:\\new folder\\hospital-management-main\\hospitalmanagement.api\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7608691B-6FF8-40F9-B444-E1AD70B7CF7A}|HospitalManagement.API\\HospitalManagement.API.csproj|solutionrelative:hospitalmanagement.api\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7608691B-6FF8-40F9-B444-E1AD70B7CF7A}|HospitalManagement.API\\HospitalManagement.API.csproj|e:\\new folder\\hospital-management-main\\hospitalmanagement.api\\models\\medicinedispense.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7608691B-6FF8-40F9-B444-E1AD70B7CF7A}|HospitalManagement.API\\HospitalManagement.API.csproj|solutionrelative:hospitalmanagement.api\\models\\medicinedispense.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{382111E3-2B99-4293-8644-2BC9019C5796}|HospitalManagement.ClientApp\\HospitalManagement.ClientApp.csproj|e:\\new folder\\hospital-management-main\\hospitalmanagement.clientapp\\models\\dispensemedicinerequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{382111E3-2B99-4293-8644-2BC9019C5796}|HospitalManagement.ClientApp\\HospitalManagement.ClientApp.csproj|solutionrelative:hospitalmanagement.clientapp\\models\\dispensemedicinerequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7608691B-6FF8-40F9-B444-E1AD70B7CF7A}|HospitalManagement.API\\HospitalManagement.API.csproj|e:\\new folder\\hospital-management-main\\hospitalmanagement.api\\models\\medicineinventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7608691B-6FF8-40F9-B444-E1AD70B7CF7A}|HospitalManagement.API\\HospitalManagement.API.csproj|solutionrelative:hospitalmanagement.api\\models\\medicineinventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{382111E3-2B99-4293-8644-2BC9019C5796}|HospitalManagement.ClientApp\\HospitalManagement.ClientApp.csproj|e:\\new folder\\hospital-management-main\\hospitalmanagement.clientapp\\views\\pharmacy\\dispense.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{382111E3-2B99-4293-8644-2BC9019C5796}|HospitalManagement.ClientApp\\HospitalManagement.ClientApp.csproj|solutionrelative:hospitalmanagement.clientapp\\views\\pharmacy\\dispense.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{382111E3-2B99-4293-8644-2BC9019C5796}|HospitalManagement.ClientApp\\HospitalManagement.ClientApp.csproj|e:\\new folder\\hospital-management-main\\hospitalmanagement.clientapp\\models\\medicineinventoryviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{382111E3-2B99-4293-8644-2BC9019C5796}|HospitalManagement.ClientApp\\HospitalManagement.ClientApp.csproj|solutionrelative:hospitalmanagement.clientapp\\models\\medicineinventoryviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7608691B-6FF8-40F9-B444-E1AD70B7CF7A}|HospitalManagement.API\\HospitalManagement.API.csproj|e:\\new folder\\hospital-management-main\\hospitalmanagement.api\\services\\ipharmacyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7608691B-6FF8-40F9-B444-E1AD70B7CF7A}|HospitalManagement.API\\HospitalManagement.API.csproj|solutionrelative:hospitalmanagement.api\\services\\ipharmacyservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\New folder\\Hospital-Management-main\\HospitalManagement.ClientApp\\Views\\Appointment\\Index.cshtml",
+              "RelativeDocumentMoniker": "HospitalManagement.ClientApp\\Views\\Appointment\\Index.cshtml",
+              "ToolTip": "E:\\New folder\\Hospital-Management-main\\HospitalManagement.ClientApp\\Views\\Appointment\\Index.cshtml",
+              "RelativeToolTip": "HospitalManagement.ClientApp\\Views\\Appointment\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAL0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-25T05:51:53.456Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\New folder\\Hospital-Management-main\\HospitalManagement.ClientApp\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "HospitalManagement.ClientApp\\Views\\Home\\Index.cshtml",
+              "ToolTip": "E:\\New folder\\Hospital-Management-main\\HospitalManagement.ClientApp\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "HospitalManagement.ClientApp\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJEAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-24T09:02:17.776Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DispensedList.cshtml",
+              "DocumentMoniker": "E:\\New folder\\Hospital-Management-main\\HospitalManagement.ClientApp\\Views\\Pharmacy\\DispensedList.cshtml",
+              "RelativeDocumentMoniker": "HospitalManagement.ClientApp\\Views\\Pharmacy\\DispensedList.cshtml",
+              "ToolTip": "E:\\New folder\\Hospital-Management-main\\HospitalManagement.ClientApp\\Views\\Pharmacy\\DispensedList.cshtml",
+              "RelativeToolTip": "HospitalManagement.ClientApp\\Views\\Pharmacy\\DispensedList.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-24T08:59:06.565Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DispensedMedicineViewModel.cs",
+              "DocumentMoniker": "E:\\New folder\\Hospital-Management-main\\HospitalManagement.ClientApp\\Models\\DispensedMedicineViewModel.cs",
+              "RelativeDocumentMoniker": "HospitalManagement.ClientApp\\Models\\DispensedMedicineViewModel.cs",
+              "ToolTip": "E:\\New folder\\Hospital-Management-main\\HospitalManagement.ClientApp\\Models\\DispensedMedicineViewModel.cs",
+              "RelativeToolTip": "HospitalManagement.ClientApp\\Models\\DispensedMedicineViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T08:58:14.669Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "MedicineDispense.cs",
+              "DocumentMoniker": "E:\\New folder\\Hospital-Management-main\\HospitalManagement.API\\Models\\MedicineDispense.cs",
+              "RelativeDocumentMoniker": "HospitalManagement.API\\Models\\MedicineDispense.cs",
+              "ToolTip": "E:\\New folder\\Hospital-Management-main\\HospitalManagement.API\\Models\\MedicineDispense.cs",
+              "RelativeToolTip": "HospitalManagement.API\\Models\\MedicineDispense.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-24T08:55:32.746Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "E:\\New folder\\Hospital-Management-main\\HospitalManagement.API\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "HospitalManagement.API\\Data\\AppDbContext.cs",
+              "ToolTip": "E:\\New folder\\Hospital-Management-main\\HospitalManagement.API\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "HospitalManagement.API\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAiwBcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T09:04:37.028Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PharmacyService.cs",
+              "DocumentMoniker": "E:\\New folder\\Hospital-Management-main\\HospitalManagement.ClientApp\\Services\\PharmacyService.cs",
+              "RelativeDocumentMoniker": "HospitalManagement.ClientApp\\Services\\PharmacyService.cs",
+              "ToolTip": "E:\\New folder\\Hospital-Management-main\\HospitalManagement.ClientApp\\Services\\PharmacyService.cs",
+              "RelativeToolTip": "HospitalManagement.ClientApp\\Services\\PharmacyService.cs",
+              "ViewState": "AgIAAD4AAAAAAAAAAAA5wFkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T07:12:17.951Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Dispense.cshtml",
+              "DocumentMoniker": "E:\\New folder\\Hospital-Management-main\\HospitalManagement.ClientApp\\Views\\Pharmacy\\Dispense.cshtml",
+              "RelativeDocumentMoniker": "HospitalManagement.ClientApp\\Views\\Pharmacy\\Dispense.cshtml",
+              "ToolTip": "E:\\New folder\\Hospital-Management-main\\HospitalManagement.ClientApp\\Views\\Pharmacy\\Dispense.cshtml",
+              "RelativeToolTip": "HospitalManagement.ClientApp\\Views\\Pharmacy\\Dispense.cshtml",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAwwI0AAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-23T07:17:35.791Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "DispenseMedicineRequestDto.cs",
+              "DocumentMoniker": "E:\\New folder\\Hospital-Management-main\\HospitalManagement.ClientApp\\Models\\DispenseMedicineRequestDto.cs",
+              "RelativeDocumentMoniker": "HospitalManagement.ClientApp\\Models\\DispenseMedicineRequestDto.cs",
+              "ToolTip": "E:\\New folder\\Hospital-Management-main\\HospitalManagement.ClientApp\\Models\\DispenseMedicineRequestDto.cs",
+              "RelativeToolTip": "HospitalManagement.ClientApp\\Models\\DispenseMedicineRequestDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T07:16:33.561Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "MedicineInventoryViewModel.cs",
+              "DocumentMoniker": "E:\\New folder\\Hospital-Management-main\\HospitalManagement.ClientApp\\Models\\MedicineInventoryViewModel.cs",
+              "RelativeDocumentMoniker": "HospitalManagement.ClientApp\\Models\\MedicineInventoryViewModel.cs",
+              "ToolTip": "E:\\New folder\\Hospital-Management-main\\HospitalManagement.ClientApp\\Models\\MedicineInventoryViewModel.cs",
+              "RelativeToolTip": "HospitalManagement.ClientApp\\Models\\MedicineInventoryViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T07:12:20.842Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PharmacyController.cs",
+              "DocumentMoniker": "E:\\New folder\\Hospital-Management-main\\HospitalManagement.ClientApp\\Controllers\\PharmacyController.cs",
+              "RelativeDocumentMoniker": "HospitalManagement.ClientApp\\Controllers\\PharmacyController.cs",
+              "ToolTip": "E:\\New folder\\Hospital-Management-main\\HospitalManagement.ClientApp\\Controllers\\PharmacyController.cs",
+              "RelativeToolTip": "HospitalManagement.ClientApp\\Controllers\\PharmacyController.cs",
+              "ViewState": "AgIAAK0AAAAAAAAAAAAkwLsAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T07:12:15.4Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "PharmacyService.cs",
+              "DocumentMoniker": "E:\\New folder\\Hospital-Management-main\\HospitalManagement.API\\Services\\PharmacyService.cs",
+              "RelativeDocumentMoniker": "HospitalManagement.API\\Services\\PharmacyService.cs",
+              "ToolTip": "E:\\New folder\\Hospital-Management-main\\HospitalManagement.API\\Services\\PharmacyService.cs",
+              "RelativeToolTip": "HospitalManagement.API\\Services\\PharmacyService.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAAAowEYAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T07:12:04.666Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "PharmacyController.cs",
+              "DocumentMoniker": "E:\\New folder\\Hospital-Management-main\\HospitalManagement.API\\Controllers\\PharmacyController.cs",
+              "RelativeDocumentMoniker": "HospitalManagement.API\\Controllers\\PharmacyController.cs",
+              "ToolTip": "E:\\New folder\\Hospital-Management-main\\HospitalManagement.API\\Controllers\\PharmacyController.cs",
+              "RelativeToolTip": "HospitalManagement.API\\Controllers\\PharmacyController.cs",
+              "ViewState": "AgIAAGYAAAAAAAAAAAAuwHIAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T07:11:54.755Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\New folder\\Hospital-Management-main\\HospitalManagement.ClientApp\\Views\\Pharmacy\\Index.cshtml",
+              "RelativeDocumentMoniker": "HospitalManagement.ClientApp\\Views\\Pharmacy\\Index.cshtml",
+              "ToolTip": "E:\\New folder\\Hospital-Management-main\\HospitalManagement.ClientApp\\Views\\Pharmacy\\Index.cshtml",
+              "RelativeToolTip": "HospitalManagement.ClientApp\\Views\\Pharmacy\\Index.cshtml",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACYAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-23T07:44:45.464Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "IPharmacyService.cs",
+              "DocumentMoniker": "E:\\New folder\\Hospital-Management-main\\HospitalManagement.API\\Services\\IPharmacyService.cs",
+              "RelativeDocumentMoniker": "HospitalManagement.API\\Services\\IPharmacyService.cs",
+              "ToolTip": "E:\\New folder\\Hospital-Management-main\\HospitalManagement.API\\Services\\IPharmacyService.cs",
+              "RelativeToolTip": "HospitalManagement.API\\Services\\IPharmacyService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T08:48:21.816Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "MedicineInventory.cs",
+              "DocumentMoniker": "E:\\New folder\\Hospital-Management-main\\HospitalManagement.API\\Models\\MedicineInventory.cs",
+              "RelativeDocumentMoniker": "HospitalManagement.API\\Models\\MedicineInventory.cs",
+              "ToolTip": "E:\\New folder\\Hospital-Management-main\\HospitalManagement.API\\Models\\MedicineInventory.cs",
+              "RelativeToolTip": "HospitalManagement.API\\Models\\MedicineInventory.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAiwBsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T07:12:01.07Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

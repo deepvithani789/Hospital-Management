@@ -1,0 +1,236 @@
+﻿@model List<HospitalManagement.ClientApp.Models.Doctor>
+
+@{
+    ViewData["Title"] = "Doctor List";
+}
+
+@if (Model == null || !Model.Any())
+{
+    <div class="alert alert-primary text-center">
+        No doctors found !! Return <a asp-action="Index" asp-controller="Home">Home</a>
+    </div>
+}
+
+<div class="container mt-5">
+    <!-- Page Header -->
+    <div class="text-center mb-4">
+        <h2 class="text-primary fw-bold">
+            <i class="fas fa-stethoscope me-2"></i> Our Medical Specialists
+        </h2>
+        <p class="text-muted">Meet our team of expert doctors with diverse specializations.</p>
+    </div>
+
+    <!-- Top Action Buttons -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary shadow">
+            <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+        @if (User.IsInRole("Admin"))
+        {
+            <div class="d-flex gap-2">
+                <a asp-action="AvailableDoctors" class="btn btn-warning shadow">
+                    <i class="fas fa-user-check"></i> View Available Doctors
+                </a>
+                <a asp-action="Create" class="btn btn-primary shadow">
+                    <i class="fas fa-user-plus"></i> Add Doctor
+                </a>
+            </div>
+        }
+
+    </div>
+
+    @if (User.IsInRole("Admin"))
+    {
+        <!-- Filters -->
+        <div class="d-flex flex-wrap justify-content-center mb-4 align-items-center">
+            <input type="text" id="searchInput" class="form-control w-25 me-2 mb-2" placeholder="🔍 Search Doctor..." />
+            <select class="form-select w-25 me-2 mb-2" id="specializationFilter">
+                <option value="">Filter by Specialization</option>
+                @foreach (var specialization in Model.Select(d => d.Specialization).Distinct())
+                {
+                    <option value="@specialization">@specialization</option>
+                }
+            </select>
+            <select class="form-select w-25 me-2 mb-2" id="genderFilter">
+                <option value="">Filter by Gender</option>
+                @foreach (var gender in Model.Select(d => d.Gender).Distinct())
+                {
+                    <option value="@gender">@gender</option>
+                }
+            </select>
+            <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" value="" id="availableOnlyCheck">
+                <label class="form-check-label" for="availableOnlyCheck">
+                    Show Available Only
+                </label>
+            </div>
+        </div>
+    }
+
+    <!-- Doctor List Grid -->
+    <div class="row" id="doctorList">
+        @foreach (var doctor in Model)
+        {
+            <div class="col-lg-4 col-md-6 mb-4 doctor-card"
+                 data-id="@doctor.Id"
+                 data-name="@doctor.Name.ToLower()"
+                 data-specialization="@doctor.Specialization"
+                 data-gender="@doctor.Gender"
+                 data-available="@doctor.IsAvailable.ToString().ToLower()">
+                <div class="card shadow-lg border-0 position-relative">
+
+                    <!-- Availability -->
+                    <div class="position-absolute top-0 end-0 m-3">
+                        <button class="btn availability-toggle-btn @(doctor.IsAvailable ? "available" : "unavailable")" data-id="@doctor.Id">
+                            <i class="fas @(doctor.IsAvailable ? "fa-check-circle" : "fa-ban")"></i>
+                        </button>
+                    </div>
+
+                    <div class="card-body text-center">
+                        <i class="fas fa-user-md fa-3x text-primary mb-3"></i>
+                        <h5 class="fw-bold text-dark">@doctor.Name</h5>
+                        <p class="text-muted"><i class="fas fa-user-tag me-1"></i> @doctor.Specialization</p>
+                        <p class="text-muted"><i class="fas fa-envelope me-1"></i> @doctor.Email</p>
+                        <p class="text-muted"><i class="fas fa-venus-mars me-1"></i> @doctor.Gender</p>
+                        <p class="text-muted"><i class="fas fa-graduation-cap me-1"></i> @doctor.Qualification</p>
+                        <p class="text-muted"><i class="fas fa-briefcase-medical me-1"></i> @doctor.Experience years</p>
+                        <p class="text-muted"><i class="fas fa-info-circle me-1"></i> @doctor.Information</p>
+
+                        <!-- Action Buttons -->
+                        <div class="d-flex justify-content-center mt-3 flex-wrap">
+                            <a asp-action="Details" asp-route-id="@doctor.Id" class="btn btn-outline-primary btn-sm mx-1 mb-1">
+                                <i class="fas fa-eye"></i> Details
+                            </a>
+                            <a asp-action="Edit" asp-route-id="@doctor.Id" class="btn btn-outline-warning btn-sm mx-1 mb-1">
+                                <i class="fas fa-edit"></i> Edit
+                            </a>
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <a asp-action="Delete" asp-route-id="@doctor.Id" class="btn btn-outline-danger btn-sm mx-1 mb-1">
+                                    <i class="fas fa-trash-alt"></i> Delete
+                                </a>
+                            }
+                            <a asp-action="DoctorAppointments" asp-controller="Appointment" asp-route-doctorId="@doctor.Id"
+                               class="btn btn-outline-info btn-sm mx-1 mb-1">
+                                <i class="fas fa-calendar-check"></i> Appointments
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <!-- No Results Message -->
+    <div class="text-center mt-3" id="noResultsMessage" style="display:none; background-color: #ffffff; color: #3B71CA">
+        Doctor not matches to your search.
+    </div>
+</div>
+
+@if (User.IsInRole("Admin"))
+{
+    <!-- JavaScript for Filtering -->
+    <script>
+        document.getElementById("searchInput").addEventListener("keyup", applyFilters);
+        document.getElementById("specializationFilter").addEventListener("change", applyFilters);
+        document.getElementById("genderFilter").addEventListener("change", applyFilters);
+        document.getElementById("availableOnlyCheck").addEventListener("change", applyFilters);
+
+        function applyFilters() {
+            let nameFilter = document.getElementById("searchInput").value.toLowerCase().trim();
+            let specializationFilter = document.getElementById("specializationFilter").value.trim();
+            let genderFilter = document.getElementById("genderFilter").value.trim();
+            let availableOnly = document.getElementById("availableOnlyCheck").checked;
+
+            let doctorCards = document.querySelectorAll(".doctor-card");
+            let anyVisible = false;
+
+            doctorCards.forEach(card => {
+                let name = card.dataset.name;
+                let specialization = card.dataset.specialization;
+                let gender = card.dataset.gender;
+                let available = card.dataset.available === "true";
+
+                let matchesName = name.includes(nameFilter);
+                let matchesSpecialization = specializationFilter === "" || specialization === specializationFilter;
+                let matchesGender = genderFilter === "" || gender === genderFilter;
+                let matchesAvailability = !availableOnly || available;
+
+                if (matchesName && matchesSpecialization && matchesGender && matchesAvailability) {
+                    card.style.display = "block";
+                    anyVisible = true;
+                } else {
+                    card.style.display = "none";
+                }
+            });
+
+            // Show or hide the no results message
+            const noResultsMessage = document.getElementById("noResultsMessage");
+            if (!anyVisible) {
+                noResultsMessage.style.display = "block";
+            } else {
+                noResultsMessage.style.display = "none";
+            }
+        }
+    </script>
+}
+
+<!-- Availability Toggle Button Style -->
+<style>
+    .availability-toggle-btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 2px solid #fff;
+        font-size: 20px;
+        background-color: #f44336;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+        .availability-toggle-btn.available {
+            background-color: #4CAF50;
+        }
+
+        .availability-toggle-btn.unavailable {
+            background-color: #f44336;
+        }
+
+        .availability-toggle-btn:active {
+            transform: scale(0.95);
+        }
+</style>
+
+<script>
+    document.querySelectorAll('.availability-toggle-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            const doctorId = this.dataset.id;
+            const isAvailable = this.classList.contains('available');
+
+            fetch(`/Doctor/ToggleAvailability/${doctorId}`, {
+                method: 'POST',
+                headers: {
+                    'RequestVerificationToken': document.querySelector('input[name="__RequestVerificationToken"]').value,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ isAvailable: !isAvailable })
+            }).then(response => {
+                if (response.ok) {
+                    this.classList.toggle('available');
+                    this.classList.toggle('unavailable');
+                    this.querySelector('i').classList.toggle('fa-check-circle');
+                    this.querySelector('i').classList.toggle('fa-ban');
+                    this.closest('.doctor-card').setAttribute('data-available', (!isAvailable).toString());
+                    applyFilters(); // re-apply filters to reflect toggle effect
+                } else {
+                    alert('Failed to update availability.');
+                }
+            });
+        });
+    });
+</script>

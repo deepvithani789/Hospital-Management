@@ -1,0 +1,155 @@
+﻿@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <script>
+        alert("@TempData["SuccessMessage"]");
+    </script>
+}
+
+@if (!string.IsNullOrEmpty(ViewBag.AccessDeniedMessage))
+{
+    <script>
+        alert("@ViewBag.AccessDeniedMessage");
+    </script>
+}
+
+<div class="container mt-5">
+    <div class="card shadow-lg p-4 text-center" style="border-radius: 12px;">
+        <h1 class="text-primary fw-bold">🏥 Welcome to Hospital Management System</h1>
+        <p class="lead text-muted">Efficiently manage doctors, patients, appointments, prescriptions, and billing.</p>
+        <hr />
+
+        <!-- 🔹 First Row: Doctor, Patient, Appointment -->
+        <div class="row mt-4 justify-content-center">
+            @if (User.IsInRole("Admin") || User.IsInRole("Doctor"))
+            {
+                <div class="col-md-4 col-lg-2 mb-3">
+                    <a href="@Url.Action("Index", "Doctor")" class="btn dashboard-btn btn-primary">
+                        <i class="fas fa-user-md"></i> Doctors
+                    </a>
+                    <p class="mt-2 small text-muted">Manage doctor details, specializations, and schedules.</p>
+                </div>
+            }
+            @if (User.IsInRole("Admin") || User.IsInRole("Receptionist") || User.IsInRole("Patient"))
+            {
+                <div class="col-md-4 col-lg-2 mb-3">
+                    <a href="@Url.Action("Index", "Patient")" class="btn dashboard-btn btn-success">
+                        <i class="fas fa-procedures"></i> Patients
+                    </a>
+                    <p class="mt-2 small text-muted">View and update patient records, history, and treatments.</p>
+                </div>
+            }
+            @if (User.IsInRole("Admin") || User.IsInRole("Doctor") || User.IsInRole("Receptionist") || User.IsInRole("Patient"))
+            {
+                <div class="col-md-4 col-lg-2 mb-3">
+                    <a href="@Url.Action("Index", "Appointment")" class="btn dashboard-btn btn-warning">
+                        <i class="fas fa-calendar-check"></i> Appointments
+                    </a>
+                    <p class="mt-2 small text-muted">Schedule and manage patient appointments with doctors.</p>
+                </div>
+            }
+            @if (User.IsInRole("Admin") || User.IsInRole("Receptionist"))
+            {
+                <div class="col-md-4 col-lg-2 mb-3">
+                    <a href="@Url.Action("Index", "Bed")" class="btn dashboard-btn btn-muted-rose">
+                        <i class="fas fa-bed"></i> Beds
+                    </a>
+                    <p class="mt-2 small text-muted">Assign and release hospital beds for patients.</p>
+                </div>
+            }
+        </div>
+
+        <!-- 🔹 Second Row: Prescription, Billing, Staff -->
+        <div class="row mt-3 justify-content-center">
+            @if (User.IsInRole("Admin") || User.IsInRole("Doctor") || User.IsInRole("Patient"))
+            {
+                <div class="col-md-4 col-lg-2 mb-3">
+                    <a href="@Url.Action("Index", "Prescription")" class="btn dashboard-btn btn-info">
+                        <i class="fas fa-prescription-bottle-alt"></i> Prescriptions
+                    </a>
+                    <p class="mt-2 small text-muted">Generate and manage patient prescriptions with ease.</p>
+                </div>
+            }
+            @if (User.IsInRole("Admin") || User.IsInRole("Cashier") || User.IsInRole("Patient"))
+            {
+                <div class="col-md-4 col-lg-2 mb-3">
+                    <a href="@Url.Action("Index", "Billing")" class="btn dashboard-btn btn-dark">
+                        <i class="fas fa-file-invoice-dollar"></i> Billing
+                    </a>
+                    <p class="mt-2 small text-muted">Process and track patient bills, insurance, and payments.</p>
+                </div>
+            }
+            @if (User.IsInRole("Admin"))
+            {
+                <div class="col-md-4 col-lg-2 mb-3">
+                    <a href="@Url.Action("Index", "Staff")" class="btn dashboard-btn btn-secondary">
+                        <i class="fas fa-user-cog"></i> Staff
+                    </a>
+                    <p class="mt-2 small text-muted">Manage nurses, ward boys, and hospital staff.</p>
+                </div>
+            }
+            @if (User.IsInRole("Admin") || User.IsInRole("Pharmacist"))
+            {
+                <div class="col-md-4 col-lg-2 mb-3">
+                    <a href="@Url.Action("Index", "Pharmacy")" class="btn dashboard-btn btn-random-custom">
+                        <i class="fas fa-pills"></i> Pharmacy
+                    </a>
+                    <p class="mt-2 small text-muted">Dispense medicines and manage prescription fulfillment.</p>
+                </div>
+
+            }
+        </div>
+    </div>
+</div>
+
+<style>
+    .btn-muted-rose {
+        background-color: #d77a9a;
+        color: white;
+        border: none;
+    }
+
+        .btn-muted-rose:hover {
+            background-color: #c06788;
+            color: white;
+        }
+
+    .dashboard-btn {
+        display: block;
+        font-size: 1rem;
+        font-weight: bold;
+        padding: 15px;
+        border-radius: 8px;
+        transition: all 0.3s ease-in-out;
+        text-decoration: none;
+    }
+
+        .dashboard-btn i {
+            margin-right: 8px;
+        }
+
+        .dashboard-btn:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+
+    .text-muted {
+        font-size: 0.9rem;
+    }
+
+    .btn-random-custom {
+        background-color: #7e57c2; /* Example: Soft purple */
+        color: #fff;
+        border: none;
+    }
+
+        .btn-random-custom:hover {
+            background-color: #673ab7;
+            color: #fff;
+        }
+
+</style>

@@ -1,0 +1,133 @@
+﻿@model HospitalManagement.ClientApp.Models.Appointment
+
+@{
+    ViewData["Title"] = "Edit Appointment";
+}
+
+<div class="container mt-5 d-flex justify-content-center">
+    <div class="appointment-card shadow-lg p-4">
+        <!-- Header -->
+        <div class="text-center">
+            <h2 class="appointment-title text-warning" style="font-size:x-large;">
+                <i class="fas fa-calendar-check text-warning"></i> Edit Your Appointment
+            </h2>
+            <p class="text-muted">Modify the details of your scheduled appointment</p>
+        </div>
+
+        <!-- Form -->
+        <form asp-action="Edit" method="post">
+            <input type="hidden" asp-for="Id" />
+
+            <!-- Doctor Selection -->
+            <div class="appointment-field">
+                <label class="form-label">
+                    <i class="fas fa-user-md text-primary"></i> Select Doctor
+                </label>
+                <select asp-for="DoctorId" class="form-control doctor-select">
+                    <option value="">🔍 Choose Doctor</option>
+                    @foreach (var doctor in ViewBag.Doctors)
+                    {
+                        var availabilityClass = doctor.IsAvailable ? "available-doctor" : "";
+                        var isSelected = doctor.Id == Model.DoctorId ? "selected" : "";
+                        <option value="@doctor.Id" class="@availabilityClass" selected=@isSelected>
+                            @doctor.Name - (@doctor.Specialization) @(doctor.IsAvailable ? "(Available)" : "(Unavailable)")
+                        </option>
+                    }
+                </select>
+            </div>
+
+            <!-- Patient Selection -->
+            <div class="appointment-field">
+                <label class="form-label">
+                    <i class="fas fa-user text-success"></i> Select Patient
+                </label>
+                <select asp-for="PatientId" class="form-control">
+                    <option value="">🔍 Choose Patient</option>
+                    @foreach (var patient in ViewBag.Patients)
+                    {
+                        var selected = patient.Id == Model.PatientId ? "selected" : "";
+                        <option value="@patient.Id" selcted=@selected>@patient.Name</option>
+                    }
+                </select>
+            </div>
+
+            <!-- Appointment Date -->
+            <div class="appointment-field">
+                <label class="form-label">
+                    <i class="fas fa-calendar-alt text-warning"></i> Appointment Date & Time
+                </label>
+                <input asp-for="AppointmentDate" class="form-control" type="datetime-local" min="@DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm")" />
+                <span asp-validation-for="AppointmentDate" class="text-danger"></span>
+                <small class="date-warning text-danger d-none">⚠ Select a future date.</small>
+            </div>
+
+            <!-- Status -->
+            <div class="appointment-field">
+                <label class="form-label">
+                    <i class="fas fa-info-circle text-info"></i> Appointment Status
+                </label>
+                <select asp-for="Status" class="form-control status-dropdown">
+                    <option value="Scheduled">🔵 Scheduled</option>
+                    <option value="Approved">✅ Approved</option>
+                    <option value="Cancelled">❌ Cancelled</option>
+                </select>
+            </div>
+
+            <!-- Appointment Type -->
+            <div class="appointment-field">
+                <label class="form-label fw-semibold"><i class="fas fa-stethoscope text-primary"></i> Appointment Type</label>
+                <input asp-for="AppointmentType" type="text" class="form-control" placeholder="Enter type (e.g., Checkup, Surgery)" required />
+            </div>
+
+            <!-- Reason for Visit -->
+            <div class="appointment-field">
+                <label class="form-label">
+                    <i class="fas fa-file-medical text-danger"></i> Reason for Visit
+                </label>
+                <textarea asp-for="ReasonForVisit" class="form-control" rows="3" placeholder="Describe the reason for the appointment..."></textarea>
+            </div>
+
+            <!-- Buttons -->
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-warning btn-lg">✅ Update Appointment</button>
+                <a asp-action="Index" class="btn btn-secondary btn-lg">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Custom Style -->
+<style>
+    /* Highlight available doctors */
+    .available-doctor {
+        background-color: #d4edda !important; /* light green */
+        color: #155724 !important;           /* dark green text */
+        font-weight: bold;
+    }
+
+    .appointment-card {
+        background-color: #ffffff;
+        border-radius: 10px;
+        max-width: 650px;
+        width: 100%;
+    }
+
+    .appointment-title {
+        font-weight: bold;
+    }
+
+    .appointment-field {
+        margin-top: 15px;
+    }
+
+    .form-control:focus {
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+
+    .btn-warning:hover {
+        transform: scale(1.05);
+    }
+</style>
+
+<!-- FontAwesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />

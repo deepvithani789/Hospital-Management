@@ -1,0 +1,84 @@
+﻿@model HospitalManagement.ClientApp.Models.Prescription
+
+@{
+    ViewData["Title"] = "Delete Prescription";
+}
+
+<div class="container mt-5">
+    <div class="delete-box mx-auto text-center">
+        <!-- Warning Icon -->
+        <div class="warning-icon">
+            <i class="fas fa-exclamation-circle text-danger"></i>
+        </div>
+
+        <h2 class="text-danger fw-bold">Confirm Prescription Deletion</h2>
+        <p class="text-muted">This action **CANNOT** be undone!</p>
+
+        <!-- Prescription Card -->
+        <div class="prescription-card shadow-lg">
+            <h5 class="text-primary">🩺 Doctor: <strong>@ViewBag.DoctorName</strong></h5>
+            <h6 class="text-success">👤 Patient: <strong>@ViewBag.PatientName</strong></h6>
+            <p>📅 Issued on: <strong>@Model.DateIssued.ToShortDateString()</strong></p>
+            <p>💊 Medicines: <strong>@Model.Medicines</strong></p>
+        </div>
+
+        <p class="mt-4 text-danger fw-bold">Are you sure you want to **permanently delete** this prescription?</p>
+
+        <form asp-action="Delete" method="post">
+            <input type="hidden" asp-for="Id" />
+            <div class="d-flex justify-content-center gap-3">
+                <button type="submit" class="delete-btn btn btn-danger">
+                    <i class="fas fa-trash"></i> Delete Forever
+                </button>
+                <a asp-action="Index" class="btn btn-secondary">
+                    <i class="fas fa-times"></i> Cancel
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Custom Styles -->
+<style>
+    body {
+        background: #f4f4f4;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .delete-box {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        max-width: 550px;
+        margin: auto;
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+        animation: slideUp 0.5s ease-in-out;
+    }
+
+    .warning-icon i {
+        font-size: 50px;
+        animation: pulse 1s infinite alternate;
+    }
+
+    .prescription-card {
+        border-left: 5px solid #dc3545;
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 20px;
+        transition: transform 0.3s;
+    }
+
+        .prescription-card:hover {
+            transform: scale(1.02);
+        }
+
+    .delete-btn {
+        transition: background 0.3s, transform 0.2s;
+    }
+
+        .delete-btn:hover {
+            background: #c82333;
+            transform: scale(1.05);
+        }
+</style>

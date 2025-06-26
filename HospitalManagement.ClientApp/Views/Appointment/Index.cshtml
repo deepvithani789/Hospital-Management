@@ -1,0 +1,205 @@
+﻿@model List<Appointment>
+
+@{
+    var doctorNames = ViewBag.DoctorNames as Dictionary<int, string> ?? new Dictionary<int, string>();
+    var patientNames = ViewBag.PatientNames as Dictionary<int, string> ?? new Dictionary<int, string>();
+}
+
+@if (Model == null || !Model.Any())
+{
+    <div class="alert alert-warning text-center">
+        No appointments found !! Return <a asp-action="Index" asp-controller="Home">Home</a>
+    </div>
+}
+
+<!-- Page Header -->
+<div class="text-center my-4">
+    <h2 class="text-warning fw-bold"><i class="fas fa-calendar-alt"></i> Appointments</h2>
+    <p class="text-muted">Manage and track patient appointments with doctors efficiently.</p>
+</div>
+
+<!-- Action Buttons -->
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary shadow">
+        <i class="fas fa-home"></i> Back to Home
+    </a>
+    @if (User.IsInRole("Admin") || User.IsInRole("Receptionist"))
+    {
+        <a asp-controller="Doctor" asp-action="AvailableDoctors" class="btn btn-primary shadow">
+            <i class="fas fa-user-check"></i> View Available Doctors
+        </a>
+        <a asp-action="Create" class="btn btn-warning shadow">
+            <i class="fas fa-calendar-plus"></i> Schedule Appointment
+        </a>
+    }
+</div>
+
+@if (User.IsInRole("Admin") || User.IsInRole("Receptionist") || User.IsInRole("Doctor"))
+{
+    <!-- Search & Filter Section -->
+    <div class="d-flex flex-wrap gap-3 justify-content-center mb-4">
+        <input type="text" id="searchInput" class="form-control shadow-sm w-50" placeholder="🔍 Search by Patient Name, Doctor Name, or Date">
+        <select id="statusFilter" class="form-control shadow-sm w-25">
+            <option value="">📌 Filter by Status</option>
+            <option value="Approved">✅ Approved</option>
+            <option value="Scheduled">📅 Scheduled</option>
+            <option value="Cancelled">❌ Cancelled</option>
+        </select>
+    </div>
+}
+
+<!-- Appointment List - Card View -->
+<div class="row g-3" id="appointmentsContainer">
+    @foreach (var appointment in Model)
+    {
+        var patientName = patientNames.ContainsKey(appointment.PatientId) ? patientNames[appointment.PatientId] : "Unknown";
+        var doctorName = doctorNames.ContainsKey(appointment.DoctorId) ? doctorNames[appointment.DoctorId] : "Unknown";
+
+        <div class="col-md-6 col-lg-4 appointment-card"
+        id="appointment-@appointment.Id"
+        data-id="@appointment.Id"
+        data-patient="@patientName.ToLower()"
+        data-doctor="@doctorName.ToLower()"
+        data-status="@appointment.Status.ToLower()"
+        data-date="@appointment.AppointmentDate.ToString("yyyy-MM-dd")">
+
+            <div class="card shadow-lg border-0 rounded-4 p-3 position-relative animate-hover">
+                <span class="position-absolute top-0 end-0 badge rounded-pill
+                    @(appointment.Status == "Approved" ? "bg-success" :
+                    appointment.Status == "Cancelled" ? "bg-danger" : "bg-warning") p-2 m-2">
+                    @appointment.Status
+                </span>
+
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="badge bg-light text-dark p-2 px-3 rounded-3">
+                        <i class="fas fa-calendar-check"></i> <strong>Appointment ID:</strong> @appointment.Id
+                    </span>
+                </div>
+
+                <div class="card-body">
+                    <h5 class="card-title text-primary">
+                        <i class="fas fa-user"></i> Patient: <span class="fw-semibold">@patientName</span>
+                    </h5>
+                    <h6 class="card-subtitle text-muted">
+                        <i class="fas fa-user-md"></i> Doctor: <span class="fw-semibold">@doctorName</span>
+                    </h6>
+
+                    <p class="mt-3">
+                        <i class="fas fa-calendar-day text-info"></i> <strong>Date:</strong> @appointment.AppointmentDate.ToString("dddd, MMM d, yyyy")
+                    </p>
+                    <p>
+                        <i class="fas fa-stethoscope text-success"></i> <strong>Type:</strong> @appointment.AppointmentType
+                    </p>
+                    <p>
+                        <i class="fas fa-notes-medical text-danger"></i> <strong>Reason:</strong> @appointment.ReasonForVisit
+                    </p>
+                </div>
+
+                <div class="d-flex justify-content-between px-3 pb-3">
+                    <a asp-action="Details" asp-route-id="@appointment.Id" class="btn btn-outline-info btn-sm">
+                        <i class="fas fa-eye"></i> View
+                    </a>
+                    @if (User.IsInRole("Admin") || User.IsInRole("Receptionist"))
+                    {
+                        <a asp-action="Edit" asp-route-id="@appointment.Id" class="btn btn-outline-primary btn-sm edit-button" data-id="@appointment.Id">
+                            <i class="fas fa-edit"></i> Edit
+                        </a>
+                    }
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a asp-action="Delete" asp-route-id="@appointment.Id" class="btn btn-outline-danger btn-sm">
+                            <i class="fas fa-trash-alt"></i> Delete
+                        </a>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<!-- JavaScript for Searching, Filtering, Auto-Scroll & Highlight -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const searchInput = document.getElementById('searchInput');
+        const statusFilter = document.getElementById('statusFilter');
+        const appointmentCards = document.querySelectorAll('.appointment-card');
+
+        function populateFilters() {
+            let availableStatuses = new Set();
+
+            appointmentCards.forEach(card => {
+                let status = card.getAttribute('data-status');
+                availableStatuses.add(status);
+            });
+
+            statusFilter.innerHTML = '<option value="">📌 Filter by Status</option>'; // Reset
+            availableStatuses.forEach(status => {
+                let option = document.createElement('option');
+                option.value = status;
+                option.textContent = status.charAt(0).toUpperCase() + status.slice(1);
+                statusFilter.appendChild(option);
+            });
+        }
+
+        function filterAppointments() {
+            let searchValue = searchInput.value.toLowerCase().trim();
+            let filterStatus = statusFilter.value.toLowerCase().trim();
+
+            let anyVisible = false;
+            appointmentCards.forEach(card => {
+                let patient = card.getAttribute('data-patient');
+                let doctor = card.getAttribute('data-doctor');
+                let fullDate = card.getAttribute('data-date');
+                let status = card.getAttribute('data-status');
+
+                let matchPatient = patient.includes(searchValue);
+                let matchDoctor = doctor.includes(searchValue);
+                let matchDate = fullDate.includes(searchValue);
+                let matchStatus = filterStatus === "" || status === filterStatus;
+
+                let show = (matchPatient || matchDoctor || matchDate) && matchStatus;
+                card.style.display = show ? "block" : "none";
+
+                if (show) anyVisible = true;
+            });
+
+            // Show "No Appointments Found" if nothing matches
+            document.getElementById("noAppointments").style.display = anyVisible ? "none" : "block";
+        }
+
+        // Populate filter options based on available data
+        populateFilters();
+
+        searchInput.addEventListener('input', filterAppointments);
+        statusFilter.addEventListener('change', filterAppointments);
+
+        // ✅ Scroll & Highlight Edited Appointment
+        let editedAppointmentId = sessionStorage.getItem("editedAppointmentId");
+        if (editedAppointmentId) {
+            highlightAndScrollToAppointment(editedAppointmentId);
+            sessionStorage.removeItem("editedAppointmentId");
+        }
+
+        function highlightAndScrollToAppointment(appointmentId) {
+            let card = document.getElementById(`appointment-${appointmentId}`);
+            if (card) {
+                card.scrollIntoView({ behavior: "smooth", block: "center" });
+
+                card.style.transition = "background-color 0.5s ease-in-out";
+                card.style.backgroundColor = "#f0e68c"; // Light Yellow
+
+                setTimeout(() => {
+                    card.style.backgroundColor = "";
+                }, 3000);
+            }
+        }
+
+        // ✅ Save Edited Appointment ID Before Redirecting to Edit Page
+        document.querySelectorAll(".edit-button").forEach(button => {
+            button.addEventListener("click", function () {
+                sessionStorage.setItem("editedAppointmentId", this.getAttribute("data-id"));
+            });
+        });
+    });
+</script>
+

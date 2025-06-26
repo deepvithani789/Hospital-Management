@@ -1,0 +1,116 @@
+﻿@model HospitalManagement.ClientApp.Models.Billing
+
+@{
+    ViewData["Title"] = "Delete Billing";
+}
+
+<div class="container mt-5">
+    <div class="card shadow-lg p-5 rounded-4 border-0">
+        <!-- Header -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="text-danger fw-bold">🗑 Delete Billing Record</h2>
+        </div>
+
+        <p class="text-center text-danger fw-bold fs-5">
+            ⚠️ <span class="bg-warning text-dark px-2 py-1 rounded">This action is irreversible!</span>
+            Are you **absolutely sure** you want to delete this billing record?
+        </p>
+        <hr />
+
+        <!-- Blurred Billing Details -->
+        <div class="billing-details-blur p-3 rounded">
+            <dl class="row text-muted">
+                <dt class="col-sm-4">📄 Billing ID:</dt>
+                <dd class="col-sm-8">@Model.Id</dd>
+
+                <dt class="col-sm-4">👤 Patient Name:</dt>
+                <dd class="col-sm-8">@ViewBag.PatientName</dd>
+
+                <dt class="col-sm-4">📅 Appointment Date:</dt>
+                <dd class="col-sm-8">@ViewBag.AppointmentDate</dd>
+
+                <dt class="col-sm-4">💰 Total Amount:</dt>
+                <dd class="col-sm-8">₹ @Model.TotalAmount</dd>
+
+                <dt class="col-sm-4">💵 Discount:</dt>
+                <dd class="col-sm-8">₹ @Model.Discount</dd>
+
+                <dt class="col-sm-4">🏥 Insurance Coverage:</dt>
+                <dd class="col-sm-8">₹ @Model.InsuranceCoverage</dd>
+
+                <dt class="col-sm-4">✅ Final Amount:</dt>
+                <dd class="col-sm-8 fw-bold">₹ @Model.FinalAmount</dd>
+
+                <dt class="col-sm-4">💳 Payment Method:</dt>
+                <dd class="col-sm-8">@Model.PaymentMethod</dd>
+
+                <dt class="col-sm-4">📆 Billing Date:</dt>
+                <dd class="col-sm-8">@Model.BillingDate.ToString("yyyy-MM-dd")</dd>
+
+                <dt class="col-sm-4">💵 Payment Status:</dt>
+                <dd class="col-sm-8">
+                    <span class="badge @(Model.IsPaid ? "bg-success" : "bg-warning")">
+                        @(Model.IsPaid ? "Paid" : "Pending")
+                    </span>
+                </dd>
+            </dl>
+        </div>
+
+        <!-- Delete Confirmation Form -->
+        <form asp-action="Delete" method="post">
+            <input type="hidden" asp-for="Id" />
+            <div class="d-flex justify-content-center gap-3">
+                <button type="submit" class="delete-btn btn btn-danger">
+                    <i class="fas fa-trash"></i> Delete Forever
+                </button>
+                <a asp-action="Index" class="btn btn-secondary">
+                    <i class="fas fa-times"></i> Cancel
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- JavaScript for Confirmation Modal -->
+<script>
+    // function confirmDelete() {
+    //     let confirmation = confirm("⚠️ Are you sure you want to delete this billing record? This action cannot be undone!");
+    //     if (confirmation) {
+    //         document.querySelector("form").submit();
+    //     }
+    // }
+</script>
+
+<!-- Custom Styles -->
+<style>
+    body {
+        background: #f8f9fa;
+        font-family: "Poppins", sans-serif;
+    }
+
+    .card {
+        max-width: 750px;
+        margin: auto;
+    }
+
+    /* .billing-details-blur {
+        background: rgba(255, 0, 0, 0.1);
+        padding: 15px;
+        border-radius: 10px;
+        filter: blur(2px);
+        transition: filter 0.3s ease-in-out;
+    } */
+
+        /* .billing-details-blur:hover {
+            filter: none;
+        } */
+
+    .delete-btn {
+        transition: background 0.3s ease-in-out;
+    }
+
+        .delete-btn:hover {
+            background: #b30000;
+            transform: scale(1.05);
+        }
+</style>

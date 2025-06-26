@@ -1,0 +1,259 @@
+﻿@model List<MedicineInventoryViewModel>
+@{
+    ViewData["Title"] = "Pharmacy Inventory";
+}
+
+@if (Model == null || !Model.Any())
+{
+    <div class="alert alert-pharmacy text-center">
+        No medicines found !! Return <a asp-action="Index" asp-controller="Home">Home</a>
+    </div>
+}
+
+@if (TempData["Message"] != null)
+{
+    <div id="tempMessage" class="alert alert-success text-center">
+        @TempData["Message"]
+    </div>
+}
+<h2 class="text-pharmacy font-weight-bold" align="center"><i class="bi bi-capsule"></i> Pharmacy Inventory</h2>
+
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">
+            <i class="fas fa-home"></i> Back to Home
+        </a>
+        <div class="d-flex gap-2">
+            <a class="btn btn-danger" href="/Pharmacy/ExpiredMedicine">
+                <i class="bi bi-calendar-x"></i> Expired Medicines
+            </a>
+            <a class="btn btn-warning" href="/Pharmacy/LowStock">
+                <i class="bi bi-exclamation-triangle"></i> Low Stock Medicines
+            </a>
+            <a class="btn btn-primary" href="/Pharmacy/Dispense">
+                <i class="bi bi-box-arrow-in-down"></i> Give Medicine
+            </a>
+            <a class="btn btn-pharmacy" href="/Pharmacy/Create">
+                <i class="bi bi-plus-circle"></i> Add New Medicine
+            </a>
+            <a class="btn btn-dark" href="/Pharmacy/DispensedList">
+                <i class="bi bi-plus-circle"></i>View Dispensed Medicines
+            </a>
+        </div>
+    </div>
+
+    <!-- Filters Row -->
+    <div class="row mb-4">
+        <div class="col-md-6 mb-2">
+            <input type="text" id="searchMedicine" class="form-control form-control-lg" placeholder="Search medicine by name..." />
+        </div>
+        <div class="col-md-6 mb-2">
+            <select id="filterStatus" class="form-select form-select-lg">
+                <option value="all" selected>Status</option>
+                <option value="expired">Expired</option>
+                <option value="lowstock">Low Stock</option>
+                <option value="ok">OK</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="card shadow-lg border-0 rounded-lg pharmacy-card">
+        <div class="card-body p-0">
+            <table id="medicineTable" class="table table-bordered table-hover table-responsive-md">
+                <thead class="table-primary">
+                    <tr>
+                        <th>Name</th>
+                        <th>Quantity</th>
+                        <th>Expiry Date</th>
+                        <th>Low Stock Threshold</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var med in Model)
+                    {
+                        var isLowStock = med.QuantityInStock <= med.LowStockThreshold;
+                        var isExpired = med.ExpiryDate <= DateTime.Now;
+
+                        <tr class="@((isExpired || isLowStock) ? "highlight-warning" : "")"
+                            data-status="@(isExpired ? "expired" : isLowStock ? "lowstock" : "ok")">
+                            <td class="fw-semibold medicine-name">@med.MedicineName</td>
+                            <td>@med.QuantityInStock</td>
+                            <td class="text-nowrap">@med.ExpiryDate.ToString("yyyy-MM-dd")</td>
+                            <td>@med.LowStockThreshold</td>
+                            <td>
+                                @if (isExpired)
+                                {
+                                    <span class="badge bg-danger"><i class="bi bi-exclamation-octagon"></i> Expired</span>
+                                }
+                                else if (isLowStock)
+                                {
+                                    <span class="badge bg-warning text-dark"><i class="bi bi-exclamation-triangle"></i> Low Stock</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-success"><i class="bi bi-check-circle"></i> OK</span>
+                                }
+                            </td>
+                            <td class="text-nowrap">
+                                <a href="/Pharmacy/Edit/@med.Id" class="btn btn-outline-secondary btn-sm rounded-pill me-1">
+                                    <i class="bi bi-pencil-square"></i> Edit
+                                </a>
+                            </td>
+                        </tr>
+                    }
+
+                    <!-- No Results Row -->
+                    <tr id="noResultsRow" style="display: none;">
+                        <td colspan="6" class="text-center text-muted py-4">
+                            <i class="bi bi-search"></i> No medicines matched your search.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Tooltip Initialization + Filter Script -->
+<script>
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+
+    function filterMedicines() {
+        var nameFilter = document.getElementById('searchMedicine').value.toLowerCase();
+        var statusFilter = document.getElementById('filterStatus').value;
+        var rows = document.querySelectorAll('#medicineTable tbody tr');
+        var noResultsRow = document.getElementById('noResultsRow');
+
+        let visibleCount = 0;
+
+        rows.forEach(function (row) {
+            if (row.id === "noResultsRow") return; // skip special row
+
+            var medName = row.querySelector('.medicine-name').textContent.toLowerCase();
+            var status = row.getAttribute('data-status');
+
+            var matchesName = medName.includes(nameFilter);
+            var matchesStatus = (statusFilter === 'all') || (status === statusFilter);
+
+            if (matchesName && matchesStatus) {
+                row.style.display = '';
+                visibleCount++;
+            } else {
+                row.style.display = 'none';
+            }
+        });
+
+        noResultsRow.style.display = visibleCount === 0 ? '' : 'none';
+    }
+
+    document.getElementById('searchMedicine').addEventListener('input', filterMedicines);
+    document.getElementById('filterStatus').addEventListener('change', filterMedicines);
+
+    setTimeout(function () {
+        var alert = document.getElementById("tempMessage");
+        if (alert) {
+            alert.style.transition = "opacity 0.5s ease-out";
+            alert.style.opacity = 0;
+            setTimeout(() => alert.remove(), 500); // remove after fade
+        }
+    }, 3000);
+</script>
+
+<style>
+    .btn-sm .bi {
+        font-size: 1rem;
+        margin-right: 5px;
+    }
+
+    .btn-pharmacy {
+        background-color: #7e57c2;
+        color: #fff;
+        border: none;
+    }
+
+        .btn-pharmacy:hover {
+            background-color: #7e57c2;
+            color: #fff;
+        }
+
+    .text-pharmacy {
+        color: #7e57c2;
+    }
+
+    .alert-pharmacy{
+        background-color: #7e57c2;
+        color: #fff;
+    }
+
+    .pharmacy-card {
+        background: linear-gradient(135deg, #f1f7f6, #e8f6f3);
+        border-radius: 10px;
+        padding: 20px;
+    }
+
+    table {
+        border-radius: 0.5rem;
+        border-collapse: separate;
+        border-spacing: 0 10px;
+    }
+
+    th {
+        background-color: #007bff;
+        color: #ffffff;
+        font-size: 1.1rem;
+    }
+
+    td {
+        background-color: #fff;
+        vertical-align: middle;
+        font-size: 0.95rem;
+    }
+
+    .badge {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+        border-radius: 1.25rem;
+        font-weight: bold;
+    }
+
+    .btn-outline-secondary {
+        border-width: 2px;
+        transition: all 0.3s ease;
+    }
+
+        .btn-outline-secondary:hover {
+            background-color: #d0e9fd;
+            color: #007bff;
+        }
+
+    .highlight-warning {
+        background-color: #fff3cd;
+        box-shadow: 0 4px 10px rgba(255, 193, 7, 0.5);
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: #d0f4f1;
+    }
+
+    .text-nowrap {
+        white-space: nowrap;
+    }
+
+    .bi {
+        font-size: 1.2rem;
+    }
+
+    .btn-lg {
+        padding: 10px 20px;
+        font-size: 1.2rem;
+    }
+
+    .font-weight-bold {
+        font-weight: 700;
+    }
+</style>

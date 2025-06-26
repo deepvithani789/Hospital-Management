@@ -1,0 +1,25 @@
+﻿@model HospitalManagement.ClientApp.Models.Bed
+@{
+    ViewData["Title"] = "Release Bed";
+}
+
+<h2>Release Bed</h2>
+<hr />
+
+@if (Model.PatientId == null)
+{
+    <div class="alert alert-warning">
+        This bed is not currently assigned to any patient.
+    </div>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+}
+else
+{
+    <p>Are you sure you want to release the bed <strong>@Model.BedNumber</strong> in room <strong>@Model.RoomType</strong> assigned to <strong>@Model.Patient?.Name</strong>?</p>
+
+    <form asp-action="Release" method="post">
+        <input type="hidden" name="patientId" value="@Model.PatientId" />
+        <button type="submit" class="btn btn-danger">Confirm Release</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </form>
+}

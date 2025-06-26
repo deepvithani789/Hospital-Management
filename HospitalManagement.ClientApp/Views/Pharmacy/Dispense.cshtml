@@ -1,0 +1,153 @@
+﻿@model HospitalManagement.ClientApp.Models.DispenseMedicineRequestDto
+@{
+    ViewBag.Title = "Dispense Medicine";
+    var medicines = ViewBag.Medicines as List<HospitalManagement.ClientApp.Models.MedicineInventoryViewModel>;
+    var patients = ViewBag.Patients as List<HospitalManagement.ClientApp.Models.Patient>;
+
+    var patientJson = System.Text.Json.JsonSerializer.Serialize(
+        patients.Select(p => new { id = p.Id, name = p.Name })
+    );
+}
+
+<h2>Dispense Medicine</h2>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-info">@TempData["Message"]</div>
+}
+
+<form asp-action="Dispense" method="post">
+    <div class="form-group mb-3">
+        <label>Patient Input Method</label><br />
+        <div class="form-check form-check-inline">
+            <input type="radio" name="inputMode" value="dropdown" checked class="form-check-input" id="modeDropdown" />
+            <label class="form-check-label" for="modeDropdown">Select from Dropdown</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input type="radio" name="inputMode" value="manual" class="form-check-input" id="modeManual" />
+            <label class="form-check-label" for="modeManual">Enter Patient Name</label>
+        </div>
+    </div>
+
+    <div id="dropdownMode" class="form-group">
+        <label>Select Patient</label>
+        <select id="patientSelect" class="form-control">
+            <option value="">Select Patient</option>
+            @foreach (var patient in patients)
+            {
+                <option value="@patient.Id">@patient.Name (@patient.Id)</option>
+            }
+        </select>
+    </div>
+
+    <div id="manualMode" class="form-group" style="display: none;">
+        <label>Enter Patient Name</label>
+        <input type="text" id="manualPatientName" class="form-control" placeholder="Enter patient name manually" />
+    </div>
+
+    <input type="hidden" asp-for="PatientId" id="PatientId" />
+
+    <hr />
+
+    <div id="dispense-items">
+        @for (int i = 0; i < Model.Items.Count; i++)
+        {
+            <div class="row mb-2 medicine-row">
+                <div class="col-md-6">
+                    <select asp-for="Items[@i].MedicineId" class="form-control" required>
+                        <option value="">Select Medicine</option>
+                        @foreach (var med in medicines)
+                        {
+                            <option value="@med.Id">@med.MedicineName (In Stock: @med.QuantityInStock)</option>
+                        }
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <input asp-for="Items[@i].Quantity" class="form-control" placeholder="Quantity" required />
+                </div>
+                <div class="col-md-2 d-flex align-items-center">
+                    <button type="button" class="btn btn-danger btn-sm remove-row">Remove</button>
+                </div>
+            </div>
+        }
+    </div>
+
+    <button type="button" id="addMedicineBtn" class="btn btn-secondary mb-3">+ Add More Medicine</button>
+    <br />
+    <button type="submit" class="btn btn-primary mt-3">Dispense</button>
+</form>
+
+
+    <script>
+        const patientList = @Html.Raw(patientJson);
+
+        const medicineOptions = `@{
+            foreach (var med in medicines)
+            {
+                @:<option value="@med.Id">@med.MedicineName (In Stock: @med.QuantityInStock)</option>
+            }
+        }`;
+
+        function updatePatientId() {
+            const mode = document.querySelector('input[name="inputMode"]:checked').value;
+            if (mode === 'dropdown') {
+                const id = document.getElementById('patientSelect').value;
+                document.getElementById('PatientId').value = id;
+            } else {
+                const name = document.getElementById('manualPatientName').value.trim().toLowerCase();
+                const match = patientList.find(p => p.name.toLowerCase() === name);
+                document.getElementById('PatientId').value = match ? match.id : '';
+            }
+        }
+
+        document.getElementById('patientSelect').addEventListener('change', updatePatientId);
+        document.getElementById('manualPatientName')?.addEventListener('input', updatePatientId);
+
+        document.querySelectorAll('input[name="inputMode"]').forEach(el => {
+            el.addEventListener('change', function () {
+                const dropdown = document.getElementById('dropdownMode');
+                const manual = document.getElementById('manualMode');
+                if (this.value === 'dropdown') {
+                    dropdown.style.display = 'block';
+                    manual.style.display = 'none';
+                } else {
+                    dropdown.style.display = 'none';
+                    manual.style.display = 'block';
+                }
+                updatePatientId();
+            });
+        });
+
+        let index = @Model.Items.Count;
+
+        document.getElementById('addMedicineBtn').addEventListener('click', function () {
+            const container = document.getElementById('dispense-items');
+            const newRow = document.createElement('div');
+            newRow.className = 'row mb-2 medicine-row';
+
+            newRow.innerHTML = `
+                <div class="col-md-6">
+                    <select name="Items[${index}].MedicineId" class="form-control" required>
+                        ${medicineOptions}
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <input type="number" name="Items[${index}].Quantity" class="form-control" placeholder="Quantity" required />
+                </div>
+                <div class="col-md-2 d-flex align-items-center">
+                    <button type="button" class="btn btn-danger btn-sm remove-row">Remove</button>
+                </div>
+            `;
+            container.appendChild(newRow);
+            index++;
+        });
+
+        document.addEventListener('click', function (e) {
+            if (e.target && e.target.classList.contains('remove-row')) {
+                e.target.closest('.medicine-row')?.remove();
+            }
+        });
+
+        updatePatientId();
+    </script>
+

@@ -1,0 +1,104 @@
+﻿@using System.Security.Claims
+@{
+    ViewData["Title"] = "Access Denied";
+    var role = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
+}
+
+<div class="access-denied-container">
+    <div class="access-denied-card">
+        <div class="lock-icon">
+            <i class="fas fa-lock"></i>
+        </div>
+        <h1>Access Denied</h1>
+        <p>🚫 You do not have the necessary permissions to access this page or you are not a member of staff in our management.</p>
+
+        <p class="role-message">
+            Your current role, <span class="role-highlight">@role</span>,
+            does not grant access to this section.
+            If you believe this is an error or require access, please contact the system administrator.
+        </p>
+
+        <a href="@Url.Action("Index", "Home")" class="btn-back">
+            <i class="fas fa-arrow-left"></i> Return to Home
+        </a>
+    </div>
+</div>
+
+<!-- FontAwesome & Custom Styles -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+<style>
+    /* Fullscreen background */
+    .access-denied-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: radial-gradient(circle, #141E30, #243B55);
+        color: #fff;
+        text-align: center;
+    }
+
+    /* Glassmorphism card */
+    .access-denied-card {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(12px);
+        border-radius: 15px;
+        padding: 40px;
+        box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.4);
+        max-width: 420px;
+        width: 90%;
+        position: relative;
+    }
+
+    /* Lock icon */
+    .lock-icon {
+        font-size: 60px;
+        color: #ff4b5c;
+        margin-bottom: 15px;
+        text-shadow: 0px 0px 15px rgba(255, 75, 92, 0.7);
+    }
+
+    /* Heading */
+    h1 {
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 10px;
+        letter-spacing: 1px;
+    }
+
+    /* Role Message */
+    .role-message {
+        font-size: 16px;
+        font-weight: 500;
+        margin-bottom: 10px;
+        color: #ddd;
+        line-height: 1.6;
+    }
+
+    /* Role Highlight */
+    .role-highlight {
+        font-weight: bold;
+        font-size: 18px;
+        color: #ff7eb3;
+    }
+
+    /* Button */
+    .btn-back {
+        display: inline-block;
+        background: linear-gradient(135deg, #ff4b5c, #ff1e56);
+        color: #fff;
+        padding: 12px 24px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: all 0.3s ease-in-out;
+        box-shadow: 0px 5px 15px rgba(255, 75, 92, 0.4);
+    }
+
+        .btn-back:hover {
+            background: linear-gradient(135deg, #e63950, #c70039);
+            transform: scale(1.08);
+            box-shadow: 0px 8px 18px rgba(255, 30, 86, 0.6);
+        }
+</style>

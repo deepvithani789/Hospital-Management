@@ -1,0 +1,38 @@
+﻿@model HospitalManagement.ClientApp.Models.Appointment
+
+@{
+    ViewData["Title"] = "Delete Appointment";
+}
+
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="delete-card shadow-lg p-4 text-center">
+        <!-- Warning Icon & Header -->
+        <div class="text-danger">
+            <i class="fas fa-exclamation-triangle fa-3x"></i>
+            <h2 class="mt-2">Warning: Delete Appointment?</h2>
+        </div>
+        <p class="text-muted">This action is irreversible. Please confirm.</p>
+
+        <!-- Appointment Details -->
+        <div class="delete-info p-3 my-3">
+            <p><strong>👨‍⚕️ Doctor:</strong> <span class="text-primary">@ViewBag.DoctorName</span></p>
+            <p><strong><i class="fas fa-user text-success"></i> Patient:</strong> <span class="text-primary">@ViewBag.PatientName</span></p>
+            <p><strong>📅 Date:</strong> <span class="text-dark">@Model.AppointmentDate.ToShortDateString()</span></p>
+            <p><strong>🔹 Status:</strong> <span class="status-badge" id="statusBadge">@Model.Status</span></p>
+        </div>
+
+        <!-- Confirmation Buttons -->
+        <form asp-action="Delete" method="post">
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="DoctorId" />
+            <input type="hidden" asp-for="PatientId" />
+            <input type="hidden" asp-for="AppointmentDate" />
+            <input type="hidden" asp-for="Status" />
+
+            <div class="d-flex justify-content-center gap-3">
+                <button type="submit" class="btn btn-danger btn-lg delete-btn">🗑 Confirm Delete</button>
+                <a asp-action="Index" class="btn btn-secondary btn-lg">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>

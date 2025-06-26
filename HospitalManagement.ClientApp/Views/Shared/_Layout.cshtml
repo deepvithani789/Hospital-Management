@@ -1,0 +1,263 @@
+﻿@using System.Security.Claims
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"] - Hospital Management System</title>
+
+    <!-- Bootstrap 5 & FontAwesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <style>
+        body {
+            background: #eef2f3;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;
+            color: white !important;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+            .navbar-brand i {
+                font-size: 28px;
+            }
+
+        /* Nav links flex alignment */
+        .navbar-nav .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 6px; /* spacing between icon and text */
+            font-size: 16px;
+            color: white !important;
+            transition: all 0.3s ease;
+            padding: 8px 12px;
+        }
+
+            .navbar-nav .nav-link i {
+                font-size: 18px;
+                line-height: 1;
+            }
+
+            .navbar-nav .nav-link:hover,
+            .navbar-nav .nav-link.active {
+                color: #ffcc00 !important;
+                text-decoration: none;
+            }
+
+        /* Dropdown toggle flex */
+        .navbar-nav .dropdown-toggle {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: white !important;
+        }
+
+        .dropdown-menu {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            font-size: 14px;
+        }
+
+        .dropdown-item:hover {
+            background-color: skyblue;
+        }
+
+        .dropdown-item-text {
+            white-space: normal;
+            font-size: 14px;
+            padding: 5px 15px;
+        }
+
+        .footer {
+            background: #0d6efd;
+            color: white;
+            padding: 1px 10px;
+            font-size: 12px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 100;
+            box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);
+        }
+
+
+        .login-btn {
+            background: #ffcc00;
+            color: #333;
+            font-weight: bold;
+            border-radius: 20px;
+            padding: 6px 15px;
+            transition: all 0.3s ease;
+        }
+
+            .login-btn:hover {
+                background: #e6b800;
+                color: #000;
+            }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="@Url.Action("Index", "Home")">
+                <i class="fas fa-hospital"></i> Hospital
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "AdminDashboard" ? "active" : "")" href="@Url.Action("AdminDashboard", "Admin")">
+                                <i class="fas fa-compass"></i> Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Dashboard" ? "active" : "")" href="@Url.Action("Dashboard", "Admin")">
+                                <i class="fas fa-chart-bar"></i> Analytics
+                            </a>
+                        </li>
+                    }
+
+                    @if (User.IsInRole("Admin") || User.IsInRole("Doctor"))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Doctor" ? "active" : "")" href="@Url.Action("Index", "Doctor")">
+                                <i class="fas fa-user-md"></i> Doctors
+                            </a>
+                        </li>
+                    }
+
+                    @if (User.IsInRole("Admin") || User.IsInRole("Receptionist") || User.IsInRole("Patient"))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Patient" ? "active" : "")" href="@Url.Action("Index", "Patient")">
+                                <i class="fas fa-users"></i> Patients
+                            </a>
+                        </li>
+                    }
+
+                    @if (User.IsInRole("Admin") || User.IsInRole("Doctor") || User.IsInRole("Receptionist") || User.IsInRole("Patient"))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Appointment" ? "active" : "")" href="@Url.Action("Index", "Appointment")">
+                                <i class="fas fa-calendar-alt"></i> Appointments
+                            </a>
+                        </li>
+                    }
+
+                    @if (User.IsInRole("Admin") || User.IsInRole("Doctor") || User.IsInRole("Patient"))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Prescription" ? "active" : "")" href="@Url.Action("Index", "Prescription")">
+                                <i class="fas fa-pills"></i> Prescriptions
+                            </a>
+                        </li>
+                    }
+
+                    @if (User.IsInRole("Admin") || User.IsInRole("Cashier") || User.IsInRole("Patient"))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Billing" ? "active" : "")" href="@Url.Action("Index", "Billing")">
+                                <i class="fas fa-money-bill-wave"></i> Billing
+                            </a>
+                        </li>
+                    }
+
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Staff" ? "active" : "")" href="@Url.Action("Index", "Staff")">
+                                <i class="fas fa-tools"></i> Staff
+                            </a>
+                        </li>
+                    }
+
+                    @if (User.IsInRole("Admin") || User.IsInRole("Pharmacist"))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Pharmacy" ? "active" : "")" href="@Url.Action("Index", "Pharmacy")">
+                                <i class="fas fa-flask"></i> Pharmacy
+                            </a>
+                        </li>
+                    }
+
+                    @if (User.IsInRole("Admin") || User.IsInRole("Receptionist"))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Bed" ? "active" : "")" href="@Url.Action("Index", "Bed")">
+                                <i class="fas fa-bed"></i> Beds
+                            </a>
+                        </li>
+                    }
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        var emailClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email || c.Type == "email")?.Value;
+                        var nameClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Name || c.Type == "name")?.Value;
+                        var roleClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-user"></i> @(nameClaim ?? emailClaim ?? "User")
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                                <li><span class="dropdown-item-text"><strong>Name:</strong> @nameClaim</span></li>
+                                <li><span class="dropdown-item-text"><strong>Email:</strong> @emailClaim</span></li>
+                                <li><span class="dropdown-item-text"><strong>Role:</strong> @roleClaim</span></li>
+                                <li><hr class="dropdown-divider" /></li>
+                                <li><a class="dropdown-item" href="@Url.Action("AboutUs", "Home")"><i class="fas fa-hospital"></i> About Us</a></li>
+                                <li><a class="dropdown-item" href="@Url.Action("ContactUs", "Home")"><i class="fas fa-phone"></i> Contact Us</a></li>
+                                <li><a class="dropdown-item" href="@Url.Action("Index", "ChangePassword")"><i class="fas fa-key"></i> Change Password</a></li>
+                                <li>
+                                    <form asp-controller="Login" asp-action="Logout" method="post" class="d-inline">
+                                        <button type="submit" class="dropdown-item text-danger">
+                                            <i class="fas fa-sign-out-alt"></i> Logout
+                                        </button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="btn login-btn btn-sm" asp-controller="Login" asp-action="Index"><i class="fas fa-lock"></i> Login</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        @RenderBody()
+    </div>
+
+    <div class="footer text-center">
+        &copy; @DateTime.Now.Year - Hospital Management System | Designed for better healthcare.
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

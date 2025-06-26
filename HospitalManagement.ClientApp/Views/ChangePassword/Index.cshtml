@@ -1,0 +1,93 @@
+﻿@model HospitalManagement.ClientApp.Models.ChangePasswordDto
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Change Password";
+}
+
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+<div class="container py-5 d-flex justify-content-center">
+    <div class="card shadow-lg rounded-5 border-0" style="max-width: 600px; width: 100%; background: linear-gradient(135deg, #f7f7f7, #e0e0e0);">
+        <div class="card-body p-5">
+            <h3 class="mb-4 text-center text-primary fw-bold">🔒 Change Your Password</h3>
+            <form asp-action="ChangePassword" method="post" novalidate>
+                <!-- Email -->
+                <div class="mb-4">
+                    <label class="form-label text-muted">Email</label>
+                    <input asp-for="Email" class="form-control bg-light border-0 rounded-3 shadow-sm" readonly />
+                </div>
+
+                <!-- Current Password -->
+                <div class="mb-4">
+                    <label class="form-label text-muted">Current Password</label>
+                    <div class="position-relative">
+                        <input asp-for="CurrentPassword" id="CurrentPassword" type="password" class="form-control bg-light border-0 rounded-3 shadow-sm pr-5" placeholder="Enter current password" />
+                        <i class="bi bi-eye-slash toggle-password" id="eyeIconCurrentPassword" onclick="togglePassword('CurrentPassword')" style="top: 50%; right: 15px;"></i>
+                    </div>
+                </div>
+
+                <!-- New Password -->
+                <div class="mb-4">
+                    <label class="form-label text-muted">New Password</label>
+                    <div class="position-relative">
+                        <input asp-for="NewPassword" id="NewPassword" type="password" class="form-control bg-light border-0 rounded-3 shadow-sm pr-5" placeholder="Enter new password" />
+                        <i class="bi bi-eye-slash toggle-password" id="eyeIconNewPassword" onclick="togglePassword('NewPassword')" style="top: 50%; right: 15px;"></i>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary btn-lg rounded-4 shadow-lg">Update Password</button>
+                </div>
+
+                <!-- Alerts -->
+                @if (TempData["SuccessMessage"] != null)
+                {
+                    <div class="alert alert-success mt-4 text-center p-3">
+                        @TempData["SuccessMessage"]
+                    </div>
+                }
+
+                @if (TempData["Error"] != null)
+                {
+                    <div class="alert alert-danger mt-4 text-center p-3">
+                        @TempData["Error"]
+                    </div>
+                }
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    function togglePassword(fieldId) {
+        const input = document.getElementById(fieldId);
+        const icon = document.getElementById("eyeIcon" + fieldId);
+        if (input.type === "password") {
+            input.type = "text";
+            icon.classList.remove("bi-eye-slash");
+            icon.classList.add("bi-eye");
+        } else {
+            input.type = "password";
+            icon.classList.remove("bi-eye");
+            icon.classList.add("bi-eye-slash");
+        }
+    }
+</script>
+
+<style>
+    /* Keep only styles specific to this view */
+    .toggle-password {
+        position: absolute;
+        transform: translateY(-50%);
+        cursor: pointer;
+        color: #007bff;
+        font-size: 20px;
+    }
+
+        .toggle-password:hover {
+            transform: translateY(-50%) scale(1.2);
+        }
+</style>

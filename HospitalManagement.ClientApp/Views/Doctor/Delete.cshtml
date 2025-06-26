@@ -1,0 +1,57 @@
+﻿@model HospitalManagement.ClientApp.Models.Doctor
+
+@{
+    ViewData["Title"] = "Delete Doctor";
+}
+
+<div class="container mt-5 d-flex justify-content-center">
+    <div class="card border-0 shadow-lg rounded-4 p-5 text-center" style="max-width: 600px; width: 100%; background: linear-gradient(to right, #fff5f5, #ffe5e5);">
+
+        <!-- Warning Header -->
+        <div class="alert alert-danger d-flex align-items-center" role="alert">
+            <i class="fas fa-exclamation-triangle fa-2x me-3"></i>
+            <div>
+                <h4 class="fw-bold">Warning!</h4>
+                <p class="mb-0">This action is irreversible. Please confirm before proceeding.</p>
+            </div>
+        </div>
+
+        <!-- Doctor Information -->
+        <div class="mb-4">
+            <h2 class="fw-bold text-danger"><i class="fas fa-user-md me-2"></i> Delete Doctor</h2>
+            <p class="text-muted">Are you sure you want to delete <strong class="text-dark">@Model.Name</strong>?</p>
+            <p><strong>Specialization:</strong> @Model.Specialization</p>
+            <p><strong>Email:</strong> @Model.Email</p>
+            <p><strong>Gender:</strong> @Model.Gender</p>
+            <p><strong>Qualification:</strong> @Model.Qualification</p>
+            <p><strong>Experience:</strong> @Model.Experience years</p>
+        </div>
+
+        <!-- Delete Confirmation Form -->
+        <div class="card-body">
+            <form asp-action="Delete" method="post">
+                <input type="hidden" name="Id" value="@Model.Id" />
+
+                <!-- Action Buttons -->
+                <div class="d-flex justify-content-center gap-3">
+                    <button type="submit" class="btn btn-danger btn-lg shadow">
+                        <i class="fas fa-trash-alt"></i> Delete
+                    </button>
+                    <a asp-action="Index" class="btn btn-dark btn-lg shadow">
+                        <i class="fas fa-times"></i> Cancel
+                    </a>
+                </div>
+            </form>
+        </div>
+
+        <!-- Footer Navigation -->
+        <div class="text-center mt-4">
+            <a asp-action="Index" class="btn btn-outline-primary btn-lg shadow-sm">
+                <i class="fas fa-list"></i> Back to Doctor List
+            </a>
+            <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary btn-lg ms-3 shadow-sm">
+                <i class="fas fa-home"></i> Back to Home
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,144 @@
+﻿@model HospitalManagement.ClientApp.Models.Appointment
+
+@{
+    ViewData["Title"] = "Schedule Appointment";
+}
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+}
+
+<div class="container mt-5 d-flex justify-content-center">
+    <div class="glass-card p-5">
+
+        <!-- Header with Animated Icon -->
+        <div class="text-center mb-4">
+            <h2 class="text-warning fw-bold">
+                <i class="fas fa-calendar-plus"></i> Schedule Appointment
+            </h2>
+            <p class="text-muted">
+                Select a doctor and patient, then choose the date and status to schedule an appointment.
+            </p>
+        </div>
+
+        <!-- Appointment Form -->
+        <form asp-action="Create" method="post">
+            <div class="row g-3">
+                <!-- Select Doctor -->
+                <div class="col-md-6">
+                    <label class="form-label fw-semibold"><i class="fas fa-user-md text-primary"></i> Doctor</label>
+                    <select asp-for="DoctorId" class="form-control custom-select">
+                        <option value="">🔍 Select a Doctor</option>
+                        @foreach (var doctor in ViewBag.Doctors)
+                        {
+                            var availabilityClass = doctor.IsAvailable ? "available-doctor" : "";
+                            <option value="@doctor.Id" class="@availabilityClass">
+                                @doctor.Name - (@doctor.Specialization) @(doctor.IsAvailable ? "(Available)" : "(Unavailable)")
+                            </option>
+                        }
+                    </select>
+                </div>
+
+                <!-- Select Patient -->
+                <div class="col-md-6">
+                    <label class="form-label fw-semibold"><i class="fas fa-user text-success"></i> Patient</label>
+                    <select asp-for="PatientId" class="form-control custom-select">
+                        <option value="">🔍 Select a Patient</option>
+                        @foreach (var patient in ViewBag.Patients)
+                        {
+                            <option value="@patient.Id">@patient.Name</option>
+                        }
+                    </select>
+                </div>
+
+                <!-- Appointment Date -->
+                <div class="col-md-6">
+                    <label class="form-label fw-semibold"><i class="fas fa-calendar-alt text-warning"></i> Appointment Date</label>
+                    <input asp-for="AppointmentDate" class="form-control" type="datetime-local" min="@DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm")" />
+                    <span asp-validation-for="AppointmentDate" class="text-danger"></span>
+                </div>
+
+                <!-- Appointment Status -->
+                <div class="col-md-6">
+                    <label class="form-label fw-semibold"><i class="fas fa-info-circle text-info"></i> Status</label>
+                    <select asp-for="Status" class="form-control">
+                        <option>Scheduled</option>
+                        <option>Approved</option>
+                        <option>Cancelled</option>
+                    </select>
+                </div>
+
+                <!-- Appointment Type -->
+                <div class="col-md-6">
+                    <label class="form-label fw-semibold"><i class="fas fa-stethoscope text-primary"></i> Appointment Type</label>
+                    <input asp-for="AppointmentType" type="text" class="form-control" placeholder="Enter type (e.g., Checkup, Surgery)" required />
+                </div>
+
+                <!-- Reason for Visit -->
+                <div class="col-md-6">
+                    <label class="form-label fw-semibold"><i class="fas fa-notes-medical text-danger"></i> Reason for Visit</label>
+                    <textarea asp-for="ReasonForVisit" class="form-control" rows="3" placeholder="Describe the reason for visit" required></textarea>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-warning px-4 py-2 shadow-sm">
+                    <i class="fas fa-calendar-check"></i> Schedule
+                </button>
+                <a asp-action="Index" class="btn btn-secondary px-4 py-2 shadow-sm">
+                    <i class="fas fa-times"></i> Cancel
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Custom Styles -->
+<style>
+    /* Glassmorphism Effect */
+    .glass-card {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        padding: 30px;
+        max-width: 600px;
+        width: 100%;
+        box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    /* Custom Select Dropdown */
+    .custom-select {
+        border-radius: 8px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        transition: all 0.3s ease;
+    }
+
+        .custom-select:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+    /* Hover Effects for Buttons */
+    .btn-primary:hover {
+        background-color: #0056b3;
+        transform: scale(1.05);
+    }
+
+    .btn-outline-danger:hover {
+        background-color: #dc3545;
+        color: white;
+    }
+    /* Style for available doctors */
+    .available-doctor {
+        background-color: #d4edda; /* light green */
+        color: #155724; /* dark green text */
+        font-weight: bold;
+    }
+
+</style>
+
+<!-- FontAwesome for Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">

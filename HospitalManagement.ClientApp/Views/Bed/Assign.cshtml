@@ -1,0 +1,105 @@
+﻿@{
+    ViewData["Title"] = "Assign Bed to Patient";
+    var beds = ViewBag.Beds as List<HospitalManagement.ClientApp.Models.Bed> ?? new List<HospitalManagement.ClientApp.Models.Bed>();
+    var patients = ViewBag.Patients as List<HospitalManagement.ClientApp.Models.Patient> ?? new List<HospitalManagement.ClientApp.Models.Patient>();
+}
+
+<div class="container py-5" style="max-width: 520px;">
+    <div class="card rounded-4 shadow-sm border-0">
+        <div class="card-header bg-primary text-white d-flex align-items-center gap-3 rounded-top-4">
+            <i class="bi bi-hospital fs-3"></i>
+            <h3 class="mb-0 fw-semibold">Assign Bed to Patient</h3>
+        </div>
+        <div class="card-body">
+            <form asp-action="Assign" method="post" novalidate>
+                <div class="mb-4">
+                    <label for="bedId" class="form-label fw-semibold">Available Beds</label>
+                    <select id="bedId" name="bedId" class="form-select form-select-lg" aria-label="Select available bed" required>
+                        <option value="" disabled selected>Choose a bed</option>
+                        @foreach (var bed in beds.Where(b => !b.isOccupied))
+                        {
+                            <option value="@bed.Id">@bed.BedNumber &mdash; @bed.RoomType Room</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="mb-4 position-relative">
+                    <label for="patientName" class="form-label fw-semibold">Select Patient</label>
+                    <input type="text" id="patientName" name="patientName" class="form-control form-control-lg" placeholder="Type patient name..." autocomplete="off" required />
+                    <input type="hidden" id="patientId" name="patientId" />
+
+                    <ul id="patientList" class="list-group position-absolute w-100" style="z-index: 1000; max-height: 200px; overflow-y: auto; display: none;">
+                        @foreach (var p in patients)
+                        {
+                            <li class="list-group-item list-group-item-action" data-patient-id="@p.Id">@p.Name</li>
+                        }
+                    </ul>
+                </div>
+
+                <div class="d-flex justify-content-end gap-3">
+                    <a asp-action="Index" class="btn btn-outline-secondary btn-lg">
+                        <i class="bi bi-x-circle me-2"></i> Cancel
+                    </a>
+                    <button type="submit" class="btn btn-primary btn-lg">
+                        <i class="bi bi-check-circle me-2"></i> Assign
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* ... keep your existing styles ... */
+
+    /* Styles for autocomplete list */
+    #patientList li:hover, #patientList li.active {
+        background-color: #2563eb;
+        color: white;
+        cursor: pointer;
+    }
+</style>
+
+<script>
+    (() => {
+        const input = document.getElementById('patientName');
+        const hiddenInput = document.getElementById('patientId');
+        const list = document.getElementById('patientList');
+        const items = Array.from(list.querySelectorAll('li'));
+
+        function filterList(value) {
+            const val = value.toLowerCase();
+            let visibleCount = 0;
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                if (text.includes(val) && val.length > 0) {
+                    item.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            list.style.display = visibleCount > 0 ? 'block' : 'none';
+        }
+
+        input.addEventListener('input', e => {
+            hiddenInput.value = ''; // reset patientId on input change
+            filterList(e.target.value);
+        });
+
+        items.forEach(item => {
+            item.addEventListener('click', () => {
+                input.value = item.textContent;
+                hiddenInput.value = item.getAttribute('data-patient-id');
+                list.style.display = 'none';
+            });
+        });
+
+        // Hide list when clicking outside
+        document.addEventListener('click', e => {
+            if (!list.contains(e.target) && e.target !== input) {
+                list.style.display = 'none';
+            }
+        });
+    })();
+</script>

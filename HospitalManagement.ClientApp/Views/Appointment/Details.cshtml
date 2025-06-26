@@ -1,0 +1,118 @@
+﻿@model HospitalManagement.ClientApp.Models.Appointment
+
+@{
+    ViewData["Title"] = "Appointment Details";
+}
+
+<div class="container mt-5 d-flex justify-content-center align-items-center">
+    <div class="glass-card p-4 position-relative">
+
+        <!-- Header with Icon -->
+        <div class="text-center mb-4">
+            <h2 class="text-warning fw-bold">
+                <i class="fas fa-calendar-check"></i> Appointment Details
+            </h2>
+        </div>
+
+        <!-- Appointment Details Section -->
+        <div class="info-container">
+            <div class="info-item">
+                <i class="fas fa-user-md text-primary"></i> <strong>Doctor:</strong> @ViewBag.DoctorName
+            </div>
+            <div class="info-item">
+                <i class="fas fa-user text-success"></i> <strong>Patient:</strong> @ViewBag.PatientName
+            </div>
+            <div class="info-item">
+                <i class="fas fa-calendar-alt text-info"></i> <strong>Date:</strong> @Model.AppointmentDate.ToString("dddd, MMM d, yyyy")
+            </div>
+            <div class="info-item">
+                <i class="fas fa-stethoscope text-warning"></i> <strong>Type:</strong> @Model.AppointmentType
+            </div>
+            <div class="info-item">
+                <i class="fas fa-notes-medical text-danger"></i> <strong>Reason:</strong> @Model.ReasonForVisit
+            </div>
+
+            <!-- Status Indicator with Animation -->
+            <div class="status-badge">
+                <i class="fas @(Model.Status == "Approved" ? "fa-check-circle text-success" :
+                              Model.Status == "Cancelled" ? "fa-times-circle text-danger" : "fa-hourglass-half text-warning")"></i>
+                <strong>Status:</strong>
+                <span class="badge px-3 py-2 status-glow
+                    @(Model.Status == "Approved" ? "bg-success" :
+                      Model.Status == "Cancelled" ? "bg-danger" : "bg-warning")">
+                    @Model.Status
+                </span>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="button-group">
+            @if (User.IsInRole("Admin") || User.IsInRole("Receptionist"))
+            {
+                <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning shadow-lg">
+                    <i class="fas fa-edit"></i> Edit
+                </a>
+            }
+            <a asp-action="Index" class="btn btn-secondary shadow-lg">
+                <i class="fas fa-arrow-left"></i> Back
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Custom Styles -->
+<style>
+    /* Glassmorphism Card */
+    .glass-card {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(12px);
+        border-radius: 15px;
+        padding: 20px;
+        max-width: 500px;
+        width: 100%;
+        box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    /* Info Section Styling */
+    .info-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        padding: 15px;
+    }
+
+    .info-item {
+        font-size: 18px;
+        color: #444;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    /* Status Badge with Glow */
+    .status-badge {
+        margin-top: 15px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .status-glow {
+        animation: glow 1.5s infinite alternate;
+        border-radius: 10px;
+    }
+
+    /* Button Group */
+    .button-group {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+</style>
+
+<!-- FontAwesome for Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">

@@ -1,0 +1,147 @@
+﻿@model List<HospitalManagement.ClientApp.Controllers.LoggedInUserViewModel>
+
+@{
+    ViewData["Title"] = "Admin Dashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid py-4">
+    <div class="row">
+        <!-- Sidebar -->
+        <div class="col-md-3 mb-4">
+            <div class="card shadow-sm border-0 p-4 bg-gradient-primary text-white rounded-4">
+                <h5 class="fw-bold"><i class="fas fa-chart-line me-2"></i>Dashboard Overview</h5>
+                <hr class="border-light">
+                <ul class="list-unstyled">
+                    <li class="d-flex justify-content-between align-items-center">
+                        <span>Total Users</span>
+                        <span class="badge bg-light text-primary fs-6">@Model.Count</span>
+                    </li>
+                </ul>
+
+                <a href="/Admin/PendingUsers" class="btn btn-light text-primary w-100 fw-semibold rounded-pill shadow-sm">
+                    <i class="fas fa-user-check me-2"></i>Approve New Users
+                </a>
+
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="col-md-9">
+            <div class="card shadow-sm p-4 border-0 bg-white rounded-4">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h4 class="fw-bold text-dark mb-0"><i class="fas fa-users me-2 text-primary"></i>Logged-in Users</h4>
+                    <div class="d-flex gap-2">
+                        <div class="input-group">
+                            <span class="input-group-text bg-light border-0"><i class="fas fa-search text-muted"></i></span>
+                            <input type="text" id="searchBox" class="form-control border-0 shadow-sm" placeholder="Search..." onkeyup="filterUsers()">
+                        </div>
+                        <select id="roleFilter" class="form-select shadow-sm" onchange="filterUsers()">
+                            <option value="">All Roles</option>
+                            <option value="Admin">Admin</option>
+                            <option value="Doctor">Doctor</option>
+                            <option value="Receptionist">Receptionist</option>
+                            <option value="Cashier">Cashier</option>
+                            <option value="Patient">Patient</option>
+                            <option value="Pharmacist">Pharmacist</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Last Login</th>
+                            </tr>
+                        </thead>
+                        <tbody id="userTable">
+                            @foreach (var user in Model.OrderByDescending(u => u.LastLoginTime))
+                            {
+                                <tr>
+                                    <td class="fw-semibold">@user.FullName</td>
+                                    <td>@user.Email</td>
+                                    <td>
+                                        <span class="badge rounded-pill bg-secondary">
+                                            @(user.Roles.Any() ? string.Join(", ", user.Roles) : "Patient")
+                                        </span>
+                                    </td>
+                                    <td>
+                                        @if (string.IsNullOrEmpty(user.LastLoginTime))
+                                        {
+                                            <span class="text-danger fw-bold">Never</span>
+                                        }
+                                        else
+                                        {
+                                            @user.LastLoginTime
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        background: #f8f9fc;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    .card {
+        border-radius: 1rem;
+    }
+
+    .bg-gradient-primary {
+        background: linear-gradient(135deg, #4e73df, #224abe);
+    }
+
+    .table thead th {
+        font-weight: 600;
+        color: #495057;
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: #f1f4f9;
+        cursor: pointer;
+    }
+
+    .form-control, .form-select {
+        border-radius: 0.5rem;
+    }
+
+    .input-group-text {
+        border-radius: 0.5rem 0 0 0.5rem;
+    }
+
+    .badge {
+        font-size: 0.85rem;
+        padding: 6px 12px;
+    }
+</style>
+
+<script>
+    function filterUsers() {
+        let searchInput = document.getElementById("searchBox").value.toLowerCase();
+        let roleFilter = document.getElementById("roleFilter").value.toLowerCase();
+        let userRows = document.querySelectorAll("#userTable tr");
+
+        userRows.forEach(row => {
+            let name = row.cells[0].textContent.toLowerCase();
+            let email = row.cells[1].textContent.toLowerCase();
+            let role = row.cells[2].textContent.toLowerCase();
+
+            let nameMatch = name.includes(searchInput) || email.includes(searchInput);
+            let roleMatch = roleFilter === "" || role.includes(roleFilter);
+
+            row.style.display = nameMatch && roleMatch ? "table-row" : "none";
+        });
+    }
+</script>

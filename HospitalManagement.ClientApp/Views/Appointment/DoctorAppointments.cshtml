@@ -1,0 +1,126 @@
+﻿@model List<HospitalManagement.ClientApp.Models.Appointment>
+
+@{
+    ViewData["Title"] = ViewBag.DoctorName + " Appointments";
+    var patientNames = ViewBag.PatientNames as Dictionary<int, string>;
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="text-primary fw-bold">
+            <i class="fas fa-user-md me-2"></i> @ViewBag.DoctorName's Appointments
+        </h2>
+        <a href="@Url.Action("Index", "Doctor")" class="btn btn-outline-primary">
+            <i class="fas fa-tachometer-alt"></i> Back to Doctor List
+        </a>
+    </div>
+
+    <!-- Search & Filter Bar -->
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <input type="text" id="searchInput" class="form-control" placeholder="🔍 Search by patient name..." onkeyup="filterAppointments()">
+        </div>
+        <div class="col-md-3">
+            <select id="statusFilter" class="form-select" onchange="filterAppointments()">
+                <option value="">All Status</option>
+                <option value="Approved">Approved</option>
+                <option value="Scheduled">Scheduled</option>
+                <option value="Cancelled">Cancelled</option>
+            </select>
+        </div>
+    </div>
+
+    @if (Model == null || !Model.Any())
+    {
+        <div class="alert alert-warning mt-4 text-center" role="alert">
+            <i class="fas fa-exclamation-circle"></i> No Appointments Found.
+        </div>
+    }
+    else
+    {
+        <div class="row mt-4" id="appointmentList">
+            @foreach (var appointment in Model)
+            {
+                <div class="col-lg-4 col-md-6 appointment-card" data-status="@appointment.Status.ToLower()" data-patient="@patientNames[appointment.PatientId].ToLower()" data-reason="@appointment.ReasonForVisit.ToLower()">
+                    <div class="card shadow-lg border-0 rounded-4 overflow-hidden">
+                        <div class="card-header text-white d-flex justify-content-between align-items-center" style="background: linear-gradient(135deg, #007bff, #00c6ff);">
+                            <span><i class="fas fa-calendar-check me-2"></i> Appointment</span>
+                            <span class="badge bg-@(appointment.Status == "Pending" ? "warning" : "success")">@appointment.Status</span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="fw-bold">
+                                <i class="fas fa-user me-2"></i> @(patientNames.ContainsKey(appointment.PatientId) ? patientNames[appointment.PatientId] : "Unknown")
+                            </h5>
+                            <p class="mb-1"><i class="fas fa-clock me-2"></i> @appointment.AppointmentDate.ToString("yyyy-MM-dd HH:mm")</p>
+                            <p class="mb-1"><i class="fas fa-notes-medical me-2"></i> <strong>Reason:</strong> @appointment.ReasonForVisit</p>
+                        </div>
+                        <div class="card-footer text-end bg-light">
+                            <a href="@Url.Action("Create", "Prescription", new {
+                                patientId = appointment.PatientId,
+                                appointmentId = appointment.Id,
+                                reasonForVisit = appointment.ReasonForVisit
+                            })" class="btn btn-outline-info btn-sm">
+                                <i class="fas fa-file-medical"></i> Add Prescription
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
+
+<!-- JavaScript for Search & Filter -->
+<script>
+    function filterAppointments() {
+        let searchQuery = document.getElementById("searchInput").value.toLowerCase();
+        let statusFilter = document.getElementById("statusFilter").value.toLowerCase();
+        let cards = document.querySelectorAll(".appointment-card");
+
+        cards.forEach(card => {
+            let patientName = card.getAttribute("data-patient");
+            let status = card.getAttribute("data-status");
+
+            if ((patientName.includes(searchQuery)) && (statusFilter === "" || status === statusFilter)) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+        });
+    }
+</script>
+
+<!-- Styling for Modern Look -->
+<style>
+    .card {
+        transition: all 0.3s ease-in-out;
+        border-radius: 15px;
+    }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+    .btn-outline-info, .btn-success {
+        transition: 0.3s;
+    }
+
+        .btn-outline-info:hover, .btn-success:hover {
+            transform: translateY(-3px);
+        }
+
+    .badge-warning {
+        background-color: #ffc107;
+        color: #212529;
+    }
+
+    .badge-success {
+        background-color: #28a745;
+    }
+
+    /* Add space between appointment cards */
+    .appointment-card {
+        margin-bottom: 20px; /* Spacing between cards */
+    }
+</style>

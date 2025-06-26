@@ -1,0 +1,64 @@
+﻿@model HospitalManagement.ClientApp.Models.Doctor
+
+@{
+    ViewData["Title"] = "Doctor Details";
+}
+
+<div class="container mt-5 d-flex justify-content-center">
+    <div class="card shadow-lg border-0 rounded-4" style="max-width: 600px; width: 100%;">
+        <!-- Card Header -->
+        <div class="card-header bg-primary text-white text-center py-4 rounded-top">
+            <h2 class="fw-bold"><i class="fas fa-user-md me-2"></i> Doctor Details</h2>
+        </div>
+
+        <!-- Card Body -->
+        <div class="card-body text-center">
+            <!-- Doctor Icon -->
+            <div class="mb-4">
+                <i class="fas fa-user-md fa-6x text-primary"></i>
+            </div>
+
+            <!-- Doctor Information -->
+            <h4 class="fw-bold text-dark">@Model.Name</h4>
+            <p class="text-muted fs-5"><i class="fas fa-user-tag me-1"></i> @Model.Specialization</p>
+
+            <div class="mt-4">
+                <p class="fw-bold text-secondary"><i class="fas fa-envelope me-2"></i> Email: <span class="text-dark">@Model.Email</span></p>
+                <p class="fw-bold text-secondary"><i class="fas fa-venus-mars me-2"></i> Gender: <span class="text-dark">@Model.Gender</span></p>
+                <p class="fw-bold text-secondary"><i class="fas fa-graduation-cap me-2"></i> Qualification: <span class="text-dark">@Model.Qualification</span></p>
+                <p class="fw-bold text-secondary"><i class="fas fa-briefcase-medical me-2"></i> Experience: <span class="text-dark">@Model.Experience Years</span></p>
+                <p class="fw-bold text-secondary"><i class="fas fa-info-circle me-2"></i> Information: <span class="text-dark">@Model.Information</span></p>
+                <p class="fw-bold text-secondary">
+                    <i class="fas fa-toggle-on me-2"></i>
+                    Availability:
+                    <span class="text-dark">
+                        @(Model.IsAvailable ? "Available" : "Unavailable")
+                    </span>
+                </p>
+            </div>  
+        </div>
+
+        <!-- Card Footer - Navigation Buttons -->
+        <div class="card-footer text-center py-3 bg-light rounded-bottom">
+            <a asp-action="Index" class="btn btn-outline-primary btn-lg mx-2 shadow-sm">
+                <i class="fas fa-list"></i> Back to Doctor List
+            </a>
+            <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary btn-lg mx-2 shadow-sm">
+                <i class="fas fa-home"></i> Back to Home
+            </a>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="text-center py-3">
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning btn-lg mx-2 shadow">
+                <i class="fas fa-edit"></i> Edit
+            </a>
+            @if (User.IsInRole("Admin"))
+            {
+                <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger btn-lg mx-2 shadow">
+                    <i class="fas fa-trash-alt"></i> Delete
+                </a>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,217 @@
+﻿@model HospitalManagement.ClientApp.Models.Billing
+
+@{
+    ViewData["Title"] = "Edit Billing";
+}
+<head>
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+</head>
+<div class="container mt-5">
+    <div class="card shadow-lg p-5 rounded-4 border-0" id="billingCard">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="text-dark fw-bold">✏️ Edit Billing</h2>
+            @* <button class="btn btn-dark" id="toggleMode">🌗 Toggle Mode</button> *@
+        </div>
+
+        <p class="text-muted">Modify billing details with **real-time calculations and quick actions**.</p>
+        <hr />
+
+        <form asp-action="Edit" method="post" class="row g-3">
+            <input type="hidden" asp-for="Id" />
+
+            <!-- Patient & Appointment -->
+            <div class="col-md-6">
+                <label class="form-label fw-semibold">👤 Patient</label>
+                <select asp-for="PatientId" class="form-select shadow-sm" asp-items="ViewBag.Patients" id="patientDropdown">
+                    <option value="">-- Select Patient --</option>
+                </select>
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label fw-semibold">📅 Appointment</label>
+                <select asp-for="AppointmentId" class="form-select shadow-sm" asp-items="ViewBag.Appointments" id="appointmentDropdown">
+                    <option value="">-- Select Appointment --</option>
+                </select>
+            </div>
+
+            <!-- Pricing Fields -->
+            <div class="col-md-6">
+                <label class="form-label fw-semibold">💰 Total Amount (₹)</label>
+                <div class="input-group">
+                    <span class="input-group-text">₹</span>
+                    <input asp-for="TotalAmount" class="form-control shadow-sm" id="totalAmount" placeholder="Enter total amount" />
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label fw-semibold">💵 Discount (₹)</label>
+                <div class="input-group">
+                    <span class="input-group-text">₹</span>
+                    <input asp-for="Discount" class="form-control shadow-sm" id="discount" placeholder="Enter discount" />
+                    <button type="button" class="btn btn-outline-warning" onclick="applyDiscount(10)">10%</button>
+                    <button type="button" class="btn btn-outline-warning" onclick="applyDiscount(20)">20%</button>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label fw-semibold">🏥 Insurance Coverage (₹)</label>
+                <div class="input-group">
+                    <span class="input-group-text">₹</span>
+                    <input asp-for="InsuranceCoverage" class="form-control shadow-sm" id="insurance" placeholder="Enter insurance amount" />
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label fw-semibold">💳 Payment Method</label>
+                <select asp-for="PaymentMethod" class="form-select shadow-sm">
+                    <option value="Cash">Cash</option>
+                    <option value="Card">Card</option>
+                    <option value="Insurance">Insurance</option>
+                    <option value="Online">Online</option>
+                </select>
+            </div>
+
+            <!-- Live Calculation Summary -->
+            <div class="col-md-12">
+                <div class="summary-card bg-light p-3 rounded shadow-sm">
+                    <h5 class="text-info"><i class="fas fa-calculator"></i> Final Amount</h5>
+                    <h2 class="fw-bold text-success">₹<span id="finalAmount">@Model.FinalAmount</span></h2>
+                </div>
+            </div>
+
+            <!-- Mark as Paid -->
+            <div class="col-12 mt-3">
+                <div class="form-check">
+                    <input type="checkbox" asp-for="IsPaid" class="form-check-input" id="paidCheckbox" />
+                    <label class="form-check-label fw-semibold" for="paidCheckbox">✅ Mark as Paid</label>
+                </div>
+            </div>
+
+            <!-- Sticky Action Buttons -->
+            <div class="sticky-buttons">
+                <button type="submit" class="btn btn-dark btn-lg px-4 shadow-sm">💾 Save Changes</button>
+                <a asp-action="Index" class="btn btn-secondary btn-lg px-4 shadow-sm">🔙 Back</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- JavaScript for Live Calculation & Dark Mode -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let totalAmount = document.getElementById("totalAmount");
+        let discount = document.getElementById("discount");
+        let insurance = document.getElementById("insurance");
+        let finalAmount = document.getElementById("finalAmount");
+
+        function calculateFinalAmount() {
+            let total = parseFloat(totalAmount.value) || 0;
+            let discountAmt = parseFloat(discount.value) || 0;
+            let insuranceAmt = parseFloat(insurance.value) || 0;
+            let finalValue = total - discountAmt - insuranceAmt;
+            finalAmount.innerText = finalValue.toFixed(2);
+        }
+
+        totalAmount.addEventListener("input", calculateFinalAmount);
+        discount.addEventListener("input", calculateFinalAmount);
+        insurance.addEventListener("input", calculateFinalAmount);
+
+        // Apply preset discount
+        window.applyDiscount = function (percentage) {
+            let total = parseFloat(totalAmount.value) || 0;
+            let discountValue = (total * percentage) / 100;
+            discount.value = discountValue.toFixed(2);
+            calculateFinalAmount();
+        };
+
+        // // Toggle Dark Mode
+        // let toggleButton = document.getElementById("toggleMode");
+        // let billingCard = document.getElementById("billingCard");
+        // toggleButton.addEventListener("click", function () {
+        //     document.body.classList.toggle("dark-mode");
+        //     billingCard.classList.toggle("bg-dark");
+        //     billingCard.classList.toggle("text-light");
+        // });
+    });
+</script>
+
+<!-- Custom Styles -->
+<style>
+    body {
+        background: #f8f9fa;
+        font-family: "Poppins", sans-serif;
+        transition: background 0.3s ease-in-out;
+    }
+
+    /* .dark-mode {
+        background: #121212 !important;
+        color: white !important;
+    } */
+
+    .card {
+        max-width: 750px;
+        margin: auto;
+    }
+
+    .input-group-text {
+        background-color: #f8f9fa;
+        font-weight: bold;
+        border-radius: 8px 0 0 8px;
+    }
+
+    .btn-outline-warning {
+        font-size: 14px;
+        margin-left: 5px;
+    }
+
+    .summary-card {
+        text-align: center;
+        font-size: 18px;
+        border-left: 5px solid #007bff;
+    }
+
+    .sticky-buttons {
+        position: sticky;
+        bottom: 20px;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 15px;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+<script>
+    window.onload = function() {
+        if (performance.navigation.type === 2) { // 2 = Back/Forward button navigation
+            location.reload(); // Reload the page to revalidate the appointment check
+        }
+    };
+    document.addEventListener("DOMContentLoaded", function () {
+        let patientDropdown = document.getElementById("patientDropdown");
+        let labTestBillContainer = document.getElementById("labTestBillContainer");
+
+        patientDropdown.addEventListener("change", async function () {
+            let patientId = this.value;
+            if (patientId) {
+                try {
+                    let response = await fetch(`/Billing/CheckLabTests?patientId=${patientId}`);
+                    let data = await response.json();
+
+                    if (data.hasLabTests) {
+                        labTestBillContainer.classList.remove("d-none");
+                    } else {
+                        labTestBillContainer.classList.add("d-none");
+                    }
+                } catch (error) {
+                    console.error("Error checking lab tests:", error);
+                }
+            } else {
+                labTestBillContainer.classList.add("d-none");
+            }
+        });
+    });
+</script>
+
