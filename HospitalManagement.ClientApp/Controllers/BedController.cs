@@ -50,7 +50,7 @@ namespace HospitalManagement.ClientApp.Controllers
 
             if (role == "Receptionist" && !await isReceptionistStaff())
             {
-                return Forbid();
+                return RedirectToAction("StaffAccessDenied", "Home");
             }
 
             var beds = await _bedService.GetBedsAsync();
@@ -68,7 +68,7 @@ namespace HospitalManagement.ClientApp.Controllers
 
             if (role == "Receptionist" && !await isReceptionistStaff())
             {
-                return Forbid();
+                return RedirectToAction("StaffAccessDenied", "Home");
             }
 
             var bed = await _bedService.GetBedByIdAsync(id);
@@ -88,7 +88,7 @@ namespace HospitalManagement.ClientApp.Controllers
         {
             if (!await isReceptionistStaff())
             {
-                return Forbid();
+                return RedirectToAction("StaffAccessDenied", "Home");
             }
 
                 return View();
@@ -111,7 +111,7 @@ namespace HospitalManagement.ClientApp.Controllers
         {
             if (!await isReceptionistStaff())
             {
-                return Forbid();
+                return RedirectToAction("StaffAccessDenied", "Home");
             }
             var bed = await _bedService.GetBedByIdAsync(id);
             if(bed == null)
@@ -126,7 +126,7 @@ namespace HospitalManagement.ClientApp.Controllers
         {
             if (!await isReceptionistStaff())
             {
-                return Forbid();
+                return RedirectToAction("StaffAccessDenied", "Home");
             }
             if (bed.BedNumber != null && bed.RoomType != null)
             {
@@ -158,7 +158,7 @@ namespace HospitalManagement.ClientApp.Controllers
         {
             if (!await isReceptionistStaff())
             {
-                return Forbid();
+                return RedirectToAction("StaffAccessDenied", "Home");
             }
             ViewBag.Beds = await _bedService.GetBedsAsync();
             ViewBag.Patients = await _patientService.GetPatientsAsync();
@@ -170,7 +170,7 @@ namespace HospitalManagement.ClientApp.Controllers
         {
             if (!await isReceptionistStaff())
             {
-                return Forbid();
+                return RedirectToAction("StaffAccessDenied", "Home");
             }
             var beds = await _bedService.GetBedsAsync();
             bool alreadyAssigned = beds.Any(b => b.PatientId == patientId && b.isOccupied);
@@ -186,10 +186,10 @@ namespace HospitalManagement.ClientApp.Controllers
             var result = await _bedService.AssignToPatientAsync(bedId, patientId);
             if (!result)
             {
-                ModelState.AddModelError("", "Bed Assignment failed...Bed may be occupied");
+                ModelState.AddModelError("bedId", "Bed Assignment failed...Bed may be occupied");
                 ViewBag.Beds = await _bedService.GetBedsAsync();
                 ViewBag.Patients = await _patientService.GetPatientsAsync();
-                return RedirectToAction("Index");
+                return RedirectToAction("Assign");
             }
             return RedirectToAction("Index");
         }
@@ -199,7 +199,7 @@ namespace HospitalManagement.ClientApp.Controllers
         {
             if (!await isReceptionistStaff())
             {
-                return Forbid();
+                return RedirectToAction("StaffAccessDenied", "Home");
             }
             var result = await _bedService.ReleaseForPatient(patientId);
             if(!result)

@@ -1,0 +1,257 @@
+﻿@{
+    ViewData["Title"] = "Access Restricted";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    string role = ViewBag.UserRole?.ToString()?.ToLower() ?? "";
+    string roleDisplay = role switch
+    {
+        "doctor" => "Doctor",
+        "patient" => "Patient",
+        "receptionist" => "Receptionist",
+        "cashier" => "Cashier",
+        "pharmacist" => "Pharmacist",
+        _ => "User"
+    };
+
+    string message = role switch
+    {
+        "doctor" => "You're logged in as a Doctor but not yet authorized in our hospital's staff records.",
+        "receptionist" => "You're signed in as a Receptionist, but not registered in the staff directory.",
+        "cashier" => "You are marked as a Cashier, but we couldn't find your staff assignment.",
+        "pharmacist" => "Your role is Pharmacist, but you’re currently not listed in our staff database.",
+        "patient" => "You need to be registered as a Patient in our system to proceed.",
+        _ => "You currently don’t have permission to view this page. Please get in touch with support."
+    };
+}
+<div class="access-hero">
+    <div class="access-card animate__animated animate__fadeInDown">
+        <div class="icon-wrapper">
+            <i class="fas fa-user-lock"></i>
+        </div>
+        <h2 class="title">Restricted Access</h2>
+        <p class="subtitle">Hello <strong>@roleDisplay</strong>,</p>
+        <p class="description">
+            Your account has been identified as <strong>@roleDisplay</strong>, but it appears that you're not yet authorized to access this section of the system. This may be due to pending registration or role validation within our internal records.
+        </p>
+
+        <div class="notice-box">
+            <i class="fas fa-info-circle me-2"></i> If you believe this is incorrect, kindly reach out to the hospital administrator for verification or support.
+        </div>
+
+        <div class="btn-group mt-4">
+            <a href="@Url.Action("Index", "Home")" class="btn primary-btn">
+                <i class="fas fa-home me-1"></i> Return to Dashboard
+            </a>
+            <a href="#" class="btn outline-btn" data-bs-toggle="modal" data-bs-target="#adminContactModal">
+                <i class="fas fa-envelope"></i> Contact Admin
+            </a>
+        </div>
+    </div>
+</div>
+<!-- Modern Admin Contact Modal -->
+<div class="modal fade" id="adminContactModal" tabindex="-1" aria-labelledby="adminContactModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-md">
+        <div class="modal-content neo-modal border-0 shadow">
+            <div class="modal-body p-4">
+
+                <div class="text-center mb-4">
+                    <div class="avatar-circle mx-auto mb-3">
+                        <i class="fas fa-user-cog"></i>
+                    </div>
+                    <h4 class="fw-bold">Need Help?</h4>
+                    <p class="text-muted mb-0">Contact the system administrator for assistance.</p>
+                </div>
+
+                <div class="d-grid gap-3">
+                    <div class="neo-box d-flex align-items-center gap-3 p-3">
+                        <i class="fas fa-user-tie fa-lg text-primary"></i>
+                        <div>
+                            <small class="text-muted"><i>Admin</i></small>
+                            <div class="fw-semibold text-primary">Deep Vithani</div>
+                        </div>
+                    </div>
+                    <div class="neo-box d-flex align-items-center gap-3 p-3">
+                        <i class="fas fa-envelope fa-lg text-success"></i>
+                        <div>
+                            <small class="text-muted"><i>Email</i></small>
+                            <div class="fw-semibold">
+                                <a href="mailto:deepvithani789@gmail.com" class="text-decoration-none text-success">deepvithani789@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="neo-box d-flex align-items-center gap-3 p-3">
+                        <i class="fas fa-phone fa-lg text-secondary"></i>
+                        <div>
+                            <small class="text-muted"><i>Phone</i></small>
+                            <div class="fw-semibold text-secondary">+91-9876543210</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center my-4">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=mailto:deepvithani789@gmail.com" alt="QR Contact" class="img-fluid rounded" />
+                    <p class="small text-muted mt-2 mb-0">Scan to email admin instantly</p>
+                </div>
+
+                <div class="d-flex justify-content-between mt-3">
+                    <button class="btn btn-light w-100 me-2" data-bs-dismiss="modal">
+                        <i class="fas fa-arrow-left me-1"></i> Back
+                    </button>
+                    <a href="mailto:deepvithani789@gmail.com" class="btn btn-primary w-100">
+                        <i class="fas fa-paper-plane me-1"></i> Send Mail
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<style>
+    @@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
+
+    .neo-modal {
+        background: #f0f4f8;
+        border-radius: 16px;
+        box-shadow: 6px 6px 20px #d1d9e6, -6px -6px 20px #ffffff;
+        max-width: 400px; /* Limits modal width */
+        margin: auto;
+    }
+
+    .neo-box {
+        background: #f0f4f8;
+        border-radius: 10px;
+        box-shadow: inset 3px 3px 6px #d1d9e6, inset -3px -3px 6px #ffffff;
+        padding: 10px 14px;
+        font-size: 0.9rem;
+        transition: all 0.2s ease;
+    }
+
+        .neo-box:hover {
+            box-shadow: 3px 3px 6px #d1d9e6, -3px -3px 6px #ffffff;
+        }
+
+    .avatar-circle {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, #3f51b5, #2196f3);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        box-shadow: 0 4px 12px rgba(63, 81, 181, 0.5);
+        margin-bottom: 10px;
+    }
+
+    .access-hero {
+        min-height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #eef2f3, #dfe9f3);
+        padding: 20px;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+
+    .access-card {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 20px;
+        padding: 40px 30px;
+        max-width: 600px;
+        width: 100%;
+        text-align: center;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .icon-wrapper {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        background: linear-gradient(to right, #ff6a6a, #ff4e50);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 36px;
+        margin: 0 auto 20px;
+        box-shadow: 0 0 15px rgba(255, 76, 76, 0.6);
+    }
+
+    .title {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #333;
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+        margin-top: 10px;
+        color: #555;
+    }
+
+    .description {
+        font-size: 1rem;
+        color: #777;
+        margin-top: 10px;
+    }
+
+    .notice-box {
+        background-color: #fff4e5;
+        border-left: 4px solid #ffa500;
+        padding: 15px;
+        margin-top: 25px;
+        color: #856404;
+        font-size: 0.95rem;
+        border-radius: 8px;
+    }
+
+    .btn-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+    }
+
+    .btn {
+        padding: 10px 18px;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        text-decoration: none;
+    }
+
+    .primary-btn {
+        background-color: #1a237e;
+        color: #fff;
+        border: none;
+    }
+
+        .primary-btn:hover {
+            background-color: #0d1545;
+            color:antiquewhite;
+        }
+
+    .outline-btn {
+        background-color: transparent;
+        color: #1a237e;
+        border: 2px solid #1a237e;
+    }
+
+        .outline-btn:hover {
+            background-color: #e8eaf6;
+        }
+
+    @@media (max-width: 576px) {
+        .access-card {
+            padding: 30px 20px;
+        }
+    }
+</style>

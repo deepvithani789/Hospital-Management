@@ -42,10 +42,16 @@ namespace HospitalManagement.API.Controllers
         public async Task<IActionResult> Login([FromBody] LoginDto model)
         {
             var user = await _userManager.FindByEmailAsync(model.Email);
-            if (!user.IsApproved)
-                return Unauthorized(new { message = "Account not approved by admin yet!!" });
+            if (user == null)
+                return Unauthorized(new { error = "No account found with this email." });
 
-            if(user != null && await _userManager.CheckPasswordAsync(user, model.Password))
+            if (!user.IsApproved)
+                return Unauthorized(new { error = "Account not approved by admin yet." });
+
+            if (!await _userManager.CheckPasswordAsync(user, model.Password))
+                return Unauthorized(new { error = "Invalid password. Please try again." });
+
+            if (user != null && await _userManager.CheckPasswordAsync(user, model.Password))
             {
                 user.LastLoginTime = DateTime.UtcNow.AddHours(5.5);
                 await _userManager.UpdateAsync(user);
@@ -130,6 +136,38 @@ namespace HospitalManagement.API.Controllers
 
             // Redirect to client application Home page with token as query parameter (Optional)
             return Redirect($"{returnUrl}?token={token}");
+        }
+
+        [HttpPost("forgot-password")]
+        public async Task<IActionResult> ForgotPasswordAsync(ForgotPasswordDto dto)
+        {
+            var user = await _userManager.FindByEmailAsync(dto.Email);
+            if (user == null)
+                return BadRequest("User not found!!");
+
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            return Ok(new
+            {
+                email = user.Email,
+                token = token
+            });
+        }
+
+        [HttpPost("reset-password")]
+        public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordDto dto)
+        {
+            var user = await _userManager.FindByEmailAsync(dto.Email);
+            if (user == null)
+                return BadRequest("User not found!!");
+
+            var result = await _userManager.ResetPasswordAsync(user, dto.Token, dto.NewPassword);
+
+            if (result.Succeeded)
+            {
+                return Ok("Password has been reset successfully..");
+            }
+
+            return BadRequest(result.Errors);
         }
 
 

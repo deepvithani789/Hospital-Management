@@ -12,6 +12,7 @@
 }
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -182,6 +183,14 @@
                 <div class="alert alert-danger">@ViewBag.Error</div>
             }
 
+            @if (TempData["Message"] != null)
+            {
+                <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+                    @TempData["Message"]
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            }
+
             <form asp-action="Login" method="post">
                 <div class="mb-3">
                     <input asp-for="Email" class="form-control" placeholder="📧 Email" required />
@@ -189,6 +198,10 @@
 
                 <div class="mb-3">
                     <input asp-for="Password" type="password" class="form-control" placeholder="🔒 Password" required />
+                </div>
+
+                <div class="text-end">
+                    <a asp-action="ForgotPassword" class="text-decoration-none text-primary">Forgot Password?</a>
                 </div>
 
                 <button type="submit" class="btn btn-login">🚀 Login</button>
@@ -206,3 +219,20 @@
 
 </body>
 </html>
+
+<script>
+    // Auto-hide success alert after 4 seconds
+    setTimeout(function () {
+        const alert = document.querySelector('.alert-success');
+        if (alert) {
+            alert.classList.remove('show');
+            alert.classList.add('hide');
+            alert.remove();
+        }
+    }, 4000);
+</script>
+
+<!-- ✅ Required Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+

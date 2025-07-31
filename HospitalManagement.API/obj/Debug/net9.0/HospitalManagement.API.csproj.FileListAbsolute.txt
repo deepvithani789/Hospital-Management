@@ -335,171 +335,172 @@ E:\Github\Hospital-Management\HospitalManagement.API\obj\Debug\net9.0\refint\Hos
 E:\Github\Hospital-Management\HospitalManagement.API\obj\Debug\net9.0\HospitalManagement.API.pdb
 E:\Github\Hospital-Management\HospitalManagement.API\obj\Debug\net9.0\HospitalManagement.API.genruntimeconfig.cache
 E:\Github\Hospital-Management\HospitalManagement.API\obj\Debug\net9.0\ref\HospitalManagement.API.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\appsettings.Development.json
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\appsettings.json
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\HospitalManagement.API.staticwebassets.endpoints.json
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\HospitalManagement.API.exe
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\HospitalManagement.API.deps.json
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\HospitalManagement.API.runtimeconfig.json
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\HospitalManagement.API.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\HospitalManagement.API.pdb
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\AutoMapper.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\BouncyCastle.Cryptography.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\Humanizer.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\itext.barcodes.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\itext.bouncy-castle-connector.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\itext.forms.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\itext.io.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\itext.kernel.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\itext.layout.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\itext.pdfa.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\itext.pdfua.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\itext.sign.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\itext.styledxmlparser.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\itext.svg.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\bc-fips-1.0.2.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\bcpkix-fips-1.0.2.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\itext.bouncy-castle-fips-adapter.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\itext.commons.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.Google.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.Internal.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\Microsoft.Bcl.AsyncInterfaces.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\Microsoft.Build.Locator.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\Microsoft.CodeAnalysis.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\Microsoft.DotNet.PlatformAbstractions.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Design.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\Microsoft.Extensions.Caching.Abstractions.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\Microsoft.Extensions.Caching.Memory.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\Microsoft.Extensions.Configuration.Abstractions.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\Microsoft.Extensions.DependencyModel.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\Microsoft.Extensions.Identity.Core.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\Microsoft.Extensions.Identity.Stores.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\Microsoft.Extensions.Logging.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\Microsoft.Extensions.Logging.Abstractions.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\Microsoft.Extensions.Options.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\Microsoft.Extensions.Primitives.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\Microsoft.OpenApi.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\Mono.TextTemplating.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\Newtonsoft.Json.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\Npgsql.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\System.CodeDom.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\System.Composition.AttributedModel.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\System.Composition.Convention.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\System.Composition.Hosting.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\System.Composition.Runtime.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\System.Composition.TypedParts.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\Twilio.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\obj\Debug\net9.0\HospitalManagement.API.csproj.AssemblyReference.cache
-E:\New folder\Hospital-Management-main\HospitalManagement.API\obj\Debug\net9.0\HospitalManagement.API.GeneratedMSBuildEditorConfig.editorconfig
-E:\New folder\Hospital-Management-main\HospitalManagement.API\obj\Debug\net9.0\HospitalManagement.API.AssemblyInfoInputs.cache
-E:\New folder\Hospital-Management-main\HospitalManagement.API\obj\Debug\net9.0\HospitalManagement.API.AssemblyInfo.cs
-E:\New folder\Hospital-Management-main\HospitalManagement.API\obj\Debug\net9.0\HospitalManagement.API.csproj.CoreCompileInputs.cache
-E:\New folder\Hospital-Management-main\HospitalManagement.API\obj\Debug\net9.0\HospitalManagement.API.MvcApplicationPartsAssemblyInfo.cs
-E:\New folder\Hospital-Management-main\HospitalManagement.API\obj\Debug\net9.0\HospitalManagement.API.MvcApplicationPartsAssemblyInfo.cache
-E:\New folder\Hospital-Management-main\HospitalManagement.API\obj\Debug\net9.0\scopedcss\bundle\HospitalManagement.API.styles.css
-E:\New folder\Hospital-Management-main\HospitalManagement.API\obj\Debug\net9.0\staticwebassets.build.json
-E:\New folder\Hospital-Management-main\HospitalManagement.API\obj\Debug\net9.0\staticwebassets.development.json
-E:\New folder\Hospital-Management-main\HospitalManagement.API\obj\Debug\net9.0\staticwebassets.build.endpoints.json
-E:\New folder\Hospital-Management-main\HospitalManagement.API\obj\Debug\net9.0\staticwebassets\msbuild.HospitalManagement.API.Microsoft.AspNetCore.StaticWebAssets.props
-E:\New folder\Hospital-Management-main\HospitalManagement.API\obj\Debug\net9.0\staticwebassets\msbuild.HospitalManagement.API.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
-E:\New folder\Hospital-Management-main\HospitalManagement.API\obj\Debug\net9.0\staticwebassets\msbuild.build.HospitalManagement.API.props
-E:\New folder\Hospital-Management-main\HospitalManagement.API\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.HospitalManagement.API.props
-E:\New folder\Hospital-Management-main\HospitalManagement.API\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.HospitalManagement.API.props
-E:\New folder\Hospital-Management-main\HospitalManagement.API\obj\Debug\net9.0\staticwebassets.pack.json
-E:\New folder\Hospital-Management-main\HospitalManagement.API\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
-E:\New folder\Hospital-Management-main\HospitalManagement.API\obj\Debug\net9.0\Hospital.449D901D.Up2Date
-E:\New folder\Hospital-Management-main\HospitalManagement.API\obj\Debug\net9.0\HospitalManagement.API.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\obj\Debug\net9.0\refint\HospitalManagement.API.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.API\obj\Debug\net9.0\HospitalManagement.API.pdb
-E:\New folder\Hospital-Management-main\HospitalManagement.API\obj\Debug\net9.0\HospitalManagement.API.genruntimeconfig.cache
-E:\New folder\Hospital-Management-main\HospitalManagement.API\obj\Debug\net9.0\ref\HospitalManagement.API.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\appsettings.Development.json
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\appsettings.json
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\HospitalManagement.API.staticwebassets.endpoints.json
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\HospitalManagement.API.exe
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\HospitalManagement.API.deps.json
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\HospitalManagement.API.runtimeconfig.json
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\HospitalManagement.API.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\HospitalManagement.API.pdb
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\AutoMapper.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\BouncyCastle.Cryptography.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\Humanizer.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\itext.barcodes.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\itext.bouncy-castle-connector.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\itext.forms.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\itext.io.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\itext.kernel.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\itext.layout.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\itext.pdfa.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\itext.pdfua.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\itext.sign.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\itext.styledxmlparser.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\itext.svg.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\bc-fips-1.0.2.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\bcpkix-fips-1.0.2.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\itext.bouncy-castle-fips-adapter.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\itext.commons.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.Google.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\Microsoft.AspNetCore.OpenApi.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\Microsoft.Bcl.AsyncInterfaces.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\Microsoft.Build.Locator.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\Microsoft.CodeAnalysis.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\Microsoft.DotNet.PlatformAbstractions.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Design.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\Microsoft.EntityFrameworkCore.Relational.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\Microsoft.Extensions.Caching.Abstractions.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\Microsoft.Extensions.Caching.Memory.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\Microsoft.Extensions.Configuration.Abstractions.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\Microsoft.Extensions.DependencyModel.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\Microsoft.Extensions.Identity.Core.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\Microsoft.Extensions.Identity.Stores.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\Microsoft.Extensions.Logging.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\Microsoft.Extensions.Logging.Abstractions.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\Microsoft.Extensions.Options.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\Microsoft.Extensions.Primitives.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\Microsoft.OpenApi.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\Mono.TextTemplating.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\Newtonsoft.Json.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\Npgsql.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\System.CodeDom.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\System.Composition.AttributedModel.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\System.Composition.Convention.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\System.Composition.Hosting.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\System.Composition.Runtime.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\System.Composition.TypedParts.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\Twilio.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+E:\Hospital-Management\HospitalManagement.API\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+E:\Hospital-Management\HospitalManagement.API\obj\Debug\net9.0\HospitalManagement.API.csproj.AssemblyReference.cache
+E:\Hospital-Management\HospitalManagement.API\obj\Debug\net9.0\HospitalManagement.API.GeneratedMSBuildEditorConfig.editorconfig
+E:\Hospital-Management\HospitalManagement.API\obj\Debug\net9.0\HospitalManagement.API.AssemblyInfoInputs.cache
+E:\Hospital-Management\HospitalManagement.API\obj\Debug\net9.0\HospitalManagement.API.AssemblyInfo.cs
+E:\Hospital-Management\HospitalManagement.API\obj\Debug\net9.0\HospitalManagement.API.csproj.CoreCompileInputs.cache
+E:\Hospital-Management\HospitalManagement.API\obj\Debug\net9.0\HospitalManagement.API.MvcApplicationPartsAssemblyInfo.cs
+E:\Hospital-Management\HospitalManagement.API\obj\Debug\net9.0\HospitalManagement.API.MvcApplicationPartsAssemblyInfo.cache
+E:\Hospital-Management\HospitalManagement.API\obj\Debug\net9.0\HospitalManagement.API.sourcelink.json
+E:\Hospital-Management\HospitalManagement.API\obj\Debug\net9.0\scopedcss\bundle\HospitalManagement.API.styles.css
+E:\Hospital-Management\HospitalManagement.API\obj\Debug\net9.0\staticwebassets.build.json
+E:\Hospital-Management\HospitalManagement.API\obj\Debug\net9.0\staticwebassets.development.json
+E:\Hospital-Management\HospitalManagement.API\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+E:\Hospital-Management\HospitalManagement.API\obj\Debug\net9.0\staticwebassets\msbuild.HospitalManagement.API.Microsoft.AspNetCore.StaticWebAssets.props
+E:\Hospital-Management\HospitalManagement.API\obj\Debug\net9.0\staticwebassets\msbuild.HospitalManagement.API.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+E:\Hospital-Management\HospitalManagement.API\obj\Debug\net9.0\staticwebassets\msbuild.build.HospitalManagement.API.props
+E:\Hospital-Management\HospitalManagement.API\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.HospitalManagement.API.props
+E:\Hospital-Management\HospitalManagement.API\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.HospitalManagement.API.props
+E:\Hospital-Management\HospitalManagement.API\obj\Debug\net9.0\staticwebassets.pack.json
+E:\Hospital-Management\HospitalManagement.API\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+E:\Hospital-Management\HospitalManagement.API\obj\Debug\net9.0\Hospital.449D901D.Up2Date
+E:\Hospital-Management\HospitalManagement.API\obj\Debug\net9.0\HospitalManagement.API.dll
+E:\Hospital-Management\HospitalManagement.API\obj\Debug\net9.0\refint\HospitalManagement.API.dll
+E:\Hospital-Management\HospitalManagement.API\obj\Debug\net9.0\HospitalManagement.API.pdb
+E:\Hospital-Management\HospitalManagement.API\obj\Debug\net9.0\HospitalManagement.API.genruntimeconfig.cache
+E:\Hospital-Management\HospitalManagement.API\obj\Debug\net9.0\ref\HospitalManagement.API.dll

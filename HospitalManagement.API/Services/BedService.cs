@@ -1,5 +1,6 @@
 ﻿using HospitalManagement.API.Data;
 using HospitalManagement.API.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace HospitalManagement.API.Services
@@ -67,6 +68,21 @@ namespace HospitalManagement.API.Services
                 return null;
 
             return bed;
+        }
+
+        public async Task<IActionResult> GetBedSummary()
+        {
+            var summary = await _context.Beds.OrderBy(c => c.BedNumber).GroupBy(b => b.RoomType).Select(g => new
+            {
+                RoomType = g.Key,
+                TotalBeds = g.Count(),
+                OccupiedBeds = g.Count(b => b.isOccupied),
+                AvailableBeds = g.Count(b => !b.isOccupied)
+            }).ToListAsync();
+
+            return summary.Any()
+                ? new OkObjectResult(summary)
+                : new NotFoundResult();
         }
 
         public async Task<bool> ReleaseBedForPatientAsync(int patientId)

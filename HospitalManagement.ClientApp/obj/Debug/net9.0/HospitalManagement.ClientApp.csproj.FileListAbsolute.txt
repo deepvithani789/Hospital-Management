@@ -211,109 +211,110 @@ E:\Github\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\refi
 E:\Github\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\HospitalManagement.ClientApp.pdb
 E:\Github\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\HospitalManagement.ClientApp.genruntimeconfig.cache
 E:\Github\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\ref\HospitalManagement.ClientApp.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\bin\Debug\net9.0\appsettings.Development.json
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\bin\Debug\net9.0\appsettings.json
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\bin\Debug\net9.0\HospitalManagement.ClientApp.staticwebassets.runtime.json
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\bin\Debug\net9.0\HospitalManagement.ClientApp.staticwebassets.endpoints.json
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\bin\Debug\net9.0\HospitalManagement.ClientApp.exe
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\bin\Debug\net9.0\HospitalManagement.ClientApp.deps.json
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\bin\Debug\net9.0\HospitalManagement.ClientApp.runtimeconfig.json
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\bin\Debug\net9.0\HospitalManagement.ClientApp.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\bin\Debug\net9.0\HospitalManagement.ClientApp.pdb
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\bin\Debug\net9.0\Newtonsoft.Json.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\HospitalManagement.ClientApp.csproj.AssemblyReference.cache
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\HospitalManagement.ClientApp.GeneratedMSBuildEditorConfig.editorconfig
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\HospitalManagement.ClientApp.AssemblyInfoInputs.cache
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\HospitalManagement.ClientApp.AssemblyInfo.cs
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\HospitalManagement.ClientApp.csproj.CoreCompileInputs.cache
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\HospitalManagement.ClientApp.MvcApplicationPartsAssemblyInfo.cache
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\HospitalManagement.ClientApp.RazorAssemblyInfo.cache
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\HospitalManagement.ClientApp.RazorAssemblyInfo.cs
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\scopedcss\bundle\HospitalManagement.ClientApp.styles.css
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\scopedcss\projectbundle\HospitalManagement.ClientApp.bundle.scp.css
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\dkgn2rn2gq-lugek5hnai.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\66cqmyueaf-61n19gt1b8.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\fi6xmrx1z1-fr7q2aak1r.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\w7dhuwuydy-bqjiyaj88i.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\whft2owe9a-c2jlpeoesf.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\t0zg837mvr-erw9l3u2r3.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\qieoqv3m54-aexeepp0ev.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\eafnws1pte-d7shbmvgxk.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\0pveezw42g-ausgxo2sd3.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\950gjtujre-k8d9w2qqmf.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\c8f41elh4g-cosvhxvwiu.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\xvtnmq3fut-ub07r2b239.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\5evd4p9lx9-fvhpjtyr6v.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\7nzaas65rg-b7pk76d08c.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\c25ganlvfb-fsbi9cje9m.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\vwqit1mnw4-rzd6atqjts.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\789yuxchtl-ee0r1s7dh0.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\me9h4to8a8-dxx9fxp4il.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\qscog8155f-jd9uben2k1.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\mok1799zhg-khv3u5hwcm.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\5458y7vc3o-r4e9w2rdcm.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\u6r55ei0w2-lcd1t2u6c8.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\x1dv6q8aib-c2oey78nd0.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\kmxwq2jnze-tdbxkamptv.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\fz5v4hjr82-j5mq2jizvt.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\z3h8tsl6nq-06098lyss8.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\seski6t2ej-nvvlpmu67g.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\1snjgkor2d-s35ty4nyc5.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\pprbsddtj7-pj5nd1wqec.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\ns86gdsyqk-46ein0sx1k.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\aqiifncvgg-v0zj4ognzu.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\lul6dkhq5n-37tfw0ft22.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\je39cbance-hrwsygsryq.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\0t4f4hxhbv-pk9g2wxc8p.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\5bctunbdza-ft3s53vfgj.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\mnv1ak3hyy-6cfz1n2cew.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\6y7hwmy1lc-6pdc2jztkx.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\kkqlimcrrm-493y06b0oq.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\m6bczkxre9-iovd86k7lj.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\5m1zx83l23-vr1egmr9el.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\0dwqdyv16b-kbrnm935zg.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\vw1aebyg12-jj8uyg4cgr.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\jy5ynhkljn-y7v9cxd14o.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\l7us9gskq7-notf2xhcfb.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\is1djadmqt-h1s4sie4z3.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\hmsj5nd1y1-63fj8s7r0e.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\n54qytlhcu-0j3bgjxly4.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\isym5fle8i-47otxtyo56.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\hupwu1dren-4v8eqarkd7.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\rlhownex0p-l3n5xuwxn8.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\loj66xp6bb-ilo7uva0vt.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\5twrxvqpek-qlccset4i1.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\0ssecgzn3l-lzl9nlhx6b.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\is00d1qs6p-ag7o75518u.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\c0iugbz4fz-xzw0cte36n.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\hoytrsdz0y-0i3buxo5is.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\8l8z8ub9l6-o1o13a6vjx.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\paen6zy1ap-ttgo8qnofa.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\v4dv3z9ga2-2z0ns9nrw6.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\19rkokd9ka-muycvpuwrr.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\df07mge95q-87fc7y1x7t.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\fwtgihsrg3-jfsiqqwiad.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\cclqy5fjrf-nslvu5ssyj.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\bnp7te8l83-nslvu5ssyj.gz
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\staticwebassets.build.json
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\staticwebassets.development.json
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\staticwebassets.build.endpoints.json
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\staticwebassets\msbuild.HospitalManagement.ClientApp.Microsoft.AspNetCore.StaticWebAssets.props
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\staticwebassets\msbuild.HospitalManagement.ClientApp.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\staticwebassets\msbuild.build.HospitalManagement.ClientApp.props
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.HospitalManagement.ClientApp.props
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.HospitalManagement.ClientApp.props
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\staticwebassets.pack.json
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\Hospital.FE7C0F65.Up2Date
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\HospitalManagement.ClientApp.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\refint\HospitalManagement.ClientApp.dll
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\HospitalManagement.ClientApp.pdb
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\HospitalManagement.ClientApp.genruntimeconfig.cache
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\obj\Debug\net9.0\ref\HospitalManagement.ClientApp.dll
+E:\Hospital-Management\HospitalManagement.ClientApp\bin\Debug\net9.0\appsettings.Development.json
+E:\Hospital-Management\HospitalManagement.ClientApp\bin\Debug\net9.0\appsettings.json
+E:\Hospital-Management\HospitalManagement.ClientApp\bin\Debug\net9.0\HospitalManagement.ClientApp.staticwebassets.endpoints.json
+E:\Hospital-Management\HospitalManagement.ClientApp\bin\Debug\net9.0\HospitalManagement.ClientApp.staticwebassets.runtime.json
+E:\Hospital-Management\HospitalManagement.ClientApp\bin\Debug\net9.0\HospitalManagement.ClientApp.exe
+E:\Hospital-Management\HospitalManagement.ClientApp\bin\Debug\net9.0\HospitalManagement.ClientApp.deps.json
+E:\Hospital-Management\HospitalManagement.ClientApp\bin\Debug\net9.0\HospitalManagement.ClientApp.runtimeconfig.json
+E:\Hospital-Management\HospitalManagement.ClientApp\bin\Debug\net9.0\HospitalManagement.ClientApp.dll
+E:\Hospital-Management\HospitalManagement.ClientApp\bin\Debug\net9.0\HospitalManagement.ClientApp.pdb
+E:\Hospital-Management\HospitalManagement.ClientApp\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+E:\Hospital-Management\HospitalManagement.ClientApp\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+E:\Hospital-Management\HospitalManagement.ClientApp\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+E:\Hospital-Management\HospitalManagement.ClientApp\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+E:\Hospital-Management\HospitalManagement.ClientApp\bin\Debug\net9.0\Newtonsoft.Json.dll
+E:\Hospital-Management\HospitalManagement.ClientApp\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\HospitalManagement.ClientApp.csproj.AssemblyReference.cache
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\HospitalManagement.ClientApp.GeneratedMSBuildEditorConfig.editorconfig
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\HospitalManagement.ClientApp.AssemblyInfoInputs.cache
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\HospitalManagement.ClientApp.AssemblyInfo.cs
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\HospitalManagement.ClientApp.csproj.CoreCompileInputs.cache
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\HospitalManagement.ClientApp.MvcApplicationPartsAssemblyInfo.cache
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\HospitalManagement.ClientApp.RazorAssemblyInfo.cache
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\HospitalManagement.ClientApp.RazorAssemblyInfo.cs
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\HospitalManagement.ClientApp.sourcelink.json
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\scopedcss\bundle\HospitalManagement.ClientApp.styles.css
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\scopedcss\projectbundle\HospitalManagement.ClientApp.bundle.scp.css
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\dkgn2rn2gq-b9sayid5wm.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\66cqmyueaf-61n19gt1b8.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\fi6xmrx1z1-xtxxf3hu2r.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\w7dhuwuydy-bqjiyaj88i.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\whft2owe9a-c2jlpeoesf.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\t0zg837mvr-erw9l3u2r3.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\qieoqv3m54-aexeepp0ev.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\eafnws1pte-d7shbmvgxk.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\0pveezw42g-ausgxo2sd3.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\950gjtujre-k8d9w2qqmf.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\c8f41elh4g-cosvhxvwiu.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\xvtnmq3fut-ub07r2b239.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\5evd4p9lx9-fvhpjtyr6v.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\7nzaas65rg-b7pk76d08c.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\c25ganlvfb-fsbi9cje9m.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\vwqit1mnw4-rzd6atqjts.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\789yuxchtl-ee0r1s7dh0.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\me9h4to8a8-dxx9fxp4il.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\qscog8155f-jd9uben2k1.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\mok1799zhg-khv3u5hwcm.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\5458y7vc3o-r4e9w2rdcm.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\u6r55ei0w2-lcd1t2u6c8.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\x1dv6q8aib-c2oey78nd0.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\kmxwq2jnze-tdbxkamptv.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\fz5v4hjr82-j5mq2jizvt.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\z3h8tsl6nq-06098lyss8.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\seski6t2ej-nvvlpmu67g.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\1snjgkor2d-s35ty4nyc5.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\pprbsddtj7-pj5nd1wqec.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\ns86gdsyqk-46ein0sx1k.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\aqiifncvgg-v0zj4ognzu.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\lul6dkhq5n-37tfw0ft22.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\je39cbance-hrwsygsryq.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\0t4f4hxhbv-pk9g2wxc8p.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\5bctunbdza-ft3s53vfgj.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\mnv1ak3hyy-6cfz1n2cew.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\6y7hwmy1lc-6pdc2jztkx.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\kkqlimcrrm-493y06b0oq.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\m6bczkxre9-iovd86k7lj.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\5m1zx83l23-vr1egmr9el.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\0dwqdyv16b-kbrnm935zg.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\vw1aebyg12-jj8uyg4cgr.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\jy5ynhkljn-y7v9cxd14o.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\l7us9gskq7-notf2xhcfb.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\is1djadmqt-h1s4sie4z3.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\hmsj5nd1y1-63fj8s7r0e.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\n54qytlhcu-0j3bgjxly4.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\isym5fle8i-47otxtyo56.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\hupwu1dren-4v8eqarkd7.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\rlhownex0p-356vix0kms.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\loj66xp6bb-83jwlth58m.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\5twrxvqpek-mrlpezrjn3.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\0ssecgzn3l-lzl9nlhx6b.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\is00d1qs6p-ag7o75518u.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\c0iugbz4fz-x0q3zqp4vz.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\hoytrsdz0y-0i3buxo5is.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\8l8z8ub9l6-o1o13a6vjx.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\paen6zy1ap-ttgo8qnofa.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\v4dv3z9ga2-2z0ns9nrw6.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\19rkokd9ka-muycvpuwrr.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\df07mge95q-87fc7y1x7t.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\fwtgihsrg3-mlv21k5csn.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\cclqy5fjrf-nslvu5ssyj.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\compressed\bnp7te8l83-nslvu5ssyj.gz
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\staticwebassets.build.json
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\staticwebassets.development.json
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\staticwebassets.build.endpoints.json
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\staticwebassets\msbuild.HospitalManagement.ClientApp.Microsoft.AspNetCore.StaticWebAssets.props
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\staticwebassets\msbuild.HospitalManagement.ClientApp.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\staticwebassets\msbuild.build.HospitalManagement.ClientApp.props
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.HospitalManagement.ClientApp.props
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.HospitalManagement.ClientApp.props
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\staticwebassets.pack.json
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\Hospital.FE7C0F65.Up2Date
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\HospitalManagement.ClientApp.dll
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\refint\HospitalManagement.ClientApp.dll
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\HospitalManagement.ClientApp.pdb
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\HospitalManagement.ClientApp.genruntimeconfig.cache
+E:\Hospital-Management\HospitalManagement.ClientApp\obj\Debug\net9.0\ref\HospitalManagement.ClientApp.dll

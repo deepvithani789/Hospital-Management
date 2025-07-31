@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rx5Ead7jRdk=",
+  "dgSpecHash": "oCNH2o/lus8=",
   "success": true,
-  "projectFilePath": "E:\\New folder\\Hospital-Management-main\\HospitalManagement.API\\HospitalManagement.API.csproj",
+  "projectFilePath": "E:\\Github\\Hospital-Management\\HospitalManagement.API\\HospitalManagement.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Deep\\.nuget\\packages\\automapper\\14.0.0\\automapper.14.0.0.nupkg.sha512",
     "C:\\Users\\Deep\\.nuget\\packages\\bouncycastle.cryptography\\2.5.1\\bouncycastle.cryptography.2.5.1.nupkg.sha512",

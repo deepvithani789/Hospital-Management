@@ -3,7 +3,6 @@
     ViewData["Title"] = "Bed List";
     var patientMap = ViewBag.PatientMap as Dictionary<int, string>;
 
-    // Extract distinct wards from the model for the Ward filter dropdown
     var wards = Model.Select(b => b.RoomType).Distinct().OrderBy(w => w).ToList();
 }
 
@@ -44,13 +43,6 @@
 {
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
         <i class="bi bi-exclamation-triangle-fill me-2"></i>@TempData["Error"]
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-}
-@if (TempData["Success"] != null)
-{
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <i class="bi bi-check-circle-fill me-2"></i>@TempData["Success"]
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 }
@@ -100,7 +92,7 @@
                                 <i class="bi bi-pencil-fill me-1"></i>Edit
                             </a>
                         }
-                        @if(User.IsInRole("Admin"))
+                        @if (User.IsInRole("Admin"))
                         {
                             <a asp-action="Delete" asp-route-id="@bed.Id" class="btn btn-sm btn-outline-danger flex-grow-1"
                                title="Delete" onclick="return confirm('Are you sure you want to delete this bed?');">
@@ -123,6 +115,25 @@
         </div>
     }
 </div>
+
+@if (TempData["Success"] != null)
+{
+    var releasedBed = Model.FirstOrDefault(b => !b.isOccupied && b.PatientId == null); // Guess released bed
+    if (releasedBed != null)
+    {
+        <div id="toastContainer" class="position-fixed bottom-0 end-0 p-3" style="z-index: 1055">
+            <div id="releaseToast" class="toast align-items-center text-white bg-success border-0 show" role="alert">
+                <div class="d-flex">
+                    <div class="toast-body">
+                        <i class="bi bi-check-circle-fill me-2"></i>
+                        🛏️ Bed #@releasedBed.BedNumber has been released successfully.
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+    }
+}
 
 <style>
     .btn-create {
@@ -147,14 +158,14 @@
 </style>
 
 <script>
-    // Auto-hide alerts
-    window.setTimeout(() => {
-        const alerts = document.querySelectorAll('.alert-dismissible');
-        alerts.forEach(alert => {
-            const bsAlert = new bootstrap.Alert(alert);
-            bsAlert.close();
-        });
-    }, 3500);
+    // Auto-hide toast if exists
+    document.addEventListener('DOMContentLoaded', function () {
+        const toastEl = document.getElementById('releaseToast');
+        if (toastEl) {
+            const toast = new bootstrap.Toast(toastEl, { delay: 4000 });
+            toast.show();
+        }
+    });
 
     // Filters
     const statusFilter = document.getElementById('statusFilter');
@@ -172,24 +183,15 @@
             const bedNumber = card.getAttribute('data-bednumber').toLowerCase();
             const ward = card.getAttribute('data-ward').toLowerCase();
 
-            // Filter by status
             const statusMatch =
                 statusValue === 'all' ||
                 (statusValue === 'occupied' && isOccupied) ||
                 (statusValue === 'available' && !isOccupied);
 
-            // Filter by ward
             const wardMatch = wardValue === 'all' || ward === wardValue;
-
-            // Filter by bed number (partial match)
             const bedNumberMatch = bedNumber.includes(bedNumberValue);
 
-            // Show card only if all filters match
-            if (statusMatch && wardMatch && bedNumberMatch) {
-                card.style.display = 'block';
-            } else {
-                card.style.display = 'none';
-            }
+            card.style.display = (statusMatch && wardMatch && bedNumberMatch) ? 'block' : 'none';
         });
     }
 

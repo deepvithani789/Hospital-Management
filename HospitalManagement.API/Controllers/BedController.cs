@@ -68,7 +68,7 @@ namespace HospitalManagement.API.Controllers
         public async Task<IActionResult> DeleteBed(int id)
         {
             var bed = await _bedService.DeleteBedAsync(id);
-            if(bed == null)
+            if (bed == null)
                 return NotFound();
 
             return Ok(_mapper.Map<BedDto>(bed));
@@ -92,6 +92,17 @@ namespace HospitalManagement.API.Controllers
                 return NotFound("Bed assigned to patient not found");
 
             return Ok("Bed released successfully..");
+        }
+
+        [HttpGet("summary")]
+        public async Task<IActionResult> GetBedSummary()
+        {
+            var summary = await _bedService.GetBedSummary();
+            if (summary is BadRequestObjectResult)
+            {
+                return BadRequest("Error fetching bed summary");
+            }
+            return Ok(summary);
         }
     }
 }

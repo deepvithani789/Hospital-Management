@@ -1,65 +1,65 @@
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js.map
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css.map
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\jquery-validation\dist\jquery.validate.js
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\jquery\dist\jquery.slim.min.js
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap.css
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css.map
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\jquery-validation\dist\additional-methods.min.js
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\favicon.ico
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css.map
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\jquery\dist\jquery.min.js
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\jquery-validation\LICENSE.md
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css.map
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\jquery\dist\jquery.slim.min.map
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\css\site.css
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\js\site.js
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\jquery\LICENSE.txt
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css.map
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\jquery\dist\jquery.js
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.min.js
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\js\bootstrap.js.map
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.js
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css.map
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js.map
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\js\bootstrap.js
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\jquery-validation\dist\additional-methods.js
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\jquery\dist\jquery.min.map
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap.css.map
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css.map
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\jquery\dist\jquery.slim.js
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css.map
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css
-E:\New folder\Hospital-Management-main\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js.map
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css.map
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\jquery-validation\dist\jquery.validate.js
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\jquery\dist\jquery.slim.min.js
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap.css
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css.map
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.min.css.map
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css.map
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.js
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\jquery-validation\dist\additional-methods.min.js
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\favicon.ico
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js.map
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css.map
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\jquery\dist\jquery.min.js
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css.map
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\jquery-validation\LICENSE.md
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.min.css.map
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\jquery\dist\jquery.slim.min.map
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\css\site.css
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.rtl.css
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\js\site.js
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\jquery\LICENSE.txt
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css.map
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\jquery\dist\jquery.js
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.min.js
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\jquery-validation\dist\jquery.validate.min.js
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\js\bootstrap.js.map
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\jquery-validation-unobtrusive\dist\jquery.validate.unobtrusive.js
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css.map
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js.map
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.css
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\js\bootstrap.js
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\jquery-validation\dist\additional-methods.js
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap.rtl.css
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\js\bootstrap.bundle.js
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.css
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap.min.css
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\jquery\dist\jquery.min.map
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap.css.map
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.min.css.map
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css.map
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\jquery\dist\jquery.slim.js
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\js\bootstrap.esm.min.js
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.rtl.css
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.min.css.map
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-reboot.css
+E:\Github\Hospital-Management\HospitalManagement.ClientApp\wwwroot\lib\bootstrap\dist\css\bootstrap-utilities.rtl.min.css
 wwwroot\css\site.css
 wwwroot\favicon.ico
 wwwroot\js\site.js

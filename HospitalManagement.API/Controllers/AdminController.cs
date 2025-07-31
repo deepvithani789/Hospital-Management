@@ -73,5 +73,19 @@ namespace HospitalManagement.API.Controllers
             await _userManager.UpdateAsync(user);
             return Ok(new { message = "User approved successfully.." });
         }
+
+        [HttpPost("decline-user/{id}")]
+        public async Task<IActionResult> DeclineUser(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+            if (user == null)
+                return NotFound(new { success = false, message = "User not found." });
+
+            var result = await _userManager.DeleteAsync(user);
+            if (result.Succeeded)
+                return Ok(new { success = true, message = "User declined and deleted successfully." });
+
+            return BadRequest(new { success = false, message = "Failed to decline user." });
+        }
     }
 }

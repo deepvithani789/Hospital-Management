@@ -50,7 +50,7 @@ namespace HospitalManagement.ClientApp.Controllers
 
             if(role == "Pharmacist" && !await isPharmacyStaff())
             {
-                return Forbid();
+                return RedirectToAction("StaffAccessDenied", "Home");
             }
 
             var medicines = await _pharmacyService.GetMedicinesAsync();
@@ -68,7 +68,7 @@ namespace HospitalManagement.ClientApp.Controllers
 
             if (role == "Pharmacist" && !await isPharmacyStaff())
             {
-                return Forbid();
+                return RedirectToAction("StaffAccessDenied", "Home");
             }
             var medicine = await _pharmacyService.GetMedicineByIdAsync(id);
             if (medicine == null)
@@ -82,7 +82,7 @@ namespace HospitalManagement.ClientApp.Controllers
         {
             if(!await isPharmacyStaff())
             {
-                return Forbid();
+                return RedirectToAction("StaffAccessDenied", "Home");
             }
             return View();
         }
@@ -92,7 +92,7 @@ namespace HospitalManagement.ClientApp.Controllers
         {
             if (!await isPharmacyStaff())
             {
-                return Forbid();
+                return RedirectToAction("StaffAccessDenied", "Home");
             }
             if (ModelState.IsValid)
             {
@@ -109,7 +109,7 @@ namespace HospitalManagement.ClientApp.Controllers
         {
             if (!await isPharmacyStaff())
             {
-                return Forbid();
+                return RedirectToAction("StaffAccessDenied", "Home");
             }
             var medicine = await _pharmacyService.GetMedicineByIdAsync(id);
             if(medicine == null)
@@ -124,7 +124,7 @@ namespace HospitalManagement.ClientApp.Controllers
         {
             if (!await isPharmacyStaff())
             {
-                return Forbid();
+                return RedirectToAction("StaffAccessDenied", "Home");
             }
             if (ModelState.IsValid)
             {
@@ -141,7 +141,7 @@ namespace HospitalManagement.ClientApp.Controllers
         {
             if (!await isPharmacyStaff())
             {
-                return Forbid();
+                return RedirectToAction("StaffAccessDenied", "Home");
             }
             var medicine = await _pharmacyService.LowStockAsync();
             if (medicine == null)
@@ -155,7 +155,7 @@ namespace HospitalManagement.ClientApp.Controllers
         {
             if (!await isPharmacyStaff())
             {
-                return Forbid();
+                return RedirectToAction("StaffAccessDenied", "Home");
             }
             var medicine = await _pharmacyService.Expired();
             if (medicine == null)
@@ -167,6 +167,10 @@ namespace HospitalManagement.ClientApp.Controllers
 
         public async Task<IActionResult> Dispense()
         {
+            if (!await isPharmacyStaff())
+            {
+                return RedirectToAction("StaffAccessDenied", "Home");
+            }
             var medicines = await _pharmacyService.GetMedicinesAsync();
             ViewBag.Medicines = medicines;
             ViewBag.Patients = await _patientService.GetPatientsAsync();
@@ -180,6 +184,10 @@ namespace HospitalManagement.ClientApp.Controllers
         [HttpPost]
         public async Task<IActionResult> Dispense(DispenseMedicineRequestDto model)
         {
+            if (!await isPharmacyStaff())
+            {
+                return RedirectToAction("StaffAccessDenied", "Home");
+            }
             var responseMessage = await _pharmacyService.DispenseMedicineAsync(model);
             TempData["Message"] = responseMessage;
             return RedirectToAction("Index");
@@ -187,6 +195,10 @@ namespace HospitalManagement.ClientApp.Controllers
 
         public async Task<IActionResult> DispensedList()
         {
+            if (!await isPharmacyStaff())
+            {
+                return RedirectToAction("StaffAccessDenied", "Home");
+            }
             var dispensed = await _pharmacyService.GetDispensedMedicinesAsync();
             return View(dispensed);
         }

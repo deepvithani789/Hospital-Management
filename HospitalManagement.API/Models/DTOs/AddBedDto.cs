@@ -1,8 +1,11 @@
-﻿namespace HospitalManagement.API.Models.DTOs
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace HospitalManagement.API.Models.DTOs
 {
     public class AddBedDto
     {
         public string BedNumber { get; set; }
+
         public string RoomType { get; set; }
     }
 

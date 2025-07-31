@@ -44,7 +44,7 @@ namespace HospitalManagement.ClientApp.Controllers
             var role = GetUserRole();
             if (role == "Receptionist" && !await isReceptionistStaff())
             {
-                return Forbid();
+                return RedirectToAction("StaffAccessDenied", "Home");
             }
 
             if (role != "Admin" && role != "Patient" && role != "Receptionist")
@@ -92,6 +92,11 @@ namespace HospitalManagement.ClientApp.Controllers
         [Authorize(Roles = "Admin,Receptionist")]
         public async Task<IActionResult> Create(Patient patient)
         {
+            if(!await isReceptionistStaff())
+            {
+                return RedirectToAction("StaffAccessDenied", "Home");
+            }
+
             if(ModelState.IsValid)
             {
                 patient.DateOfBirth = DateTime.SpecifyKind(patient.DateOfBirth, DateTimeKind.Utc); // Convert to UTC

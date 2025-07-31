@@ -76,7 +76,7 @@ namespace HospitalManagement.ClientApp.Controllers
 
             if(role == "Receptionist" && !await isReceptionistStaff())
             {
-                return Forbid();
+                return RedirectToAction("StaffAccessDenied", "Home");
             }
 
             var appointments = await _appointmentService.GetAppointmentsAsync();
@@ -125,6 +125,11 @@ namespace HospitalManagement.ClientApp.Controllers
             var role = GetUserRole();
             var userEmail = GetUserEmail();
 
+            if(!await isReceptionistStaff())
+            {
+                return RedirectToAction("StaffAccessDenied", "Home");
+            }
+
             var appointment = await _appointmentService.GetAppointmentByIdAsync(id);
             if (appointment == null)
             {
@@ -153,7 +158,7 @@ namespace HospitalManagement.ClientApp.Controllers
         {
             if (!await isReceptionistStaff())
             {
-                return Forbid();
+                return RedirectToAction("StaffAccessDenied", "Home");
             }
 
             var doctors = await _doctorService.GetDoctorsAsync();
@@ -176,7 +181,7 @@ namespace HospitalManagement.ClientApp.Controllers
 
             if (!await isReceptionistStaff())
             {
-                return Forbid();
+                return RedirectToAction("StaffAccessDenied", "Home");
             }
 
             if (ModelState.IsValid)
@@ -196,7 +201,7 @@ namespace HospitalManagement.ClientApp.Controllers
 
             if (!await isReceptionistStaff())
             {
-                return Forbid();
+                return RedirectToAction("StaffAccessDenied", "Home");
             }
 
             var appointment = await _appointmentService.GetAppointmentByIdAsync(id);
@@ -237,7 +242,7 @@ namespace HospitalManagement.ClientApp.Controllers
 
             if (!await isReceptionistStaff())
             {
-                return Forbid();
+                return RedirectToAction("StaffAccessDenied", "Home");
             }
 
             if (ModelState.IsValid)

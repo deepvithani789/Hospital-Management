@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using System.Net;
 using System.Net.Mail;
+using System.Security.Claims;
 using HospitalManagement.ClientApp.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -81,6 +82,13 @@ namespace HospitalManagement.ClientApp.Controllers
                 TempData["ContactMessage"] = "There was an issue sending your message. Please try again later.";
             }
             return RedirectToAction("ContactUs");
+        }
+
+        public IActionResult StaffAccessDenied()
+        {
+            var userRole = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
+            ViewBag.UserRole = userRole;
+            return View();
         }
     }
 }

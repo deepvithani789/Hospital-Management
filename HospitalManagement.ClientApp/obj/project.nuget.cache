@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aqsrq4Qgq0U=",
+  "dgSpecHash": "5bU3PszBaRE=",
   "success": true,
-  "projectFilePath": "E:\\New folder\\Hospital-Management-main\\HospitalManagement.ClientApp\\HospitalManagement.ClientApp.csproj",
+  "projectFilePath": "E:\\Github\\Hospital-Management\\HospitalManagement.ClientApp\\HospitalManagement.ClientApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Deep\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.2\\microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512",
     "C:\\Users\\Deep\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.2\\microsoft.extensions.logging.abstractions.8.0.2.nupkg.sha512",

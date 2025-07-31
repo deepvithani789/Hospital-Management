@@ -1,4 +1,5 @@
 ﻿using HospitalManagement.API.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace HospitalManagement.API.Services
 {
@@ -12,5 +13,6 @@ namespace HospitalManagement.API.Services
         Task<bool> AssignBedToPatientAsync(int bedId, int patientId);
         Task<bool> ReleaseBedForPatientAsync(int patientId);
         Task<Bed> GetBedByBedNumber(string bedNumber);
+        Task<IActionResult> GetBedSummary();
     }
 }

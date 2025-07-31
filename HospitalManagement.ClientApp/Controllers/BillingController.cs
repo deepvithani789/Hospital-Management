@@ -73,7 +73,7 @@ namespace HospitalManagement.ClientApp.Controllers
             var userEmail = GetUserEmail();
             if (role == "Cashier" && !await IsCashierStaff())
             {
-                return Forbid();
+                return RedirectToAction("StaffAccessDenied", "Home");
             }
             var patients = await _patientService.GetPatientsAsync();
 
@@ -112,6 +112,11 @@ namespace HospitalManagement.ClientApp.Controllers
             var role = GetUserRole();
             var userEmail = GetUserEmail();
 
+            if(!await IsCashierStaff())
+            {
+                return RedirectToAction("StaffAccessDenied", "Home");
+            }
+
             var billing = await _billingService.GetBillingByIdAsync(id);
             if (billing == null)
             {
@@ -135,7 +140,7 @@ namespace HospitalManagement.ClientApp.Controllers
         {
             if(GetUserRole() == "Cashier" && !await IsCashierStaff())
             {
-                return Forbid();
+                return RedirectToAction("StaffAccessDenied", "Home");
             }
             var patients = await _patientService.GetPatientsAsync();
             var appointments = await _appointmentService.GetAppointmentsAsync();
@@ -151,7 +156,7 @@ namespace HospitalManagement.ClientApp.Controllers
         {
             if (GetUserRole() == "Cashier" && !await IsCashierStaff())
             {
-                return Forbid();
+                return RedirectToAction("StaffAccessDenied", "Home");
             }
             if (ModelState.IsValid)
             {
@@ -173,7 +178,7 @@ namespace HospitalManagement.ClientApp.Controllers
         {
             if (GetUserRole() == "Cashier" && !await IsCashierStaff())
             {
-                return Forbid();
+                return RedirectToAction("StaffAccessDenied", "Home");
             }
             var billing = await _billingService.GetBillingByIdAsync(id);
             if(billing == null)
@@ -194,7 +199,7 @@ namespace HospitalManagement.ClientApp.Controllers
         {
             if (GetUserRole() == "Cashier" && !await IsCashierStaff())
             {
-                return Forbid();
+                return RedirectToAction("StaffAccessDenied", "Home");
             }
             if (ModelState.IsValid)
             {

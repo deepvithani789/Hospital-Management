@@ -1,4 +1,5 @@
-﻿using HospitalManagement.ClientApp.Models;
+﻿using System.Net.Http;
+using HospitalManagement.ClientApp.Models;
 using HospitalManagement.ClientApp.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -88,6 +89,19 @@ namespace HospitalManagement.ClientApp.Controllers
             var response = await _httpClient.PostAsync($"https://localhost:7191/api/Admin/approve-user/{id}", null);
             return response.IsSuccessStatusCode ? Json(new { success = true }) : Json(new { success = false });
         }
+
+        [HttpPost]
+        public async Task<IActionResult> DeclineUser([FromBody] string id)
+        {
+            var response = await _httpClient.PostAsync($"https://localhost:7191/api/admin/decline-user/{id}", null);
+
+            if (response.IsSuccessStatusCode)
+                return Json(new { success = true });
+
+            var error = await response.Content.ReadAsStringAsync();
+            return Json(new { success = false, message = error });
+        }
+
     }
     public class LoggedInUserViewModel
     {

@@ -26,6 +26,7 @@ namespace HospitalManagement.ClientApp.Controllers
             var repsonse = await _httpClient.PostAsync("https://localhost:7191/api/Auth/register", content);
             if (repsonse.IsSuccessStatusCode)
             {
+                TempData["Message"] = "User Registered Successfully !!";
                 return RedirectToAction("Index", "Login");
             }
             ViewBag.Error = "Registration Failed";

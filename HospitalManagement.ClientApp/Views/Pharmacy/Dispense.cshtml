@@ -9,6 +9,11 @@
     );
 }
 
+<!-- jQuery UI Autocomplete CSS/JS -->
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+
 <h2>Dispense Medicine</h2>
 
 @if (TempData["Message"] != null)
@@ -25,7 +30,7 @@
         </div>
         <div class="form-check form-check-inline">
             <input type="radio" name="inputMode" value="manual" class="form-check-input" id="modeManual" />
-            <label class="form-check-label" for="modeManual">Enter Patient Name</label>
+            <label class="form-check-label" for="modeManual">Search Patient Name</label>
         </div>
     </div>
 
@@ -41,8 +46,8 @@
     </div>
 
     <div id="manualMode" class="form-group" style="display: none;">
-        <label>Enter Patient Name</label>
-        <input type="text" id="manualPatientName" class="form-control" placeholder="Enter patient name manually" />
+        <label>Search Patient Name</label>
+        <input type="text" id="manualPatientName" class="form-control" placeholder="Type patient name" autocomplete="off" />
     </div>
 
     <input type="hidden" asp-for="PatientId" id="PatientId" />
@@ -77,77 +82,91 @@
     <button type="submit" class="btn btn-primary mt-3">Dispense</button>
 </form>
 
+<script>
+    const patientList = @Html.Raw(patientJson);
 
-    <script>
-        const patientList = @Html.Raw(patientJson);
-
-        const medicineOptions = `@{
-            foreach (var med in medicines)
-            {
-                @:<option value="@med.Id">@med.MedicineName (In Stock: @med.QuantityInStock)</option>
-            }
-        }`;
-
-        function updatePatientId() {
-            const mode = document.querySelector('input[name="inputMode"]:checked').value;
-            if (mode === 'dropdown') {
-                const id = document.getElementById('patientSelect').value;
-                document.getElementById('PatientId').value = id;
-            } else {
-                const name = document.getElementById('manualPatientName').value.trim().toLowerCase();
-                const match = patientList.find(p => p.name.toLowerCase() === name);
-                document.getElementById('PatientId').value = match ? match.id : '';
-            }
+    const medicineOptions = `@{
+        foreach (var med in medicines)
+        {
+            @:<option value="@med.Id">@med.MedicineName (In Stock: @med.QuantityInStock)</option>
         }
+    }`;
 
-        document.getElementById('patientSelect').addEventListener('change', updatePatientId);
-        document.getElementById('manualPatientName')?.addEventListener('input', updatePatientId);
+    function updatePatientId() {
+        const mode = document.querySelector('input[name="inputMode"]:checked').value;
+        if (mode === 'dropdown') {
+            const id = document.getElementById('patientSelect').value;
+            document.getElementById('PatientId').value = id;
+        }
+    }
 
-        document.querySelectorAll('input[name="inputMode"]').forEach(el => {
-            el.addEventListener('change', function () {
-                const dropdown = document.getElementById('dropdownMode');
-                const manual = document.getElementById('manualMode');
-                if (this.value === 'dropdown') {
-                    dropdown.style.display = 'block';
-                    manual.style.display = 'none';
-                } else {
-                    dropdown.style.display = 'none';
-                    manual.style.display = 'block';
+    document.getElementById('patientSelect').addEventListener('change', updatePatientId);
+
+    document.querySelectorAll('input[name="inputMode"]').forEach(el => {
+        el.addEventListener('change', function () {
+            const dropdown = document.getElementById('dropdownMode');
+            const manual = document.getElementById('manualMode');
+            if (this.value === 'dropdown') {
+                dropdown.style.display = 'block';
+                manual.style.display = 'none';
+            } else {
+                dropdown.style.display = 'none';
+                manual.style.display = 'block';
+            }
+            updatePatientId();
+        });
+    });
+
+    let index = @Model.Items.Count;
+
+    document.getElementById('addMedicineBtn').addEventListener('click', function () {
+        const container = document.getElementById('dispense-items');
+        const newRow = document.createElement('div');
+        newRow.className = 'row mb-2 medicine-row';
+
+        newRow.innerHTML = `
+            <div class="col-md-6">
+                <select name="Items[${index}].MedicineId" class="form-control" required>
+                    ${medicineOptions}
+                </select>
+            </div>
+            <div class="col-md-4">
+                <input type="number" name="Items[${index}].Quantity" class="form-control" placeholder="Quantity" required />
+            </div>
+            <div class="col-md-2 d-flex align-items-center">
+                <button type="button" class="btn btn-danger btn-sm remove-row">Remove</button>
+            </div>
+        `;
+        container.appendChild(newRow);
+        index++;
+    });
+
+    document.addEventListener('click', function (e) {
+        if (e.target && e.target.classList.contains('remove-row')) {
+            e.target.closest('.medicine-row')?.remove();
+        }
+    });
+
+    // jQuery UI Autocomplete for patient name
+    $(function () {
+        const patientNames = patientList.map(p => ({
+            label: p.name + " (" + p.id + ")",
+            value: p.name,
+            id: p.id
+        }));
+
+        $("#manualPatientName").autocomplete({
+            source: patientNames,
+            select: function (event, ui) {
+                $("#PatientId").val(ui.item.id);
+            },
+            change: function (event, ui) {
+                if (!ui.item) {
+                    $("#PatientId").val("");
                 }
-                updatePatientId();
-            });
-        });
-
-        let index = @Model.Items.Count;
-
-        document.getElementById('addMedicineBtn').addEventListener('click', function () {
-            const container = document.getElementById('dispense-items');
-            const newRow = document.createElement('div');
-            newRow.className = 'row mb-2 medicine-row';
-
-            newRow.innerHTML = `
-                <div class="col-md-6">
-                    <select name="Items[${index}].MedicineId" class="form-control" required>
-                        ${medicineOptions}
-                    </select>
-                </div>
-                <div class="col-md-4">
-                    <input type="number" name="Items[${index}].Quantity" class="form-control" placeholder="Quantity" required />
-                </div>
-                <div class="col-md-2 d-flex align-items-center">
-                    <button type="button" class="btn btn-danger btn-sm remove-row">Remove</button>
-                </div>
-            `;
-            container.appendChild(newRow);
-            index++;
-        });
-
-        document.addEventListener('click', function (e) {
-            if (e.target && e.target.classList.contains('remove-row')) {
-                e.target.closest('.medicine-row')?.remove();
             }
         });
+    });
 
-        updatePatientId();
-    </script>
-
+    updatePatientId();
+</script>

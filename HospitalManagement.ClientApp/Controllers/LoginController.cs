@@ -147,8 +147,86 @@ namespace HospitalManagement.ClientApp.Controllers
                 }
             }
 
-            ViewBag.Error = "Invalid Credentials or \n ⛔ Your account is pending approval by the Admin.";
+            var errorContent = await response.Content.ReadAsStringAsync();
+            try
+            {
+                var errorObj = JsonConvert.DeserializeObject<Dictionary<string, string>>(errorContent);
+                if(errorObj != null && errorObj.TryGetValue("error", out string errorMsg))
+                {
+                    if (errorMsg.Contains("not approved", StringComparison.OrdinalIgnoreCase))
+                        ViewBag.Error = "⛔ Your account is not yet approved by the admin. Please wait for approval.";
+                    else if (errorMsg.Contains("no account found", StringComparison.OrdinalIgnoreCase))
+                        ViewBag.Error = "⚠️ No account associated with this email.";
+                    else if (errorMsg.Contains("invalid password", StringComparison.OrdinalIgnoreCase))
+                        ViewBag.Error = "❌ Invalid password, Please Enter Correct password";
+                    else
+                        ViewBag.Error = "❌ Invalid email or password. Please try again.";
+                }
+                else
+                {
+                    ViewBag.Error = "❌ Login failed. Please try again.";
+                }
+            }
+            catch
+            {
+                ViewBag.Error = "❌ Unexpected error occurred. Please try again.";
+            }
             return View("Index");
+        }
+
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ForgotPassword(ForgotPasswordDto model)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var json = JsonConvert.SerializeObject(model);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await client.PostAsync("https://localhost:7191/api/Auth/forgot-password", content);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var responseContent = await response.Content.ReadAsStringAsync();
+                var result = JsonConvert.DeserializeObject<Dictionary<string, string>>(responseContent);
+
+                if (result != null && result.ContainsKey("token"))
+                {
+                    string email = result["email"];
+                    string token = result["token"];
+
+                    // Redirect to reset password page with token
+                    return RedirectToAction("ResetPassword", new { token, email });
+                }
+            }
+
+            ViewBag.Error = "Enter Valid Email to reset your password !!";
+            return View();
+        }
+
+        public IActionResult ResetPassword(string token, string email)
+        {
+            return View(new ResetPasswordDto { Token = token, Email = email });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ResetPassword(ResetPasswordDto dto)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var json = JsonConvert.SerializeObject(dto);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await client.PostAsync("https://localhost:7191/api/Auth/reset-password", content);
+            if (response.IsSuccessStatusCode)
+            {
+                TempData["Message"] = "✅ Password has been reset successfully..";
+                return RedirectToAction("Index", "Login");
+            }
+            ViewBag.Error = "❌ Unable to reset password. Token might be invalid or expired. Please try again..";
+            return View("ResetPassword");
         }
 
         public async Task<IActionResult> Logout()

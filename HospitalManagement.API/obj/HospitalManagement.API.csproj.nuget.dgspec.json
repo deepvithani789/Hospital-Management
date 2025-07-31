@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\New folder\\Hospital-Management-main\\HospitalManagement.API\\HospitalManagement.API.csproj": {}
+    "E:\\Github\\Hospital-Management\\HospitalManagement.API\\HospitalManagement.API.csproj": {}
   },
   "projects": {
-    "E:\\New folder\\Hospital-Management-main\\HospitalManagement.API\\HospitalManagement.API.csproj": {
+    "E:\\Github\\Hospital-Management\\HospitalManagement.API\\HospitalManagement.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\New folder\\Hospital-Management-main\\HospitalManagement.API\\HospitalManagement.API.csproj",
+        "projectUniqueName": "E:\\Github\\Hospital-Management\\HospitalManagement.API\\HospitalManagement.API.csproj",
         "projectName": "HospitalManagement.API",
-        "projectPath": "E:\\New folder\\Hospital-Management-main\\HospitalManagement.API\\HospitalManagement.API.csproj",
+        "projectPath": "E:\\Github\\Hospital-Management\\HospitalManagement.API\\HospitalManagement.API.csproj",
         "packagesPath": "C:\\Users\\Deep\\.nuget\\packages\\",
-        "outputPath": "E:\\New folder\\Hospital-Management-main\\HospitalManagement.API\\obj\\",
+        "outputPath": "E:\\Github\\Hospital-Management\\HospitalManagement.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
